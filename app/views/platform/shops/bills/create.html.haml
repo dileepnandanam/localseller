@@ -1,0 +1,26 @@
+%h3= @shop.name
+.purchase-list
+  %table.table
+    %thead
+      %tr
+        %th
+          product
+        %th
+          quantity
+        %th
+          purchased at
+        %th
+          address
+        %th
+          price
+      - @purchases.each do |purchase|
+        %tr
+          %td=purchase.product.name
+          %td=purchase.quantity
+          %td=purchase.created_at.strftime("%Y/%b/%d")
+          %td=raw purchase.user.address.gsub('\n', '<br />')
+          %td=purchase.product.price * purchase.quantity
+  .bill-message
+    = "Total is #{@total}" 
+  .bill-pay
+    = link_to "Pay shopkeeper",  platform_shop_bill_path(@shop, @bill), class: "btn btn-primary"

@@ -1,0 +1,16 @@
+%table.table
+  %thead
+    %th
+      shop
+    %th
+      edit
+    %th
+      delete
+  - @shops.each do |shop|
+    %tr
+      %td
+        = link_to shop.name, platform_shop_path(shop)
+      %td
+        = link_to 'edit', edit_platform_shop_path(shop)
+      %td
+        = link_to 'delete', platform_shop_path(shop), method: :delete

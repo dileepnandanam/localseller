@@ -1,0 +1,11 @@
+.bill-message {
+  width:100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.bill-pay {
+  width:10%;
+  margin: auto;
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+.product-image {
+  width:100%;
+  margin: auto;
+}
+.product-name {
+	padding:6px;
+}
+.product-price {
+	padding: 6px;
+}
+.product-buy {
+	padding: 4px;
+	margin-bottom: 4px;
+
+}
+.product {
+
+	box-sizing: border-box;
+	padding-top: 15px;
+}

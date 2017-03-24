@@ -1,0 +1,38 @@
+.seller-product-container {
+  width: 16%;
+  border: 1px solid;
+  margin:20px;
+  padding-top: 15px;
+
+}
+.seller-product-details {
+  width: 100%;
+}
+.seller-product-image {
+  width: 100%;
+  padding-top: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.seller-product-name {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.seller-product-price {
+  height: 30px;
+  text-align: center;
+}
+.seller-edit-product {
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+.seller-delete-product {
+  width: 50%;
+  text-align: center;
+  padding: 10px;
+}
+.add-product-btn {
+  margin: 20px !important;
+}

@@ -1,0 +1,32 @@
+.purchases-filter-links
+  = link_to seller_shop_purchases_path(filter: 'new_purchases') do
+    .purchases-filter-link.pull-left{class: params[:filter]=="new_purchases" ? "purchases-filter-link-current" : ''}
+      New Purchases
+  = link_to seller_shop_purchases_path(filter: 'shiped_purchases') do  
+    .purchases-filter-link.pull-left{class: params[:filter]=="shiped_purchases" ? "purchases-filter-link-current" : ''}
+      Shipped purchases
+  .clearfix
+.purchase-list
+  %table.table
+    %thead
+      %tr
+        %th
+          product
+        %th
+          quantity
+        %th
+          purchased at
+        %th
+          address
+        - if params[:filter] == 'new_purchases'
+          %th
+            Mark as shipped
+      - @purchases.each do |purchase|
+        %tr
+          %td=purchase.product.name
+          %td=purchase.quantity
+          %td=purchase.created_at.strftime("%Y/%b/%d")
+          %td=raw purchase.user.address.gsub('\n', '<br />')
+          - if params[:filter] == 'new_purchases'
+            %td
+              = link_to 'shipped', shipped_seller_shop_purchase_path(purchase), method: :put, remote: true, class: 'mark-as-shipped'

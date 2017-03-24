@@ -1,0 +1,29 @@
+.platform-shop-list-item {
+  margin: 12px;
+  border: 1px solid grey;
+  width: 50%;
+  border-radius: 10px
+}
+.shop-name {
+  width:50%;
+  text-align: center;
+}
+.shop-link {
+	width:40%;
+	text-align: center;
+}
+.shop-link a:hover {
+	cursor: hand;
+	cursor: pointer;
+}
+.platform-shop-search-field {
+  width:40%;
+  margin-left: 20px;
+  float: left;
+}
+.search-box{
+  width:40%;
+}
+.shop-list{
+  margin-left: 20px;
+}

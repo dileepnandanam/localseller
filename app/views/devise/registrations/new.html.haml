@@ -1,0 +1,22 @@
+.user-form-box
+  
+  .devise-user-form.pull-left
+    %h2 Sign up
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :name, required: true, autofocus: true
+        = f.input :email, required: true
+        - unless session[:social_auth]
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          = f.input :password_confirmation, required: true
+      
+        = f.input :address
+        = f.input :pincode
+        = f.input :phone_number
+      .form-actions
+        = f.button :submit, "Sign up"
+    = render "devise/shared/links"
+  .social-sign-ins.pull-left
+    = render partial: 'devise/social_sign_in_links'
+  .clearfix

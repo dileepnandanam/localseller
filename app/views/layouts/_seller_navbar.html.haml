@@ -1,0 +1,22 @@
+.navigation
+  -if current_user
+    .nav-item.pull-right
+      = link_to (current_user.name ),  edit_user_registration_path
+    .nav-item.pull-right
+      = link_to "logout", destroy_user_session_path, method: :delete
+  - else
+    .nav-item.pull-right
+      = link_to "sign up", new_user_registration_path
+    .nav-item.pull-right
+      = link_to "sign in", new_user_session_path
+  - if current_user.shop.present?  
+    .nav-item.pull-left
+      = link_to "Dashboard", seller_shop_path
+    .nav-item.pull-left
+      = link_to "Shop Settings", edit_seller_shop_path
+    .nav-item.pull-left
+      = link_to "Manage Products", seller_shop_products_path
+    .nav-item.pull-left
+      = link_to "purchases", seller_shop_purchases_path
+  
+  .clearfix

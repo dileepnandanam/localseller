@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shoping_cart_id: 1
+  product_id: MyString
+  integer: MyString
+  payed: false
+  user_id: 1
+
+two:
+  shoping_cart_id: 1
+  product_id: MyString
+  integer: MyString
+  payed: false
+  user_id: 1

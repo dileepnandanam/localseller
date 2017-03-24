@@ -1,0 +1,13 @@
+- @products.each do |product|
+  .seller-product-container.pull-left.col-xs-6.col-sm-4.col-md-4.col-lg-2
+    .seller-product-image{style: "background-image: url(#{product.image.url(:thumb)})"}
+    .seller-product-details
+      .seller-product-name
+        = product.name
+      .seller-product-price
+        = "Rs #{product.price}"
+    .seller-edit-product.pull-left
+      = link_to "edit", edit_seller_shop_product_path(product)
+    .seller-delete-product.pull-left
+      = link_to "delete", seller_shop_product_path(product), method: :delete
+    .clearfix

@@ -1,0 +1,9 @@
+.seller-message
+  %p 
+    Welcome.
+  %p
+    To be a part of this Project, Sign up and create your shop.
+
+  - if current_user.present?
+    = link_to "Create Shop", new_seller_shop_path, class: "welcome-seller-link btn btn-primary"
+

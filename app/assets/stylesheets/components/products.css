@@ -1,0 +1,14 @@
+.load-more-button {
+	width: 40%;
+	margin: 0 auto;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 20px;
+	background-color: #827f7e;
+
+}
+.load-more-button:hover {
+	cursor: hand;
+	cursor: pointer;
+}

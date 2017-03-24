@@ -1,0 +1,17 @@
+.user-form-box {
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+}
+.devise-user-form {
+  width: 60%;
+}
+.devise-user-form .form-group {
+  margin-bottom: 0px;
+}
+.devise-user-form .form-group:last-child {
+  margin-bottom: 10px;
+}
+.fa-stack {
+  color: black !important;
+}
