@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       resources :bills do
         get :payed, on: :member
       end
-      resource :products
+      resources :products
     end
   end
 

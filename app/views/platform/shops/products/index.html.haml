@@ -1,0 +1,15 @@
+=link_to "Add Product", new_platform_shop_product_path(@shop), class: 'add-product-btn btn btn-primary pull-left'
+.clearfix
+- @products.each do |product|
+  .seller-product-container.pull-left.col-xs-6.col-sm-4.col-md-4.col-lg-2
+    .seller-product-image{style: "background-image: url(#{product.image.url(:thumb)})"}
+    .seller-product-details
+      .seller-product-name
+        = product.name
+      .seller-product-price
+        = "Rs #{product.price}"
+    .seller-edit-product.pull-left
+      = link_to "edit", edit_platform_shop_product_path(@shop, product)
+    .seller-delete-product.pull-left
+      = link_to "delete", platform_shop_product_path(@shop, product), method: :delete
+    .clearfix

@@ -18,7 +18,6 @@
 }
 .platform-shop-search-field {
   width:40%;
-  margin-left: 20px;
   float: left;
 }
 .search-box{
@@ -26,4 +25,5 @@
 }
 .shop-list{
   margin-left: 20px;
+  margin-top: 20px
 }

@@ -7,6 +7,9 @@
         = link_to "Shop", seller_shop_path(current_user.shop)
     .nav-item.pull-right
       = link_to "logout", destroy_user_session_path, method: :delete
+    -if current_user.admin?
+      .nav-item.pull-right
+        = link_to 'Platform', platform_shops_path
     .clearfix
   - else
     .nav-item.pull-right

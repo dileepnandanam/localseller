@@ -1,0 +1,3 @@
+.seller-form-container
+  = simple_form_for [:platform, @shop, @product] do |f|
+    = render partial: 'platform/shops/products/form_fields', locals: {f: f}
