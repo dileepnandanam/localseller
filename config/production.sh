@@ -15,7 +15,7 @@ set -e
 USAGE="Usage: $0 <start|stop|restart|upgrade|rotate|force-stop>"
 
 # app settings
-USER="deploy"
+USER="ubuntu"
 APP_NAME="localseller"
 APP_ROOT="/home/ubuntu/app/localseller/current"
 ENV="production"
