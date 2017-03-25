@@ -79,6 +79,6 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
-    :bucket => 'lototribe'
+    :bucket => 'lototribe1'
   }
 end
