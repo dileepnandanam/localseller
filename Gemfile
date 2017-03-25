@@ -49,12 +49,12 @@ end
 gem 'pry'
 gem 'pg'
 gem "haml-rails", "~> 0.9"
-gem "paperclip", "~> 5.0.0"
+gem "paperclip"
 gem 'devise'
 gem "nested_form"
 gem 'simple_form'
 gem 'will_paginate', '~> 3.1.0'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'unicorn'
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'react-rails'
