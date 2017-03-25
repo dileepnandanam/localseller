@@ -6,8 +6,8 @@ class ProductQueryHandler
   def result
 
   	if @params[:search].present?
-  	  search_terms = @params[:search].split(' ')
-  	  conditions = search_terms.map{|term|  "name LIKE '%#{term}%'"}.join(' OR ')
+  	  search_terms = @params[:search].downcase.split(' ')
+  	  conditions = search_terms.map{|term|  "searchable LIKE '%#{term}%'"}.join(' AND ')
   	  collection = Product.where(conditions)
   	else
   	  collection = Product.order('created_at desc')
