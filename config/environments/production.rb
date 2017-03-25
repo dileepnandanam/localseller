@@ -80,6 +80,6 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :bucket => 'lototribe1',
-    region: => 'ap-south-1'
+    :region => 'ap-south-1'
   }
 end
