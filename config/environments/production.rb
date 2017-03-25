@@ -82,4 +82,13 @@ Rails.application.configure do
     :bucket => 'lototribe1',
     :region => 'ap-south-1'
   }
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: 'lototribe1',
+    access_key_id: 'AKIAIZSOLSZIMTU6LYUQ',
+    secret_access_key: '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',
+    s3_region: 'ap-south-1',
+  }
+}
 end
