@@ -1,6 +1,7 @@
 class ProductQueryHandler
-  def initialize(query_params)
+  def initialize(query_params, scop=nil)
   	@params = query_params
+    @scop = scop
   end
 
   def result
@@ -12,6 +13,7 @@ class ProductQueryHandler
   	else
   	  collection = Product.order('created_at desc')
   	end
+    collection = collection.where(scop) if @scope.present?
   	return collection.paginate(per_page: 10, page: (@params[:page] || 1))
   end
 end

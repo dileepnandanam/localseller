@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :products do
     get :search, on: :collection
+    get :for_shop, on: :collection
   end
 
   resources :shops

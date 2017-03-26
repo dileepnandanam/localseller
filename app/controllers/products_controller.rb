@@ -4,6 +4,11 @@ class ProductsController < ApplicationController
     render json: product_list_json(ProductQueryHandler.new(params).result)
 	end
 
+  def for_shop
+    @shop = Shop.where(permalink: params[:permalink]).first
+    render json: product_list_json(ProductQueryHandler.new(params, shop_id: @shop.id ).result)
+  end
+
   protected
   def product_list_json(products)
     products.map {|product|
