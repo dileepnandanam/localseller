@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :name, presence: true
   before_save :add_searchable
+  belongs_to :shop
   def add_searchable
   	self.searchable = self.name.downcase
   end

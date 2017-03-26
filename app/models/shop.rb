@@ -11,6 +11,9 @@ class Shop < ActiveRecord::Base
   has_many :purchases
   before_save :set_permalink
 
+  def to_param
+    permalink
+  end
   
   def set_permalink
   	self.permalink = self.name.underscore

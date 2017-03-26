@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
         price: "Rs #{product.price}",
         description: product.description,
         image: product.image.url(:medium),
-        shop_id: product.shop_id
+        shop_id: product.shop_id,
+        shop_url: shop_path(product.shop),
+        shop_name: product.shop.name
       }
     }.to_json
   end
