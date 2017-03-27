@@ -1,6 +1,6 @@
 class ShopingCartsController < ApplicationController
-  def show
-    @shoping_cart = ShopingCart.find(params[:id])
+  def checkout
+    @shoping_cart = ShopingCart.find(session[:shoping_cart_id])
 
     payment_request = InstamojoHandler.client.payment_request({
       amount: PurchasePriceCalculator.calculate(@shoping_cart),
@@ -15,19 +15,6 @@ class ShopingCartsController < ApplicationController
     redirect_to payment_request.original["longurl"]
   end
 
-  def create
-    @shoping_cart = ShopingCart.create(user_id: current_user.id)
-    shoping_cart_params.each do |index, param|
-      @shoping_cart.purchases.build(
-        product_id: param[:product_id],
-        shop_id: param[:shop_id],
-        quantity: param[:quantity],
-        user_id: current_user.id
-      )
-    end
-    @shoping_cart.save
-    render json: {url: shoping_cart_path(@shoping_cart)}
-  end
 
   def add_to_cart
     if session[:shoping_cart_id]

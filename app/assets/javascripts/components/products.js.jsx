@@ -119,13 +119,7 @@ class Products extends React.Component {
 		
 	}
 	checkout(){
-		$.ajax({
-			type: 'post',
-			data: {purchases: this.state.cart},
-			url: this.props.shoping_cart_url
-		}).success(function(data){
-			window.location = data.url
-		})
+		window.location = this.props.checkout_url
 	}
 	render() {
 		that= this
