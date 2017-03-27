@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   resources :shoping_carts do
     get :payed, on: :member
+    post :add_to_cart, on: :collection
+    get :current_cart, on: :collection
+    delete :remove_purchase, on: :collection
   end
 
   namespace :platform do

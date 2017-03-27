@@ -13,7 +13,9 @@ class Products extends React.Component {
 		this.checkout = this.checkout.bind(this)
 		this.load_more= this.load_more.bind(this)
 		this.search_handle = this.search_handle.bind(this)
+		this.get_cart = this.get_cart.bind(this)
 		this.get_products({page: 1})
+		this.get_cart()
 	}
 	load_more(){
 		query = {search: this.state.query.search, page: this.state.query.page}
@@ -27,6 +29,20 @@ class Products extends React.Component {
 			cart: this.state.cart
 		})
 		this.get_products(query)
+	}
+	get_cart(){
+		that = this
+		$.ajax({
+			url: that.props.current_cart_url,
+			dataType: 'json',
+			type: 'get' 
+		}).success(function(data) {
+			that.setState({
+				cart: data,
+				data: that.state.data,
+				query: that.state.query
+			})
+		})
 	}
 
 	get_products(query) {
@@ -52,6 +68,13 @@ class Products extends React.Component {
 
 	}
 	remove_cart_item(id){
+		$.ajax({
+			url: this.props.remove_purchase_url,
+			type: 'delete',
+			data: {id: id},
+			dataType: 'json'
+		})
+
 		state = this.state
 		cart = state.cart
 		for(i=0; i<cart.length; i++){
@@ -67,14 +90,33 @@ class Products extends React.Component {
 	}
 
 	add_to_cart(quantity, product_id, name, shop_id){
-		state = this.state
-		cart = state.cart
-		cart.push({name: name, quantity: quantity, product_id: product_id, shop_id: shop_id})
-		this.setState({
-			query: this.state.query,
-			products: this.state.products,
-			cart: cart
+		new_cart_entry = {name: name, quantity: quantity, product_id: product_id, shop_id: shop_id}
+		$.ajax({
+			url: this.props.add_to_cart_url,
+			data: new_cart_entry,
+			type: 'post'
+		}).success(function(data){
+			state = that.state
+			cart = state.cart
+			new_cart_entry['id'] = data['id']
+			cart.push(new_cart_entry)
+			that.setState({
+				query: that.state.query,
+				products: that.state.products,
+				cart: cart
+			})
 		})
+
+			state = this.state
+			cart = state.cart
+			new_cart_entry = {name: name, quantity: quantity, product_id: product_id, shop_id: shop_id}
+			cart.push(new_cart_entry)
+			this.setState({
+				query: this.state.query,
+				products: this.state.products,
+				cart: cart
+			})
+		
 	}
 	checkout(){
 		$.ajax({
