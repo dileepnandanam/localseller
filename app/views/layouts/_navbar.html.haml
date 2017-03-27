@@ -10,10 +10,16 @@
     -if current_user.admin?
       .nav-item.pull-right
         = link_to 'Platform', platform_shops_path
-    .clearfix
+    
   - else
     .nav-item.pull-right
       = link_to "sign up", new_user_registration_path
     .nav-item.pull-right
       = link_to "sign in", new_user_session_path
-    .clearfix
+
+  .nav-item.pull-left.home-link
+    = link_to root_path do
+      %h3
+        LotoTribe
+  .clearfix
+  
