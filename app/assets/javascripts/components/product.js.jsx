@@ -31,13 +31,16 @@ class Product extends React.Component {
 							<div className="product-shop-name">
 								<a href={product.shop_url}>{product.shop_name}</a>
 							</div>
-							<div className="product-name">
+							<div className="product-name pull-left">
 								{product.name}
 							</div>
-							<div className="product-price pull-left">
+							<div className="product-price pull-right">
 								{product.price}
 							</div>
-							<input type="submit" value="buy" className="product-buy pull-right" onClick={this.formHandler} />
+							<div className="clearfix"/>
+							<div className='submit-wraper'>  
+							  <input type="submit" value="buy" className="product-buy pull-right" onClick={this.formHandler} />
+							</div>
 							<div className="clearfix" />
 						</div>
 

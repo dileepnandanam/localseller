@@ -11,7 +11,7 @@
 .product-buy {
 	padding: 4px;
 	margin-bottom: 4px;
-
+	width: 50px;
 }
 .product {
 
@@ -21,4 +21,14 @@
 .product-shop-name {
 	width: 100%;
 	text-align: center;
+}
+.submit-wraper {
+	width:50px;
+	margin: auto;
+}
+.product-detail {
+	background-color: lavender;
+	padding: 10px;
+	background-color: black;
+	color: white;
 }
