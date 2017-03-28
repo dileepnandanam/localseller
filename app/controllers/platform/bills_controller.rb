@@ -1,7 +1,7 @@
 class Platform::BillsController < Platform::ShopsController
   before_action :set_shop, only: [:show, :create]
   before_action :setup_instamojo, only: [:show, :payed]
-  before_action :set_shoping_carts only: [:show, :payed, :create]
+  before_action :set_shoping_carts, only: [:show, :payed, :create]
   def create
     @purchases = @shop.purchases.where(payed: true, payed_out: false)
     @bill = Bill.create
@@ -49,6 +49,6 @@ class Platform::BillsController < Platform::ShopsController
     @shop = ::Shop.find(params[:shop_id])
   end
   def set_shoping_carts
-    @shoping_carts @shop.shoping_carts.where(payed_out: false)
+    @shoping_carts = @shop.shoping_carts.where(payed_out: false)
   end
 end
