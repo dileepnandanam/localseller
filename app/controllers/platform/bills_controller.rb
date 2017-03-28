@@ -1,12 +1,14 @@
 class Platform::BillsController < Platform::ShopsController
   before_action :set_shop, only: [:show, :create]
   before_action :setup_instamojo, only: [:show, :payed]
+  before_action :set_shoping_carts only: [:show, :payed, :create]
   def create
     @purchases = @shop.purchases.where(payed: true, payed_out: false)
     @bill = Bill.create
     @bill.purchases = @purchases
+    @bill.shoping_carts = @shoping_carts
     @bill.save
-    @total = BillValueCalculator.calculate(@bill)
+    @total = BillValueCalculator.calculate(@shoping_carts)
     render 'platform/shops/bills/create'
   end
 
@@ -14,7 +16,7 @@ class Platform::BillsController < Platform::ShopsController
     @bill = Bill.find(params[:id])
 
     payment_request = @im_client.payment_request({
-      amount: BillValueCalculator.calculate(@bill),
+      amount: BillValueCalculator.calculate(@shoping_carts),
       purpose: 'seller payment',
       send_email: true,
       email: current_user.email,
@@ -32,14 +34,21 @@ class Platform::BillsController < Platform::ShopsController
       @bill.purchases.each do |purchase|
         purchase.update_attributes(payed_out: true)
       end
+      @bill.shoping_carts.each do |cart|
+        cart.update_attributes(payed_out: true)
+      end
     end
   end
   protected
+
   def setup_instamojo
     api = Instamojo::API.new(@shop.instamajo_api_key, @shop.instamajo_auth_token)
     @im_client = api.client
   end
   def set_shop
     @shop = ::Shop.find(params[:shop_id])
+  end
+  def set_shoping_carts
+    @shoping_carts @shop.shoping_carts.where(payed_out: false)
   end
 end

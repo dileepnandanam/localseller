@@ -9,6 +9,7 @@ class Shop < ActiveRecord::Base
   validates :pincode, presence: true, numericality: { only_integer: true }
   has_many :products
   has_many :purchases
+  has_many :shoping_carts
   before_save :set_permalink
 
   def to_param

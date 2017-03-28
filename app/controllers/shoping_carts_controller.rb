@@ -20,7 +20,7 @@ class ShopingCartsController < ApplicationController
     if session[:shoping_cart_id]
       shoping_cart = ShopingCart.find(session[:shoping_cart_id])
     else
-      shoping_cart = ShopingCart.create
+      shoping_cart = ShopingCart.create(shop_id: purchase_params[:shop_id])
       session[:shoping_cart_id] = shoping_cart.id
     end
     purchase = shoping_cart.purchases.create(purchase_params.merge(user_id: current_user.id))
@@ -57,6 +57,7 @@ class ShopingCartsController < ApplicationController
       @shoping_cart.purchases.each do |purchase|
         purchase.update_attributes(payed: true)
       end
+      @shoping_cart.update_attributes(checked_out: true)
     end
     session.delete(:shoping_cart_id)
     redirect_to root_path

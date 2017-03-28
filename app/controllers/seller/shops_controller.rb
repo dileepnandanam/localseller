@@ -8,7 +8,9 @@ class Seller::ShopsController < SellerController
   end
 
   def show
-  	
+  	@product_sold = @shop.purchases.where(payed: true, payed_out: false).map(&:quantity).sum
+    @credit = BillValueCalculator.calculate(@shop.shoping_carts)
+    @total_products = @shop.products.count
   end
 
   def edit
