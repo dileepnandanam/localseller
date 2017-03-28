@@ -3,12 +3,14 @@
     bottom: 0%;
     right:0%;
     border: 1px solid;
-    background-color: darkgray;
+    background-color: black;
+    
     border-radius: 8px;
 }
 .cart-item-name {
   float: left;
   padding: 5px 10px 5px 10px;
+
 }
 .cart-item-quantity {
   float: left;
@@ -24,6 +26,7 @@
 }
 .cart-item {
 	display: inline;
+  color: white;
 }
 .cart-checkout {
 	margin: 6px;

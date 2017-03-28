@@ -7,9 +7,10 @@
   padding-top: 2px;
 }
 .quantity-field {
-  width: 60% !important;
+  width: 54% !important;
   margin-left: 8px;
   margin-right: 16px;
+  margin-top: -1px;
 }
 .add-to-cart-button {
   margin: 0px 0px 0px 8px;

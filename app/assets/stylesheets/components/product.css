@@ -3,7 +3,9 @@
   margin: auto;
 }
 .product-name {
-	padding:6px;
+	padding: 6px;
+    font-size: 18px;
+    line-height: 9px;
 }
 .product-price {
 	padding: 6px;
@@ -14,7 +16,9 @@
 	width: 50px;
 }
 .product {
-
+	padding: 0px !important;
+    margin: 8px !important;
+	box-shadow: 10px 10px 5px #888888;
 	box-sizing: border-box;
 	padding-top: 15px;
 }
