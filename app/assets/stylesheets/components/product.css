@@ -8,7 +8,8 @@
     line-height: 9px;
 }
 .product-price {
-	padding: 6px;
+	margin-right: 12px;
+	font-size: 25px !important;
 }
 .product-buy {
 	padding: 4px;
@@ -31,6 +32,7 @@
 	margin: auto;
 }
 .product-detail {
+	height: 124px;
 	background-color: lavender;
 	padding: 10px;
 	background-color: black;
@@ -38,4 +40,10 @@
 }.product-container {
 	margin: 0px;
 	padding: 4px 4px 4px 4px !important;
+}
+.product-list {
+	padding: 10px;
+}
+.product-buy  {
+	padding-left: 12px !important;
 }

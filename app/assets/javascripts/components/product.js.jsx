@@ -39,7 +39,7 @@ class Product extends React.Component {
 							</div>
 							<div className="clearfix"/>
 							<div className='submit-wraper'>  
-							  <input type="submit" value="buy" className="product-buy pull-right" onClick={this.formHandler} />
+							  <input type="submit" value="buy" className="product-buy btn btn-primary pull-right" onClick={this.formHandler} />
 							</div>
 							<div className="clearfix" />
 						</div>
