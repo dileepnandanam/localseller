@@ -49,6 +49,6 @@ class Platform::BillsController < Platform::ShopsController
     @shop = ::Shop.find(params[:shop_id])
   end
   def set_shoping_carts
-    @shoping_carts = @shop.shoping_carts.where(payed_out: false)
+    @shoping_carts = @shop.shoping_carts.where(payed_out: false, checked_out: true)
   end
 end
