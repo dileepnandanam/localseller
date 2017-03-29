@@ -47,10 +47,12 @@ class Product extends React.Component {
 		
 		form = <AddToCartForm buyHandler={this.buyHandler}/>
 		return(
-			<div className='product pull-left col-xs-6 col-sm-5 col-md-5 col-lg-3'>
+			<div className="product-container pull-left col-xs-6 col-sm-5 col-md-5 col-lg-3" >
+			<div className='product '>
 				<img className="product-image" src={product.image} />
 				
 				{this.state.show_form ? form : product_details}
+			</div>
 			</div>
 		)
 	}
