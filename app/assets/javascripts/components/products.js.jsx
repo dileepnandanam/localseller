@@ -140,7 +140,7 @@ class Products extends React.Component {
 			    <SearchBox search_handle={this.search_handle}/>
 				{products}
 				<div className="clearfix" />
-					{products.length % this.props.per_page == 0 ? load_more_button : ''}
+					{products.length % this.props.per_page == 0 && products.length > 0 ? load_more_button : ''}
 				<div className="shopping-cart">
 				    {cart.length >0 ? checkout_button: ''}	
 					{cart}

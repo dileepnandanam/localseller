@@ -4,7 +4,6 @@ class SearchBox extends React.Component {
 		this.inputHandler = this.inputHandler.bind(this)
 	}
 	inputHandler(e){
-		console.log(e)
 		this.props.search_handle({search: e.target.value, page: 1})
 	}
 	render(){
