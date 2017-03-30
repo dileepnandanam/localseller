@@ -8,7 +8,7 @@ class Platform::BillsController < Platform::ShopsController
     @bill.purchases = @purchases
     @bill.shoping_carts = @shoping_carts
     @bill.save
-    @total = BillValueCalculator.calculate(@shoping_carts final_price=true)
+    @total = BillValueCalculator.calculate(@shoping_carts, final_price=true)
     render 'platform/shops/bills/create'
   end
 

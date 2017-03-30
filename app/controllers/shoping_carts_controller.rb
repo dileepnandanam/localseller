@@ -3,7 +3,7 @@ class ShopingCartsController < ApplicationController
     @shoping_cart = ShopingCart.find(session[:shoping_cart_id])
 
     payment_request = InstamojoHandler.client.payment_request({
-      amount: @shoping_cart.price,
+      amount: PurchasePriceCalculator.calculate(@shoping_cart),
       purpose: 'Product payment',
       send_email: true,
       email: current_user.email,
