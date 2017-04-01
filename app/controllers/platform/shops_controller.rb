@@ -11,9 +11,10 @@ class Platform::ShopsController < PlatformController
   def index
     @shops = ::Shop.joins(:purchases).
             where(purchases:{payed_out: false, payed: true}).
-            group(:shop_id, 'shops.name', 'shops.id').
+            group('shops.name', 'shops.id').
             select('shops.name, count(purchases.id) as purchase_count, shops.id')
     @all_shops = Shop.all
+    @shop_count = Shop.count
   end
 
   def search
@@ -43,6 +44,6 @@ class Platform::ShopsController < PlatformController
     params.require(:shop).permit(:name,:description,:phone_number, :email, :pincode, :lat, :lngt, :banner)
   end
   def set_shop
-    @shop = ::Shop.find(params[:id])
+    @shop = ::Shop.find_by_permalink(params[:id])
   end
 end
