@@ -17,7 +17,7 @@ class CartItem extends React.Component {
 				<div className="cart-item-quantity" >
 				    {item.quantity}
 				</div>
-				<a className="cart-item-delete" hred="#" onClick={this.remove_cart_item}>
+				<a className="cart-item-delete" href="#" onClick={this.remove_cart_item}>
 				    {"remove"}
 				</a>
 				<div className="clearfix" />

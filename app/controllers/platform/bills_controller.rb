@@ -16,7 +16,7 @@ class Platform::BillsController < Platform::ShopsController
     @bill = Bill.find(params[:id])
 
     payment_request = @im_client.payment_request({
-      amount: BillValueCalculator.calculate(@shoping_carts),
+      amount: BillValueCalculator.calculate(@shoping_carts, final_price=true),
       purpose: 'seller payment',
       send_email: true,
       email: current_user.email,

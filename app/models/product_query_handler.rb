@@ -13,7 +13,8 @@ class ProductQueryHandler
   	else
   	  collection = Product.order('created_at desc')
   	end
-    collection = collection.where(scop) if @scope.present?
+
+    collection = collection.where(scop) if @scop.present?
   	return collection.paginate(per_page: 10, page: (@params[:page] || 1))
   end
 end

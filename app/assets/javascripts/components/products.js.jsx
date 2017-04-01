@@ -118,6 +118,13 @@ class Products extends React.Component {
 			})
 		
 	}
+	componentDidMount(){
+		$(document).on('turbolinks:load' ,function(){
+			$(".cart-checkout").on('click', function(){
+			    alert('i')
+		    })
+		})
+	}
 	checkout(){
 		window.location = this.props.checkout_url
 	}

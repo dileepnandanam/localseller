@@ -25,6 +25,8 @@ class Product extends React.Component {
 			window.location = '/users/sign_up'
 		}
 	}
+	
+
 	render(){
 		product = this.props.product_details
 		product_details = <div className="product-detail">
@@ -47,7 +49,7 @@ class Product extends React.Component {
 		
 		form = <AddToCartForm buyHandler={this.buyHandler}/>
 		return(
-			<div className="product-container pull-left col-xs-6 col-sm-6 col-md-4 col-lg-3" >
+			<div className="product-container pull-left col-xs-6 col-sm-6 col-md-6 col-lg-3" >
 			<div className='product '>
 				<img className="product-image" src={product.image} />
 				
