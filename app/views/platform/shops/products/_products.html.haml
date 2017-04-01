@@ -7,7 +7,7 @@
       .seller-product-price
         = "Rs #{product.price}"
     .seller-edit-product.pull-left
-      = link_to "edit", edit_platform_shop_product_path(product)
+      = link_to "edit", edit_platform_shop_product_path(@shop, product)
     .seller-delete-product.pull-left
-      = link_to "delete", seller_platform_product_path(product), method: :delete
+      = link_to "delete", platform_shop_product_path(@shop, product), method: :delete
     .clearfix

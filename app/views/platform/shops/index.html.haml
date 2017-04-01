@@ -14,7 +14,7 @@
           = shop.name
         %td  
           = link_to purchases_platform_shop_path(shop) do
-            = shop.purchase_count
+            = shop.purchases.where(payed:true, payed_out:false).count
 
   %h3
     All shops (

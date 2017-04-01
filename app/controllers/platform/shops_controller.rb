@@ -15,6 +15,7 @@ class Platform::ShopsController < PlatformController
             select('shops.name, count(purchases.id) as purchase_count, shops.id')
     @all_shops = Shop.all
     @shop_count = Shop.count
+    @shops = Shop.all.limit(10)
   end
 
   def search

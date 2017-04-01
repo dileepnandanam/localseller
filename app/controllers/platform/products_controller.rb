@@ -43,7 +43,7 @@ class Platform::ProductsController < Platform::ShopsController
     @product = @shop.products.find(params[:id])
   end
   def set_shop
-  	@shop = Shop.find(params[:shop_id])
+  	@shop = Shop.find_by_permalink(params[:shop_id])
   end
   def product_params
     params.require(:product).permit(:name, :description, :price, :image)

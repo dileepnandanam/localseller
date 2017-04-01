@@ -46,7 +46,7 @@ class Platform::BillsController < Platform::ShopsController
     @im_client = api.client
   end
   def set_shop
-    @shop = ::Shop.find(params[:shop_id])
+    @shop = ::Shop.find_by_permalink(params[:shop_id])
   end
   def set_shoping_carts
     @shoping_carts = @shop.shoping_carts.where(payed_out: false, checked_out: true)

@@ -4,7 +4,7 @@ class PlatformController < ApplicationController
 
   protected
   def authenticate_admin
-  	if current_user && current_user.usertype == 'admin' || controller_name == 'bills' && action_name ="payed"
+  	if current_user && current_user.usertype == 'admin' || controller_name == 'bills' && action_name =="payed"
   		true
   	else
   		redirect_to root_path
