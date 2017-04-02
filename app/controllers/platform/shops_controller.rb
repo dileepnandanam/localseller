@@ -33,12 +33,10 @@ class Platform::ShopsController < PlatformController
     else 
       render 'edit'
     end
-
-    def destroy
-      @shop.upfate_attributes(deleted: true)
-      redirect_to platform_shops_path
-    end
-
+  end
+  def destroy
+    @shop.update_attributes(deleted: true)
+    redirect_to platform_shops_path
   end
   protected
   def shop_params
