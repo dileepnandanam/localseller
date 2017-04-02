@@ -1,5 +1,5 @@
 .shop-details
-  = image_tag(@shop.banner.url)
+  .shop-image{style:"background-image:url(#{@shop.banner.url})"}
   .shop-detail-name
     %h2= @shop.name
   .shop-detail-description
