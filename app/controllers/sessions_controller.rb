@@ -30,7 +30,14 @@ class SessionsController < Devise::SessionsController
     session.delete :social_auth if session[:social_auth]
   end
 
+  def get_location
+    current_user.update_attributes(location_params)
+  end
+
   protected
+  def location_params
+    params.permit(:lat, :lngt)
+  end
 
   def sign_in_params
     devise_parameter_sanitizer.sanitize(:sign_in)
