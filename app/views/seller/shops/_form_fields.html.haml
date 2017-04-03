@@ -4,7 +4,6 @@
 = f.input :phone_number
 = f.input :email
 = f.input :pincode
-Get Your location co-ordinates from google maps
 = f.input :lat, label: "latitude"
 = f.input :lngt, label: "longitude"
 Get your credentials by signing up
@@ -14,3 +13,7 @@ You will get the keys from
 = f.input :instamajo_api_key, label: "Private API Key"
 = f.input :instamajo_auth_token, label: "Private Auth Token"
 = f.submit
+
+= render partial: '/geolocation'
+
+
