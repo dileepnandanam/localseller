@@ -36,7 +36,7 @@ class SessionsController < Devise::SessionsController
 
   protected
   def location_params
-    params.permit(:lat, :lngt)
+    params.permit(:lat, :lng)
   end
 
   def sign_in_params

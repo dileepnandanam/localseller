@@ -8,7 +8,7 @@ if (navigator.geolocation) {
       url: '/get_location',
       type: 'post',
       dataType: 'json',
-      data: {lat: pos.lat, lngt: pos.lng}
+      data: {lat: pos.lat, lnt: pos.lng}
     })
 
     infoWindow.setPosition(pos);

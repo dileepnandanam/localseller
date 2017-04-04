@@ -65,3 +65,4 @@ gem "omniauth-google-oauth2"
 gem 'certified'
 gem 'Instamojo-rb', '~> 1.1'
 gem 'unicorn'
+gem 'activerecord-postgres-earthdistance'

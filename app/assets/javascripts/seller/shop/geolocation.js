@@ -5,7 +5,7 @@ if (navigator.geolocation) {
       lng: position.coords.longitude
     };
     $('[name="shop[lat]"]').val(pos.lat)
-    $('[name="shop[lngt]"]').val(pos.lng)
+    $('[name="shop[lng]"]').val(pos.lng)
     infoWindow.setPosition(pos);
     infoWindow.setContent('Location found.');
     map.setCenter(pos);
