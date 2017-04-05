@@ -181,8 +181,10 @@ class Products extends React.Component {
 		load_more_button = <div onClick={this.load_more} className="load-more-button">Load more</div>
 		return(
 			<div className="product-list">
-			    <SearchBox search_handle={this.search_handle}/>
-			    {this.state.query.with_location ? global_search_button : local_search_button}
+			    <div className='sub-navbar'>
+			    	<SearchBox search_handle={this.search_handle}/>
+			    	{this.state.query.with_location ? global_search_button : local_search_button}
+				</div>
 				{products}
 				<div className="clearfix" />
 					{products.length % this.props.per_page == 0 && products.length > 0 ? load_more_button : ''}

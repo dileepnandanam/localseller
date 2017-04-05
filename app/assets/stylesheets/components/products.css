@@ -13,7 +13,9 @@
 	cursor: pointer;
 }
 .search-button {
-	position: absolute;
-    top: 5px;
-    left: 392px;
+	margin-left: 12px
+}
+.sub-navbar {
+	height: 37px;
+    margin-bottom: 17px;
 }

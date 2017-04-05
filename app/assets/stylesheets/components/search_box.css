@@ -1,6 +1,4 @@
 .search-container {
-    position: absolute;
-    top: 5px;
-    left: 154px;
-    width: 30%;
+    float: left;
+    width: 45%;
 }

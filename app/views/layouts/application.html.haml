@@ -13,6 +13,6 @@
       - if flash[:notice]
         .app-message
           = flash[:notice]
-      .app-body
-        = yield
+      
+      = yield
       = render partial: 'layouts/contact_us'
