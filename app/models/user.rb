@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, if: :password_required?
   validates :password, confirmation: true, if: :password_required?
 
+  acts_as_geolocated
+
   def admin?
     usertype == 'admin'
   end

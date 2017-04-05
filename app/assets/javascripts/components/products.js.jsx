@@ -1,12 +1,15 @@
 class Products extends React.Component {
 	constructor(props) {
 		super(props)
+		
 		this.state = {
-			query: {page: 1},
+			query: {page: 1, with_location: false},
 			products: [],
 			cart: []
 		}
 
+		
+		this.get_loc = this.get_loc.bind(this)
 		this.get_products = this.get_products.bind(this)
 		this.add_to_cart = this.add_to_cart.bind(this)
 		this.remove_cart_item = this.remove_cart_item.bind(this)
@@ -14,17 +17,35 @@ class Products extends React.Component {
 		this.load_more= this.load_more.bind(this)
 		this.search_handle = this.search_handle.bind(this)
 		this.get_cart = this.get_cart.bind(this)
+		this.string_search = this.string_search.bind(this)
+		this.location_wise_search = this.location_wise_search.bind(this)
+
+
 		this.get_products({page: 1})
 		this.get_cart()
+		this.get_loc()
+	}
+	get_loc(){
+		that=this
+		$.ajax({
+			url: '/get_location',
+			datatype: 'json'
+		}).success(function(data){
+			that.setState({
+				query: $.extend(that.state.query, data),
+				products: that.state.products,
+				cart: that.state.cart
+			})
+		})
 	}
 	load_more(){
-		query = {search: this.state.query.search, page: this.state.query.page}
+		query = {search: this.state.query.search, page: this.state.query.page, location: this.state.query.location, with_location: this.state.query.with_location}
 		query.page = query.page + 1
 		this.get_products(query)
 	}
 	search_handle(query){
 		this.setState({
-			query: query,
+			query: $.extend(query,{location: this.state.query.location, with_location: this.state.query.with_location}),
 			data: this.state.data,
 			cart: this.state.cart
 		})
@@ -118,11 +139,25 @@ class Products extends React.Component {
 			})
 		
 	}
-	componentDidMount(){
-		$(document).on('turbolinks:load' ,function(){
-			$(".cart-checkout").on('click', function(){
-			    alert('i')
-		    })
+	location_wise_search(){
+		query = this.state.query
+		query = $.extend(query, {with_location: true})
+		this.get_products(query)
+		this.setState({
+			query: query,
+			products: this.state.products,
+			cart: this.state.cart
+		})
+	}
+	
+	string_search(){
+		query = this.state.query
+		query = $.extend(query, {with_location: false})
+		this.get_products(query)
+		this.setState({
+			query: query,
+			products: this.state.products,
+			cart: this.state.cart
 		})
 	}
 	checkout(){
@@ -140,11 +175,14 @@ class Products extends React.Component {
 				<CartItem item={item} remove_cart_item={that.remove_cart_item} key={item.id}/>
 			)
 		})
+		local_search_button  = <input type="button"  value="search nearby" className="search-button btn btn-primary" onClick={this.location_wise_search}/>
+		global_search_button  = <input type="button" value="search globally" className="search-button btn btn-primary" onClick={this.string_search}/>
 		checkout_button = <input className="cart-checkout" value="Checkout" type="submit" onClick={this.checkout}/>
 		load_more_button = <div onClick={this.load_more} className="load-more-button">Load more</div>
 		return(
 			<div className="product-list">
 			    <SearchBox search_handle={this.search_handle}/>
+			    {this.state.query.with_location ? global_search_button : local_search_button}
 				{products}
 				<div className="clearfix" />
 					{products.length % this.props.per_page == 0 && products.length > 0 ? load_more_button : ''}

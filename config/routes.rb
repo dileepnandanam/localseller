@@ -44,7 +44,8 @@ Rails.application.routes.draw do
     end
   end
   devise_scope :user do
-    post 'get_location', to: 'sessions#get_location'
+    get 'get_location', to: 'sessions#get_location'
+    post 'set_location', to: 'sessions#set_location'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

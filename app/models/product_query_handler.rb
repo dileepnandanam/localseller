@@ -1,4 +1,6 @@
 class ProductQueryHandler
+  NEAREST_DISTANCE = 5000
+
   def initialize(query_params, scop=nil)
   	@params = query_params
     @scop = scop
@@ -13,6 +15,11 @@ class ProductQueryHandler
   	else
   	  collection = Product.order('created_at desc')
   	end
+
+    if @params[:with_location] == "true"
+      nearest_shops = Shop.within_radius(NEAREST_DISTANCE, @params[:location][:lat], @params[:location][:lat])
+      collection = collection.where(shop_id: nearest_shops.map(&:id))
+    end
 
     collection = collection.where(@scop) if @scop.present?
   	return collection.paginate(per_page: 10, page: (@params[:page] || 1))

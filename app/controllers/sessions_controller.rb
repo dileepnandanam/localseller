@@ -30,8 +30,13 @@ class SessionsController < Devise::SessionsController
     session.delete :social_auth if session[:social_auth]
   end
 
-  def get_location
+  def set_location
     current_user.update_attributes(location_params)
+    render nothing: true
+  end
+
+  def get_location
+    render json: {location: {lat: current_user.lat, lng: current_user.lng}}.to_json
   end
 
   protected

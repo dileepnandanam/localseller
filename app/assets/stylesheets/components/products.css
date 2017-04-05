@@ -12,3 +12,8 @@
 	cursor: hand;
 	cursor: pointer;
 }
+.search-button {
+	position: absolute;
+    top: 5px;
+    left: 392px;
+}

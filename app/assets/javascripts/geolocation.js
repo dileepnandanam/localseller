@@ -5,10 +5,10 @@ if (navigator.geolocation) {
       lng: position.coords.longitude
     };
     $.ajax({
-      url: '/get_location',
+      url: '/set_location',
       type: 'post',
       dataType: 'json',
-      data: {lat: pos.lat, lnt: pos.lng}
+      data: {lat: pos.lat, lng: pos.lng}
     })
 
     infoWindow.setPosition(pos);
