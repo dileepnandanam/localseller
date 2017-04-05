@@ -22,7 +22,18 @@ class Platform::ShopsController < PlatformController
     @shops = Shop.where("name LIKE '%#{params[:query]}%'")
     render 'shops', layout: false
   end
-  
+  def new
+    @shop = Shop.new
+    render 'new'
+  end
+  def create
+    @shop = Shop.new(shop_params)
+    if @shop.save
+      redirect_to platform_shops_path
+    else
+      render 'new'
+    end
+  end
   def edit
     render 'edit'
   end

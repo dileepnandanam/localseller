@@ -23,8 +23,11 @@
 
   .all-shops{data:{search_path:  search_platform_shops_path }}
   .search-box
-    .form-group
-    Search
-    %input.platform-shop-search-field.form-control
+    .form-group.pull-left
+      Search
+      %input.platform-shop-search-field.form-control
+
+    = link_to 'new_shop', new_platform_shop_path, class:'new-shop-btn btn btn-primary pull-right'
+  
   .search-result
     = render template: 'platform/shops/shops'

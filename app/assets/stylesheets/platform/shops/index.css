@@ -27,3 +27,12 @@
   margin-left: 20px;
   margin-top: 20px
 }
+.search-box {
+  width:100%;
+}
+.search-box .form-group {
+  width:40%;
+}
+.new-shop-btn {
+  margin-right: 15px;
+}
