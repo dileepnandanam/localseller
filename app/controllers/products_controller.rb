@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 	def index
-
     render json: product_list_json(ProductQueryHandler.new(params).result)
 	end
 
