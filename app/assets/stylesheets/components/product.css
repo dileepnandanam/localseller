@@ -26,6 +26,15 @@
 .product-shop-name {
 	width: 100%;
 	text-align: center;
+	color:white !important;
+	font-size: 16;
+}
+.product-shop-name a{
+	color: white;
+}
+.product-shop-name a:hover {
+	color:grey !important;
+	text-decoration: none;
 }
 .submit-wraper {
 	width:50px;
@@ -33,7 +42,6 @@
 }
 .product-detail {
 	height: 124px;
-	background-color: lavender;
 	padding: 10px;
 	background-color: black;
 	color: white;

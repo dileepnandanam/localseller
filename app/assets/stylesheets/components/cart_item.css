@@ -14,16 +14,19 @@
 }
 .cart-item-quantity {
   float: left;
-  padding: 5px 10px 5px 10px
+  padding: 5px 10px 5px 10px;
 }
 .cart-item-delete {
   float: left;
-  padding: 5px 10px 5px 10px
+  padding: 5px 10px 5px 10px;
+  color: white;
 }
 .cart-item-delete:hover{
   cursor: pointer;
   cursor: hand;
+  color: grey;
 }
+
 .cart-item {
 	display: inline;
   color: white;
