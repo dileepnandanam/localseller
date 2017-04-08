@@ -13,7 +13,8 @@ class AddToCartForm extends React.Component {
 			<div className="product-detail">
 			<div className='add_to_cart_form' ref='form-group form_container'>
 				<label className="quantity-label pull-left">Quantity</label>
-				<input ref='quantity' type='text' className="form-control pull-right quantity-field"/>
+				<input ref='quantity' type='text' className="form-control pull-left quantity-field"/>
+				<div className="product-unit pull-left">{this.props.unit}</div>
 				<div className="clearfix" />
 				<div className="add-to-cart-submit-wraper" >
 				  <input type='submit' value="Add to cart" onClick={this.add_to_cart} className="add-to-cart-button btn btn-primary"/>

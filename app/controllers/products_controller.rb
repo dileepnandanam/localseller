@@ -18,7 +18,8 @@ class ProductsController < ApplicationController
         image: product.image.url(:medium),
         shop_id: product.shop_id,
         shop_url: shop_path(product.shop),
-        shop_name: product.shop.name
+        shop_name: product.shop.name,
+        unit: product.unit
       }
     }.to_json
   end

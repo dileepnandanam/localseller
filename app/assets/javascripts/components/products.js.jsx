@@ -157,7 +157,7 @@ class Products extends React.Component {
 		that= this
 		products = this.state.products.map(function(product) {
 			return(
-				<Product product_details={product} current_user={that.props.current_user} add_to_cart={that.add_to_cart} key={product.id} />
+				<Product product_details={product} current_user={that.props.current_user} add_to_cart={that.add_to_cart} key={'product'+product.id} />
 			)
 		})
 		cart = this.state.cart.map(function(item){

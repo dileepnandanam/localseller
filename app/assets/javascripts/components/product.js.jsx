@@ -45,9 +45,9 @@ class Product extends React.Component {
 							</div>
 							<div className="clearfix" />
 						</div>
-
 		
-		form = <AddToCartForm buyHandler={this.buyHandler}/>
+
+		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
 			<div className="product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3" >
 			<div className='product '>
