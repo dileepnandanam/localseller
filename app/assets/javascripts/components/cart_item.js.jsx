@@ -3,8 +3,8 @@ class CartItem extends React.Component {
 		super(props)
 		this.remove_cart_item = this.remove_cart_item.bind(this)
 	}
-	remove_cart_item(){
-		this.props.remove_cart_item(this.props.item.id)
+	remove_cart_item(e){
+		this.props.remove_cart_item(this.props.item.id, e)
 	}
 
 	render(){
@@ -17,7 +17,7 @@ class CartItem extends React.Component {
 				<div className="cart-item-quantity" >
 				    {item.quantity}
 				</div>
-				<a className="cart-item-delete" href="#" onClick={this.remove_cart_item}>
+				<a className="cart-item-delete" onClick={this.remove_cart_item}>
 				    {"remove"}
 				</a>
 				<div className="clearfix" />

@@ -88,7 +88,7 @@ class Products extends React.Component {
 		})
 
 	}
-	remove_cart_item(id){
+	remove_cart_item(id, e){
 		$.ajax({
 			url: this.props.remove_purchase_url,
 			type: 'delete',
@@ -127,16 +127,6 @@ class Products extends React.Component {
 				cart: cart
 			})
 		})
-
-			state = this.state
-			cart = state.cart
-			new_cart_entry = {name: name, quantity: quantity, product_id: product_id, shop_id: shop_id}
-			cart.push(new_cart_entry)
-			this.setState({
-				query: this.state.query,
-				products: this.state.products,
-				cart: cart
-			})
 		
 	}
 	location_wise_search(){
