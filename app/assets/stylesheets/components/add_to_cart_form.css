@@ -4,10 +4,10 @@
 }
 .quantity-label {
   float: left;
-  padding-top: 2px;
+  padding-top: 6px;
 }
 .quantity-field {
-  width: 30% !important;
+  width: 45% !important;
   margin-left: 8px;
   margin-top: -1px;
 }

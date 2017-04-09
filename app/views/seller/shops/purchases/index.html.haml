@@ -15,6 +15,8 @@
         %th
           quantity
         %th
+          price
+        %th
           purchased at
         %th
           address
@@ -24,9 +26,10 @@
       - @purchases.each do |purchase|
         %tr
           %td=purchase.product.name
-          %td=purchase.quantity
+          %td="#{purchase.quantity} #{purchase.product.unit}"
+          %td=purchase.product.price
           %td=purchase.created_at.strftime("%Y/%b/%d")
-          %td=raw purchase.user.address.gsub('\n', '<br />')
+          %td=raw purchase.user.address.gsub("\n", '<br />')
           - if params[:filter] == 'new_purchases'
             %td
               = link_to 'shipped', shipped_seller_shop_purchase_path(purchase), method: :put, remote: true, class: 'mark-as-shipped'
