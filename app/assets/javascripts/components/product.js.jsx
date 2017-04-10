@@ -1,11 +1,15 @@
 class Product extends React.Component {
 	constructor(props){
 		super(props)
+		this.state = {
+			show_form: false,
+			zoom: false
+		}
+		this.zoom_drag - this.zoom_drag.bind(this, this.state.entry_point)
 		this.buyHandler = this.buyHandler.bind(this)
 		this.formHandler = this.formHandler.bind(this)
-		this.state = {
-			show_form: false
-		}
+		this.zoom_toggle = this.zoom_toggle.bind(this)
+		
 	}
 	buyHandler(quantity){
 		product = this.props.product_details
@@ -25,7 +29,31 @@ class Product extends React.Component {
 			window.location = '/users/sign_up'
 		}
 	}
+	zoom_toggle(){
+		console.log('toggle')
+		this.setState({
+			show_form: this.state.show_form,
+			zoom: !this.state.zoom
+		})
+	}
+
+	zoom_drag(e){
+	   scale = 1
+       offset = $(e.target).closest('.product').offset()
+       origin_x = offset.left
+       origin_y = offset.top
+
+       cursor_x = e.clientX-origin_x
+       cursor_y = e.clientY-origin_y
+       console.log(origin_y)
+	   $(e.target).css('left',cursor_x -300   )
+	   $(e.target).css('top', cursor_y  -300 )
+
+		
+	}
 	
+
+
 
 	render(){
 		product = this.props.product_details
@@ -46,12 +74,14 @@ class Product extends React.Component {
 							<div className="clearfix" />
 						</div>
 		
-
+		large_image = <img className="zoomer" src={product.large_image} onMouseLeave={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
+		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
 			<div className="product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3" >
-			<div className='product '>
-				<img className="product-image" src={product.image} />
+			<div className='product '> 
+			    {this.state.zoom ? large_image : ''}
+			    {small_image}
 				
 				{this.state.show_form ? form : product_details}
 			</div>

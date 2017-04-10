@@ -22,6 +22,8 @@
 	box-shadow: 10px 10px 5px #888888;
 	box-sizing: border-box;
 	padding-top: 15px;
+	position: relative;
+	overflow: hidden; 
 }
 .product-shop-name {
 	width: 100%;
@@ -54,4 +56,8 @@
 }
 .product-buy  {
 	padding-left: 12px !important;
+}
+.zoomer{
+	position: absolute;
+	
 }
