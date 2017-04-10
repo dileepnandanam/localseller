@@ -30,7 +30,7 @@ class Product extends React.Component {
 		}
 	}
 	zoom_toggle(){
-		console.log('toggle')
+		
 		this.setState({
 			show_form: this.state.show_form,
 			zoom: !this.state.zoom
@@ -42,12 +42,12 @@ class Product extends React.Component {
        offset = $(e.target).closest('.product').offset()
        origin_x = offset.left
        origin_y = offset.top
-
+      
        cursor_x = e.clientX-origin_x
        cursor_y = e.clientY-origin_y
-       console.log(origin_y)
-	   $(e.target).css('left',cursor_x -300   )
-	   $(e.target).css('top', cursor_y  -300 )
+       
+	   $(e.target).css('left', cursor_x-$(e.target).width()/2)
+	   $(e.target).css('top',  cursor_y-$(e.target).height()/2)
 
 		
 	}
@@ -74,7 +74,7 @@ class Product extends React.Component {
 							<div className="clearfix" />
 						</div>
 		
-		large_image = <img className="zoomer" src={product.large_image} onMouseLeave={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
+		large_image = <img className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
 		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
