@@ -46,8 +46,8 @@ class Product extends React.Component {
        cursor_x = e.clientX-origin_x
        cursor_y = e.clientY-origin_y
        
-	   $(e.target).css('left', cursor_x-$(e.target).width()/2)
-	   $(e.target).css('top',  cursor_y-$(e.target).height()/2)
+	   $(e.target).css('left', cursor_x*2-$(e.target).width()/2)
+	   $(e.target).css('top',  cursor_y*2-$(e.target).height()/2)
 
 		
 	}
@@ -74,7 +74,7 @@ class Product extends React.Component {
 							<div className="clearfix" />
 						</div>
 		
-		large_image = <img className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
+		large_image = <img style={{top:-250,left:-250}} className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
 		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
