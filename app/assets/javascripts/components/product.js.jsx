@@ -45,9 +45,8 @@ class Product extends React.Component {
       
        cursor_x = e.clientX-origin_x
        cursor_y = e.clientY-origin_y
-       
-	   $(e.target).css('left', cursor_x*2-$(e.target).width()/2)
-	   $(e.target).css('top',  cursor_y*2-$(e.target).height()/2)
+	   $(e.target).css('left', cursor_x - $(e.target).width()/2)
+	   $(e.target).css('top',  cursor_y - $(e.target).height()/2)
 
 		
 	}
