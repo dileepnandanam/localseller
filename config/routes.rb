@@ -47,6 +47,9 @@ Rails.application.routes.draw do
     get 'get_location', to: 'sessions#get_location'
     post 'set_location', to: 'sessions#set_location'
   end
+  resource :shopper do
+    get :shopping_list, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

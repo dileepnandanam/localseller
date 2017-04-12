@@ -31,6 +31,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def set_location
+    return unless current_user
     current_user.update_attributes(location_params)
     render nothing: true
   end

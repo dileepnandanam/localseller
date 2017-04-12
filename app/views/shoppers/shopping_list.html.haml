@@ -1,0 +1,24 @@
+%h2
+  Purchase history
+
+- current_user.shoping_carts.each do |cart|
+  %table.table
+    %th
+      purchased date
+    %th
+      item
+    %th
+      shop
+    %th
+      shipped
+    %th
+      Contact number
+      
+    - cart.purchases.each  do |purchase|
+      %tr
+        %td=purchase.created_at.strftime("%Y/%m/%d")
+        %td=purchase.product.name
+        %td=purchase.shop.name
+        %td=purchase.shiped ? 'Shipped' : 'pending'
+        %td=purchase.shop.phone_number
+%br

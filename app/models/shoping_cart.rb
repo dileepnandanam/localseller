@@ -6,4 +6,8 @@ class ShopingCart < ActiveRecord::Base
   def price
   	purchases.map{ |p| p.product.price * p.quantity }.sum
   end
+
+  def shipped
+  	purchases.map(&:shipped).unieqe == true
+  end
 end

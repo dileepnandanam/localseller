@@ -20,9 +20,10 @@ class ShopingCartsController < ApplicationController
     if session[:shoping_cart_id]
       shoping_cart = ShopingCart.find(session[:shoping_cart_id])
     else
-      shoping_cart = ShopingCart.create(shop_id: purchase_params[:shop_id])
+      shoping_cart = ShopingCart.create(shop_id: purchase_params[:shop_id], user_id: current_user.id)
       session[:shoping_cart_id] = shoping_cart.id
     end
+
     purchase = shoping_cart.purchases.create(purchase_params.merge(user_id: current_user.id))
     render json: {id: purchase.id}
   end
@@ -46,7 +47,12 @@ class ShopingCartsController < ApplicationController
   end
 
   def remove_purchase
-    Purchase.find(params[:id]).delete
+    purchase = Purchase.find(params[:id])
+    shoping_cart = purchases.shoping_cart
+    purchase.delete
+    unless shoping_cart.purchases.present?
+      shoping_cart.delete
+    end
     render head: :ok, nothing: true
   end
 
