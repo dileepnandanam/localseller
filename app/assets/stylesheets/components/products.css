@@ -22,3 +22,6 @@
 .search-container {
 	margin-bottom: 1px !important;
 }
+.checkout-spinner {
+	width: 30px;
+}

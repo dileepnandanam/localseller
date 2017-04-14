@@ -76,7 +76,7 @@ class Product extends React.Component {
 							<div className="clearfix" />
 						</div>
 		
-		large_image = <img style={{top:-250,left:-250}} className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
+		large_image = <img style={{top:-125,left:-125}} className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
 		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
