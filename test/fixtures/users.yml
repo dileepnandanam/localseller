@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  email: as@sd.jk
   name: MyString
   address: MyText
   pincode: 1
   phone_number: 1
 
 two:
+  email: ad@sd.jk
   name: MyString
   address: MyText
   pincode: 1
