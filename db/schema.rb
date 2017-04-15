@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414181311) do
+ActiveRecord::Schema.define(version: 20170415135014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170414181311) do
     t.string   "instamajo_api_key"
     t.string   "instamajo_auth_token"
     t.boolean  "deleted",              default: false
+    t.text     "address"
   end
 
   add_index "shops", ["permalink"], name: "index_shops_on_permalink", unique: true, using: :btree

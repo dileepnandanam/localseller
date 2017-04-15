@@ -17,6 +17,6 @@ class BillTest < ActiveSupport::TestCase
   	purchase_2_2.save
 require 'pry'
 binding.pry
-  	assert BillValueCalculator.calculate([purchase_1_1, purchase_2_1]) == 20
+  	assert BillValueCalculator.calculate([purchase_1_2, purchase_2_1]) == 17.6
   end
 end

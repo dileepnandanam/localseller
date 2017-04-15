@@ -1,8 +1,6 @@
 class BillValueCalculator
   def self.calculate(purchases, final_price=false)
     price = purchases.map do |purchase|
-    	require 'pry'
-    	binding.pry
       purchase.product.price - purchase.product.price*2/100 -6*shoping_cart_fraction(purchase)
     end.sum
 
