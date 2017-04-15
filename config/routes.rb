@@ -23,7 +23,9 @@ Rails.application.routes.draw do
     get :for_shop, on: :collection
   end
 
-  resources :shops
+  resources :shops do
+    resources :comments
+  end
 
   resources :shoping_carts do
     get :payed, on: :member

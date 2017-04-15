@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  sdop_id: 1
+  parent_id: MyString
+  integer: MyString
+  user_id: 1
+
+two:
+  text: MyText
+  sdop_id: 1
+  parent_id: MyString
+  integer: MyString
+  user_id: 1

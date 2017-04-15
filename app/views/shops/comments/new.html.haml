@@ -1,0 +1,4 @@
+.comment-container
+  = simple_form_for @comment, url: shop_comments_path(@shop), remote: true do |f|
+    =f.input :text, label: 'comment'
+    =f.submit 'post comment'

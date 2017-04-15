@@ -1,18 +1,26 @@
-.shop-property
-  .shop-property-name
-    New Purchases
-  .shop-property-value
-    = @new_purchases.count
+.status.pull-left
+  .shop-property
+    .shop-property-name
+      New Purchases
+    .shop-property-value
+      = @new_purchases.count
 
-.shop-property
-  .shop-property-name
-    Credit
-  .shop-property-value
-    = @credit
+  .shop-property
+    .shop-property-name
+      Credit
+    .shop-property-value
+      = @credit
 
-.shop-property
-  .shop-property-name
-    Undelivered products
-  .shop-property-value
-    = @undelivered_products.count
+  .shop-property
+    .shop-property-name
+      Undelivered products
+    .shop-property-value
+      = @undelivered_products.count
 
+.feedbacks.pull-left
+  - @shop.comments.each do |comment|
+    .feedback-container
+      .author
+        =comment.user.try(:name)
+      .comment-body
+        = comment.text

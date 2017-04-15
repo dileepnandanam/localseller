@@ -14,6 +14,7 @@ class Shop < ActiveRecord::Base
   has_many :purchases
   has_many :shoping_carts
   before_save :set_permalink
+  has_many :comments
 
   acts_as_geolocated
   
