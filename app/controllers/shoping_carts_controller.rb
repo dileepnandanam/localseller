@@ -17,8 +17,8 @@ class ShopingCartsController < ApplicationController
 
 
   def add_to_cart
-    if session[:shoping_cart_id]
-      shoping_cart = ShopingCart.find(session[:shoping_cart_id])
+    if session[:shoping_cart_id] && ShopingCart.find_by_id(session[:shoping_cart_id])
+      shoping_cart = ShopingCart.find_by_id(session[:shoping_cart_id])
     else
       shoping_cart = ShopingCart.create(shop_id: purchase_params[:shop_id], user_id: current_user.id)
       session[:shoping_cart_id] = shoping_cart.id
@@ -48,7 +48,7 @@ class ShopingCartsController < ApplicationController
 
   def remove_purchase
     purchase = Purchase.find(params[:id])
-    shoping_cart = purchases.shoping_cart
+    shoping_cart = purchase.shoping_cart
     purchase.delete
     unless shoping_cart.purchases.present?
       shoping_cart.delete
