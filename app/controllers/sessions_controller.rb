@@ -37,7 +37,11 @@ class SessionsController < Devise::SessionsController
   end
 
   def get_location
-    render json: {location: {lat: session[:lat], lng: session[:lng]}}.to_json
+    if session[:lat].present?
+      render json: {location: {lat: session[:lat], lng: session[:lng]}}.to_json
+    else
+      render json: {with_location: false}
+    end
   end
 
   protected

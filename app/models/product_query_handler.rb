@@ -16,7 +16,7 @@ class ProductQueryHandler
   	  collection = Product.order('created_at desc')
   	end
 
-    if @params[:with_location] == "true"
+    if @params[:with_location] == "true" && @params[:location][:lat] && @params[:location][:lng]
       nearest_shops = Shop.within_radius(NEAREST_DISTANCE, @params[:location][:lat], @params[:location][:lng])
       collection = collection.where(shop_id: nearest_shops.map(&:id))
     end
