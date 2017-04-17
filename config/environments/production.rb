@@ -88,4 +88,17 @@ Rails.application.configure do
       secret_access_key: 'dtPUSoD5a/6mxeG85mj4KszvIITBBcdFqiM9+PZR'
     }
   }
+
+
+  
+  ActionMailer::Base.delivery_method = :smtp  
+  ActionMailer::Base.smtp_settings = {            
+    :address              => "smtp.zoho.com", 
+    :port                 => 465,                 
+    :user_name            => 'tribeadmin@lototribe.com',
+    :password             => 'loto-no-8',         
+    :authentication       => :login,
+    :ssl                  => true,
+    :enable_starttls_auto => true    
+  }
 end
