@@ -89,8 +89,8 @@ Rails.application.configure do
     }
   }
 
+  config.action_mailer.default_url_options = { :host => 'lototribe.com' }
 
-  
   ActionMailer::Base.delivery_method = :smtp  
   ActionMailer::Base.smtp_settings = {            
     :address              => "smtp.zoho.com", 
