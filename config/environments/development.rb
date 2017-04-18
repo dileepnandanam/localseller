@@ -38,7 +38,20 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'lototribe.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.smtp_settings  = {            
+    :address              => "smtp.zoho.com", 
+    :port                 => '465',
+    :domain               => 'lototribe.com',               
+    :user_name            => 'no-reply@lototribe.com',
+    :password             => 'loto-no-8',         
+    :authentication       => :plain,
+    :ssl                  => true,
+    :tls                  => true,
+    :enable_starttls_auto => true    
+  }
 end

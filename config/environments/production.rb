@@ -88,17 +88,20 @@ Rails.application.configure do
       secret_access_key: 'dtPUSoD5a/6mxeG85mj4KszvIITBBcdFqiM9+PZR'
     }
   }
-
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => 'lototribe.com' }
-
-  ActionMailer::Base.delivery_method = :smtp  
-  ActionMailer::Base.smtp_settings = {            
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.smtp_settings  = {            
     :address              => "smtp.zoho.com", 
-    :port                 => 465,                 
-    :user_name            => 'tribeadmin@lototribe.com',
+    :port                 => '465',
+    :domain               => 'lototribe.com',               
+    :user_name            => 'no-reply@lototribe.com',
     :password             => 'loto-no-8',         
-    :authentication       => :login,
+    :authentication       => :plain,
     :ssl                  => true,
+    :tls                  => true,
     :enable_starttls_auto => true    
   }
 end
