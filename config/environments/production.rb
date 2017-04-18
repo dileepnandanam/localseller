@@ -95,13 +95,13 @@ Rails.application.configure do
   
   config.action_mailer.smtp_settings  = {            
     :address              => "smtp.zoho.com", 
-    :port                 => '465',
+    :port                 => 465,
     :domain               => 'lototribe.com',               
     :user_name            => 'no-reply@lototribe.com',
     :password             => 'loto-no-8',         
-    :authentication       => :plain,
+    :authentication       => :login,
     :ssl                  => true,
     :tls                  => true,
-    :enable_starttls_auto => true    
+    :enable_starttls_auto => true,
   }
 end
