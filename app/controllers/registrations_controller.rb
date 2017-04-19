@@ -20,8 +20,12 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     if session[:social_auth].present?
       resource.password = resource.password_confirmation = junk
-      resource.skip_confirmation! unless AuthHash.find(session[:social_auth]).provider == 'twitter'
+      auth_hash = AuthHash.find(session[:social_auth])
+      resource.skip_confirmation! unless auth_hash.provider == 'twitter'
+      resource.email = auth_hash.email unless auth_hash.provider == 'twitter'
+      resource.name = auth_hash.name
     end
+
 
     resource.save
     yield resource if block_given?
