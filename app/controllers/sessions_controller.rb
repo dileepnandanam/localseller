@@ -6,10 +6,28 @@ class SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    self.resource = resource_class.new(sign_in_params)
-    clean_up_passwords(resource)
-    yield resource if block_given?
-    respond_with(resource, serialize_options(resource))
+    if valid_for_twitter_authentication
+      redirect_to '/auth/twitter'
+    else
+      self.resource = resource_class.new(sign_in_params)
+      clean_up_passwords(resource)
+      yield resource if block_given?
+      respond_with(resource, serialize_options(resource))
+    end
+  end
+
+  def valid_for_twitter_authentication
+    let_in = false
+    auth_hash = AuthHash.find(session[:social_auth]) if(session[:social_auth]).present?
+    if auth_hash && auth_hash.provider == 'twitter'
+      user = auth_hash.user
+      if user && user.confirmed_at.present?
+        let_in = true
+      else
+        flash[:notice] = 'Confirm your email'
+      end
+    end
+    return let_in
   end
 
   # POST /resource/sign_in
