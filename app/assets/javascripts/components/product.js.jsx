@@ -46,8 +46,6 @@ class Product extends React.Component {
        cursor_x = e.pageX-origin_x
        cursor_y = e.pageY-origin_y
 
-       console.log(origin_x -e.clientX)
-
 	   $(e.target).css('left', cursor_x  - $(e.target).width()/2)
 	   $(e.target).css('top',  cursor_y  - $(e.target).height()/2)
 
