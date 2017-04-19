@@ -2,7 +2,7 @@
 .clearfix
 - @products.each do |product|
   .seller-product-container.pull-left.col-xs-6.col-sm-4.col-md-4.col-lg-2
-    .seller-product-image{style: "background-image: url(#{product.image.url(:thumb)})"}
+    .seller-product-image{style: "background-image: url(#{product.image.url(:medium)})"}
     .seller-product-details
       .seller-product-name
         = product.name

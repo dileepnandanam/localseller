@@ -5,7 +5,7 @@ class Product extends React.Component {
 			show_form: false,
 			zoom: false
 		}
-		this.zoom_drag - this.zoom_drag.bind(this, this.state.entry_point)
+		this.zoom_drag = this.zoom_drag.bind(this)
 		this.buyHandler = this.buyHandler.bind(this)
 		this.formHandler = this.formHandler.bind(this)
 		this.zoom_toggle = this.zoom_toggle.bind(this)
