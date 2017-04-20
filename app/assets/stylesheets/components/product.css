@@ -9,7 +9,7 @@
 }
 .product-price {
 	margin-right: 12px;
-	font-size: 19px !important;
+	font-size: 19px;
 }
 .product-buy {
 	padding: 4px;
@@ -37,13 +37,14 @@
 .product-shop-name a:hover {
 	color:grey !important;
 	text-decoration: none;
+	cursor:hand;
+	cursor: pointer;
 }
 .submit-wraper {
 	width:50px;
 	margin: auto;
 }
 .product-detail {
-	height: 124px;
 	padding: 10px;
 	background-color: black;
 	color: white;
@@ -62,4 +63,17 @@
 	width: 600;
 	height:600;
 	
+}
+@media screen and (max-width: 992px) {
+	.product-shop-name, .product-price, .product-name {
+		font-size: 30px !important;
+		line-height: 44px;
+	}
+	.product-buy {
+		width: 100%;
+		font-size: 30px !important;
+	}
+	.submit-wraper {
+		width: 40%;
+	}
 }

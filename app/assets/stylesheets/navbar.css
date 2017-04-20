@@ -21,3 +21,13 @@
 .home-link  h3 {
   margin-top: 9px;
 }
+@media screen and (max-width: 992px) {
+  .nav-item, .nav-item a h3 {
+    font-size: 30px;
+    height: 68px;
+    line-height: 68px
+  }
+  .navbar {
+    height: 68px;
+  }
+}

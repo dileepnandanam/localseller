@@ -2,3 +2,16 @@
     float: left;
     width: 45%;
 }
+@media screen and (max-width: 992px) {
+	.search-container input {
+		width: 100%;
+		height:60px;
+	}
+	.search-container {
+		width:60%;
+	}
+	.search-button {
+		font-size: 30px !important;
+	}
+
+}
