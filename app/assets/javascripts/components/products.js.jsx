@@ -110,8 +110,8 @@ class Products extends React.Component {
 		})
 	}
 
-	add_to_cart(quantity, product_id, name, shop_id){
-		new_cart_entry = {name: name, quantity: quantity, product_id: product_id, shop_id: shop_id}
+	add_to_cart(quantity, product_id, unit, name){
+		new_cart_entry = {name: name, quantity: quantity, product_id: product_id, unit: unit}
 		$.ajax({
 			url: this.props.add_to_cart_url,
 			data: new_cart_entry,
@@ -170,7 +170,7 @@ class Products extends React.Component {
 		})
 		local_search_button  = <input type="button"  value="search nearby" className="search-button btn btn-primary" onClick={this.location_wise_search}/>
 		global_search_button  = <input type="button" value="search globally" className="search-button btn btn-primary" onClick={this.string_search}/>
-		checkout_button = <input className="cart-checkout" value="Checkout" type="submit" onClick={this.checkout}/>
+		checkout_button = <input className="cart-checkout btn btn-primary" value="Checkout" type="submit" onClick={this.checkout}/>
 		load_more_button = <div onClick={this.load_more} className="load-more-button">Load more</div>
 		loading_sign= <img src='/assets/loading_apple' className="checkout-spinner"/>
 		return(

@@ -7,7 +7,7 @@
   padding-top: 6px;
 }
 .quantity-field {
-  width: 45% !important;
+  width: 30% !important;
   margin-left: 8px;
   margin-top: -1px;
 }
@@ -19,7 +19,7 @@
 }
 .add-to-cart-submit-wraper {
 	margin: auto;
-	margin-top: 12px;
+	margin-top: 14px;
 	width: 95px;
 }
 .product-unit {

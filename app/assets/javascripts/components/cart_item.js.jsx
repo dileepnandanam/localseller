@@ -17,6 +17,9 @@ class CartItem extends React.Component {
 				<div className="cart-item-quantity" >
 				    {item.quantity}
 				</div>
+				<div className="cart-item-unit" >
+				    {item.unit}
+				</div>
 				<a className="cart-item-delete" onClick={this.remove_cart_item}>
 				    {"remove"}
 				</a>

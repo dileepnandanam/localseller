@@ -16,6 +16,10 @@
   float: left;
   padding: 5px 10px 5px 10px;
 }
+.cart-item-unit {
+  float: left;
+  padding: 5px 10px 5px 10px;
+}
 .cart-item-delete {
   float: left;
   padding: 5px 10px 5px 10px;
@@ -33,4 +37,9 @@
 }
 .cart-checkout {
 	margin: 6px;
+}
+@media screen and (max-width: 992px)  {
+  .cart-item-name, .cart-item-quantity, .cart-item-unit, .cart-item-delete {
+    font-size: 30px !important;
+  }
 }

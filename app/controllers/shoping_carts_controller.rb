@@ -20,7 +20,7 @@ class ShopingCartsController < ApplicationController
     if session[:shoping_cart_id] && ShopingCart.find_by_id(session[:shoping_cart_id])
       shoping_cart = ShopingCart.find_by_id(session[:shoping_cart_id])
     else
-      shoping_cart = ShopingCart.create(shop_id: purchase_params[:shop_id], user_id: current_user.id)
+      shoping_cart = ShopingCart.create( user_id: current_user.id)
       session[:shoping_cart_id] = shoping_cart.id
     end
 
@@ -37,7 +37,7 @@ class ShopingCartsController < ApplicationController
           name: purchase.product.name,
           quantity: purchase.quantity,
           product_id: purchase.product.id,
-          shop_id: purchase.product.shop_id,
+          unit: purchase.product.unit,
           id: purchase.id
         }
       }.to_json
@@ -71,7 +71,7 @@ class ShopingCartsController < ApplicationController
 
   protected
   def purchase_params
-    params.permit(:quantity, :product_id, :shop_id)
+    params.permit(:quantity, :product_id)
   end
   def shoping_cart_params
     params.require(:purchases)
