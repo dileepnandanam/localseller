@@ -25,3 +25,12 @@
 .app h2 {
   margin:15px;
 }
+
+@media screen and (max-width: 992px) {
+  .app-message {
+    font-size: 30px;
+  }
+  .devise-shared-links {
+    font-size: 30px;
+  }
+}

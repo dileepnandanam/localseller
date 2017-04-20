@@ -15,3 +15,19 @@
 .fa-stack {
   color: black !important;
 }
+@media screen and (max-width: 992px)  {
+	.user-form-box {
+		width:100%;
+		margin-left: 5%;
+	}
+	.devise-user-form {
+		width:75%;
+	}
+	.devise-user-form label {
+		font-size: 30px
+	}
+	.devise-user-form input {
+		height: 60px;
+		font-size: 30px;
+	}
+}
