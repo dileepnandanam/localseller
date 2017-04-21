@@ -11,7 +11,8 @@
 		width:42%;
 	}
 	.search-button {
-		font-size: 30px !important;
+		font-size: 22px !important;
+		margin-top: 6px;
 	}
 
 }
