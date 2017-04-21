@@ -15,9 +15,9 @@
 .fa-stack {
   color: black !important;
 }
-@media screen and (max-width: 992px)  {
+@media screen and (orientation: portrait) and (max-width: 992px)  {
 	.user-form-box {
-		width:100%;
+		width:95%;
 		margin-left: 5%;
 	}
 	.devise-user-form {
