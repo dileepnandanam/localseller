@@ -151,9 +151,6 @@ class Products extends React.Component {
 		})
 	}
 	checkout(){
-		this.setState({
-			show_spinner: true
-		})
 		window.location = this.props.checkout_url
 	}
 	render() {
@@ -172,7 +169,6 @@ class Products extends React.Component {
 		global_search_button  = <input type="button" value="search globally" className="search-button btn btn-primary" onClick={this.string_search}/>
 		checkout_button = <input className="cart-checkout btn btn-primary" value="Checkout" type="submit" onClick={this.checkout}/>
 		load_more_button = <div onClick={this.load_more} className="load-more-button">Load more</div>
-		loading_sign= <img src={this.props.loading_sign} className="checkout-spinner"/>
 		return(
 			<div className="product-list">
 
@@ -185,7 +181,6 @@ class Products extends React.Component {
 				<div className="clearfix" />
 					{products.length % this.props.per_page == 0 && products.length > 0 ? load_more_button : ''}
 				<div className="shopping-cart">
-					{this.state.show_spinner ? loading_sign : ''}
 				    {cart.length >0 ? checkout_button: ''}	
 					{cart}
 				</div>
