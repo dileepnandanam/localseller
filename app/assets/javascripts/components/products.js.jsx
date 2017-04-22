@@ -172,7 +172,7 @@ class Products extends React.Component {
 		global_search_button  = <input type="button" value="search globally" className="search-button btn btn-primary" onClick={this.string_search}/>
 		checkout_button = <input className="cart-checkout btn btn-primary" value="Checkout" type="submit" onClick={this.checkout}/>
 		load_more_button = <div onClick={this.load_more} className="load-more-button">Load more</div>
-		loading_sign= <img src='/assets/loading_apple' className="checkout-spinner"/>
+		loading_sign= <img src={this.props.loading_sign} className="checkout-spinner"/>
 		return(
 			<div className="product-list">
 
