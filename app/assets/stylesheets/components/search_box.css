@@ -2,17 +2,19 @@
     float: left;
     width: 45%;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 342px) {
 	.search-container input {
 		width: 100%;
-		height:60px;
+		height:38px;
 	}
 	.search-container {
 		width:42%;
 	}
 	.search-button {
-		font-size: 17px !important;
-		margin-top: 6px;
+		font-size: 14px !important;
+		margin-top: 2px;
+
 	}
+
 
 }

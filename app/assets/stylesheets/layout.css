@@ -28,9 +28,9 @@
 
 @media screen and (max-width: 992px) {
   .app-message {
-    font-size: 30px;
+    font-size: 20px;
   }
   .devise-shared-links {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
