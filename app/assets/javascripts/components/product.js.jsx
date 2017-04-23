@@ -61,13 +61,13 @@ class Product extends React.Component {
 							<div className="product-shop-name">
 								<a href={product.shop_url}>{product.shop_name}</a>
 							</div>
-							<div className="product-name pull-left">
+							<div className="product-name">
 								{product.name}
 							</div>
-							<div className="product-price pull-right">
+							<div className="product-price">
 								{product.price}
 							</div>
-							<div className="clearfix"/>
+							
 							<div className='submit-wraper'>  
 							  <input type="submit" value="buy" className="product-buy btn btn-primary pull-right" onClick={this.formHandler} />
 							</div>

@@ -1,5 +1,5 @@
 class ProductQueryHandler
-  NEAREST_DISTANCE = 20000
+  NEAREST_DISTANCE = 30000
 
   def initialize(query_params, scop=nil)
   	@params = query_params

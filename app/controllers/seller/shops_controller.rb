@@ -47,6 +47,6 @@ class Seller::ShopsController < SellerController
   private
 
   def shop_params
-  	params.require(:shop).permit(:name,:description,:phone_number, :email, :pincode, :lat, :lngt, :banner)
+  	params.require(:shop).permit(:name,:description,:phone_number, :email, :pincode, :lat, :lng, :banner)
   end
 end
