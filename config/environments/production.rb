@@ -94,12 +94,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   config.action_mailer.smtp_settings  = {            
-    :address              => "smtp.zoho.com", 
+    :address              => "smtp.gmail.com", 
     :port                 => 465,
     :domain               => 'lototribe.com',               
-    :user_name            => 'no-reply@lototribe.com',
-    :password             => 'loto-no-8',         
-    :authentication       => :login,
+    :user_name            => 'dileepsnandanam@gmail.com',
+    :password             => ENV['gmail_password'],         
+    :authentication       => 'plain',
     :ssl                  => true,
     :tls                  => true,
     :enable_starttls_auto => true,
