@@ -18,9 +18,9 @@ class SessionsController < Devise::SessionsController
 
   def valid_for_twitter_authentication
     let_in = false
-    auth_hash = AuthHash.find(session[:social_auth]) if(session[:social_auth]).present?
-    if auth_hash && auth_hash.provider == 'twitter'
-      user = auth_hash.user
+    @auth_hash = AuthHash.find_by_id(session[:social_auth]) if(session[:social_auth]).present?
+    if @auth_hash && @auth_hash.provider == 'twitter'
+      user = @auth_hash.user
       if user && user.confirmed_at.present?
         let_in = true
       else

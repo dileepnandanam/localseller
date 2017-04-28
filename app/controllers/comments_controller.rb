@@ -5,8 +5,9 @@ class CommentsController < ShopsController
     render 'shops/comments/new', layout: false
   end
   def create
-    redirect_to user_signup_path if current_user.nil?
-    if Comment.create(comments_params.merge(shop_id: @shop.id, user_id: current_user.id))
+    if current_user.nil?
+      redirect_to new_user_registration_path 
+    elsif Comment.create(comments_params.merge(shop_id: @shop.id, user_id: current_user.id))
       render 'shops/comments/feedback', layout: false, status: 200
     else
       render nothing: true, status: 422
