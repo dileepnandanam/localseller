@@ -3,6 +3,7 @@
   border: 1px solid;
   margin:20px;
   padding-top: 15px;
+  overflow: hidden;
 
 }
 .seller-product-details {
