@@ -8,7 +8,17 @@ class Seller::ProductsController < Seller::ShopsController
   end
 
   def index
-    @products = @shop.products
+    @products = @shop.products.map{ |product|
+      {
+        name: product.name,
+        price: product.price,
+        shop_id: product.shop_id,
+        image_filename: product.image.original_filename,
+        image_url: product.image.url(:medium),
+        unit: product.unit,
+        id: product.id
+      }
+    }
     render 'seller/shops/products/index'
   end
 
