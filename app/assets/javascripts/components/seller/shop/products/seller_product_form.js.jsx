@@ -27,13 +27,16 @@ class SellerProductForm extends React.Component {
 			type: this.props.method,
 			datatype: 'json',
 			data: form_data,
-			success: function(data){
-				that.props.formSuccess(form_data.products)
+			success: function(data){				
+				if(that.props.method == 'PUT')
+					that.props.formSuccess(form_data.product)
+				else 
+					that.props.formSuccess(data)
 			},
 			error: function(data){
-				state = this.state
-				state.error_messages = data.error_messages
-				this.setState(state)
+				state = that.state
+				state.error_messages = data.responseJSON
+				that.setState(state)
 			}
 		})
 	}
@@ -62,7 +65,8 @@ class SellerProductForm extends React.Component {
 	        	{this.state.error_messages.unit}
 	        	
 	        </div>
-	        <input type='submit' value='submit' onClick={this.submitForm} />
+	        <input type='submit' className='btn btn-primary seller-product-submit ' value='submit' onClick={this.submitForm} />
+		    <input type='button' className='btn btn-primary seller-product-submit' value="cancel"  onClick={this.props.hideForm} />
 		  </div>
 		)
 	}

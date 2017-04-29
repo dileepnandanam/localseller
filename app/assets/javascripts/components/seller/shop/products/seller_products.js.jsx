@@ -1,8 +1,12 @@
 class SellerProducts extends React.Component {
 	constructor(props){
 		super(props)
-		this.state = { products: this.props.products }
+
+		this.state = { products: this.props.products, show_form: false }
 		this.deleteProduct = this.deleteProduct.bind(this)
+		this.formSuccess = this.formSuccess.bind(this)
+		this.hideForm = this.hideForm.bind(this)
+		this.showForm = this.showForm.bind(this)
 	}
 	deleteProduct(id, delete_url){
 		that=this
@@ -23,6 +27,22 @@ class SellerProducts extends React.Component {
 		})
 			
 	}
+	showForm(){
+		state= this.state
+		state.show_form = true
+		this.setState(state)
+	}
+	hideForm(){
+		state= this.state
+		state.show_form = false
+		this.setState(state)
+	}
+
+	formSuccess(product){
+		state = this.state
+		state.products.push(product)
+		this.setState(state)
+	}
 
 	render(){
 		that=this
@@ -31,9 +51,21 @@ class SellerProducts extends React.Component {
 				<SellerProduct product_details={product} deleteProduct={that.deleteProduct} key={product.id}/>
 			)
 		})
+		form_values = {
+			name: "",
+			price: "",
+			unit: ""
+		}
+		form = <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-4 col-lg-2">
+		           <SellerProductForm form_values={form_values} submit_url={this.props.create_product_url} method={'POST'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
+		       </div>
 		return(
 			<div className='seller-products'>
+				<input type='button' className="btn btn-primary add-product-btn" onClick={this.showForm} value="Add Product" />
+				<div className='clearfix' />
+			    {this.state.show_form ? form : ''}
 			    {products}
+			    
 			</div>
 		)
 	}

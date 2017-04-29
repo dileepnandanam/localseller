@@ -11,6 +11,7 @@ class SellerProduct extends React.Component {
 			price: product.price,
 			unit: product.unit
 		}
+		this.hideForm = this.hideForm.bind(this)
 		this.showForm = this.showForm.bind(this)
 		this.showImageForm = this.showImageForm.bind(this)
 		this.imageUpload = this.imageUpload.bind(this)
@@ -20,6 +21,11 @@ class SellerProduct extends React.Component {
 	showForm(){
 		state = this.state
 		state.show_form=true
+		this.setState(state)
+	}
+	hideForm(){
+		state = this.state
+		state.show_form=false
 		this.setState(state)
 	}
 	showImageForm(){
@@ -62,7 +68,7 @@ class SellerProduct extends React.Component {
 		}
 		image_form = <input ref='file' type='file' onChange={this.imageUpload}/>
                          
-		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} form_success={this.formSuccess}/>
+		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		return(
 		  <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-4 col-lg-2">
 	        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
