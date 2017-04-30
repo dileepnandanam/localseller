@@ -3,6 +3,7 @@
   border: 1px solid;
   margin:20px;
   padding-top: 15px;
+  overflow: hidden;
 
 }
 .seller-product-details {
@@ -35,4 +36,8 @@
 }
 .add-product-btn {
   margin: 20px !important;
+}
+.seller-product-submit{
+  margin-bottom: 10px !important;
+  margin-right:10px;
 }
