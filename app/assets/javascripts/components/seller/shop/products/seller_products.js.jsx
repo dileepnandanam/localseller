@@ -40,7 +40,9 @@ class SellerProducts extends React.Component {
 
 	formSuccess(product){
 		state = this.state
-		state.products.push(product)
+		reverse = state.products.reverse()
+		reverse.push(product)
+		state.products = reverse.reverse()
 		this.setState(state)
 	}
 
