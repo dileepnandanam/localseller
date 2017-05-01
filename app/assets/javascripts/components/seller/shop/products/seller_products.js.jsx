@@ -39,11 +39,13 @@ class SellerProducts extends React.Component {
 	}
 
 	formSuccess(product){
+		this.hideForm()
 		state = this.state
 		reverse = state.products.reverse()
 		reverse.push(product)
 		state.products = reverse.reverse()
 		this.setState(state)
+
 	}
 
 	render(){
