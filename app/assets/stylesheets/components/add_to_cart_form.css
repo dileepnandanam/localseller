@@ -26,7 +26,7 @@
   color:white;
   padding:6px;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 342px) {
   .product-unit, .quantity-label, .add-to-cart-button, .quantity-field{
     font-size: 26px !important;
   }

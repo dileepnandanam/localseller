@@ -64,7 +64,7 @@
 }
 @media screen and (max-width: 342px) {
 	.product-shop-name, .product-price, .product-name {
-		font-size: 18px !important;
+		font-size: 27px !important;
 		line-height: 27x;
 	}
 	.product-buy {
