@@ -44,7 +44,9 @@ Rails.application.routes.draw do
       resources :bills do
         get :payed, on: :member
       end
-      resources :products
+      resources :products do
+        put :image_upload, on: :member
+      end
     end
   end
   devise_scope :user do

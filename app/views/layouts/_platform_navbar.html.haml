@@ -5,7 +5,7 @@
     .nav-item.pull-right
       = link_to "logout", destroy_user_session_path, method: :delete
     .nav-item.pull-left
-      = link_to "shops",  platform_shops_path 
+      = link_to "shops",  platform_shop_products_path(@shop) 
     .clearfix
   - else
     .nav-item.pull-right

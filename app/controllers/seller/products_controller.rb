@@ -34,7 +34,7 @@ class Seller::ProductsController < Seller::ShopsController
     redirect_to seller_shop_products_path
   end
   def image_upload
-    @product.update_attributes(product_imade_params)
+    @product.update_attributes(product_image_params)
     render json: {image_url: @product.image.url(:medium)}.to_json
   end
   def update
@@ -61,13 +61,13 @@ class Seller::ProductsController < Seller::ShopsController
       delete_url:  seller_shop_product_path(product)
     }  
   end
-  def product_imade_params
+  def product_image_params
     params.permit(:image)
   end
   def set_product
     @product = @shop.products.find(params[:id])
   end
   def product_params
-    params.require(:product).permit(:name, :price, :unit)
+    params.require(:product).permit(:name, :description, :price, :unit)
   end
 end
