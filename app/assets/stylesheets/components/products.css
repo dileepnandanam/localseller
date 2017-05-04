@@ -26,7 +26,7 @@
 	width: 30px;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 342px) {
 	.cart-checkout {
 		font-size: 30px !important;
 	}

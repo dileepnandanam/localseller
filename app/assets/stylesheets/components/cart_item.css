@@ -38,7 +38,7 @@
 .cart-checkout {
 	margin: 6px;
 }
-@media screen and (max-width: 992px)  {
+@media screen and (max-width: 342px)  {
   .cart-item-name, .cart-item-quantity, .cart-item-unit, .cart-item-delete {
     font-size: 30px !important;
   }

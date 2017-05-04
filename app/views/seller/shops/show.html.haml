@@ -1,22 +1,23 @@
 .status.pull-left
   .shop-property
-    .shop-property-name
+    .shop-property-name.pull-left
       New Purchases
-    .shop-property-value
+    .shop-property-value.pull-right
       = @new_purchases.count
+    .clearfix
 
   .shop-property
-    .shop-property-name
+    .shop-property-name.pull-left
       Credit
-    .shop-property-value
+    .shop-property-value.pull-right
       = @credit
-
+    .clearfix
   .shop-property
-    .shop-property-name
+    .shop-property-name.pull-left
       Undelivered products
-    .shop-property-value
+    .shop-property-value.pull-right
       = @undelivered_products.count
-
+    .clearfix
 .feedbacks.pull-left
   - @shop.comments.each do |comment|
     .feedback-container
