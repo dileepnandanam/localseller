@@ -26,12 +26,3 @@
 	width: 30px;
 }
 
-@media screen and (max-width: 342px) {
-	.cart-checkout {
-		font-size: 20px !important;
-	}
-	.checkout-spinner {
-	    width: 50px;
-        margin: 4px;
-	}
-}
