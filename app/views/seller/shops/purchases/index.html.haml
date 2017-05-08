@@ -1,6 +1,6 @@
 .purchases-filter-links
   = link_to seller_shop_purchases_path(filter: 'new_purchases') do
-    .purchases-filter-link.pull-left{class: params[:filter]=="new_purchases" ? "purchases-filter-link-current" : ''}
+    .purchases-filter-link.pull-left{class: params[:filter]=="new_purchases" || params[:filter] == nil ? "purchases-filter-link-current" : ''}
       New Purchases
   = link_to seller_shop_purchases_path(filter: 'shiped_purchases') do  
     .purchases-filter-link.pull-left{class: params[:filter]=="shiped_purchases" ? "purchases-filter-link-current" : ''}

@@ -1,7 +1,8 @@
 class ShopingCartsController < ApplicationController
   def checkout
     @shoping_cart = ShopingCart.find(session[:shoping_cart_id])
-
+    @shoping_cart.update_attributes(user_id: current_user.id)
+    @shoping_cart.purchases.each{|purchase| purchase.update_attributes(user_id: current_user.id)}
     payment_request = InstamojoHandler.client.payment_request({
       amount: @shoping_cart.price,
       purpose: 'Product payment',
@@ -20,11 +21,11 @@ class ShopingCartsController < ApplicationController
     if session[:shoping_cart_id] && ShopingCart.find_by_id(session[:shoping_cart_id])
       shoping_cart = ShopingCart.find_by_id(session[:shoping_cart_id])
     else
-      shoping_cart = ShopingCart.create( user_id: current_user.id)
+      shoping_cart = ShopingCart.create
       session[:shoping_cart_id] = shoping_cart.id
     end
 
-    purchase = shoping_cart.purchases.create(purchase_params.merge(user_id: current_user.id))
+    purchase = shoping_cart.purchases.create(purchase_params)
     render json: {id: purchase.id}
   end
 

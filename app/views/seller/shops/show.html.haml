@@ -19,7 +19,7 @@
       = @undelivered_products.count
     .clearfix
 .feedbacks.pull-left
-  - @shop.comments.each do |comment|
+  - @shop.comments.order('created_at DESC').each do |comment|
     .feedback-container
       .author
         =comment.user.try(:name)

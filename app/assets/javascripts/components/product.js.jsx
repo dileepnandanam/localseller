@@ -20,14 +20,9 @@ class Product extends React.Component {
 	}
 	formHandler(){
 		
-		if(this.props.current_user) {
-			this.setState({
-				show_form: true
-			})
-		}
-		else {
-			window.location = '/users/sign_up'
-		}
+		this.setState({
+			show_form: true
+		})
 	}
 	zoom_toggle(){
 		
@@ -78,7 +73,7 @@ class Product extends React.Component {
 		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
-			<div className="product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3" >
+			<div className="product-container pull-left col-xs-12 col-sm-6 col-md-4 col-lg-3" >
 			<div className='product '> 
 			    {this.state.zoom ? large_image : ''}
 			    {small_image}

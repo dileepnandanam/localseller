@@ -3,7 +3,7 @@ class Platform::BillsController < Platform::ShopsController
   before_action :setup_instamojo, only: [:show, :payed]
   
   def create
-    @purchases = @shop.purchases.where(payed: true, payed_out: false)
+    @purchases = @shop.purchases.where(payed: true, payed_out: false, shiped: true)
     @bill = Bill.create
     @bill.purchases = @purchases
     @bill.save

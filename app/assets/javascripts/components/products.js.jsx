@@ -151,7 +151,10 @@ class Products extends React.Component {
 		})
 	}
 	checkout(){
-		window.location = this.props.checkout_url
+		if(this.props.current_user)
+		    window.location = this.props.checkout_url
+		else
+			window.location = 'users/sign_up'
 	}
 	render() {
 		that= this
