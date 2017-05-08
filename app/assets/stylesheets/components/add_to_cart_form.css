@@ -16,6 +16,7 @@
 }
 .add-to-cart-button {
 	float: right;
+  margin-bottom: 17px;
 }
 .add-to-cart-submit-wraper {
 	margin: auto;
