@@ -67,6 +67,7 @@ class ShopingCartsController < ApplicationController
       @shoping_cart.update_attributes(checked_out: true)
     end
     session.delete(:shoping_cart_id)
+    flash[:notice] = 'Payment successfull'
     redirect_to root_path
   end
 
