@@ -8,13 +8,14 @@
         Shop
       %th
         New purchases
-    - @shops.each do |shop|
-      %tr
-        %td
-          = shop.name
-        %td  
-          = link_to purchases_platform_shop_path(shop) do
-            = shop.purchases.where(payed:true, payed_out:false).count
+    %tbody  
+      - @shops.each do |shop|
+        %tr
+          %td
+            = shop.name
+          %td  
+            = link_to purchases_platform_shop_path(shop) do
+              = shop.purchase_count
 
   %h3
     All shops (
@@ -27,7 +28,7 @@
       Search
       %input.platform-shop-search-field.form-control
 
-    = link_to 'new_shop', new_platform_shop_path, class:'new-shop-btn btn btn-primary pull-right'
+    = link_to 'new shop', new_platform_shop_path, class:'new-shop-btn btn btn-primary pull-right'
   
   .search-result
     = render template: 'platform/shops/shops'

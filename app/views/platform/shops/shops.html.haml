@@ -6,7 +6,7 @@
       edit
     %th
       delete
-  - @shops.each do |shop|
+  - @all_shops.each do |shop|
     %tr
       %td
         = link_to shop.name, platform_shop_path(shop)

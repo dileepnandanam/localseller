@@ -36,3 +36,8 @@
 .new-shop-btn {
   margin-right: 15px;
 }
+.shop-list tbody tbody {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

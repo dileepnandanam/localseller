@@ -12,10 +12,10 @@ class Platform::ShopsController < PlatformController
     @shops = ::Shop.joins(:purchases).
             where(purchases:{payed_out: false, payed: true}).
             group('shops.name', 'shops.id').
-            select('shops.name, count(purchases.id) as purchase_count, shops.id')
-    @all_shops = Shop.all
+            select('shops.name as name, count(purchases.id) as purchase_count, shops.id as id')
+    @all_shops = Shop.all.limit(10)
     @shop_count = Shop.count
-    @shops = Shop.all.limit(10)
+    
   end
 
   def search
