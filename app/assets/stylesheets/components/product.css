@@ -46,7 +46,8 @@
 	padding: 10px;
 	background-color: black;
 	color: white;
-}.product-container {
+}
+.product-container {
 	margin: 0px;
 	padding: 10px !important;
 }
@@ -58,7 +59,7 @@
 }
 .zoomer{
 	position: absolute;
-	width: 200%;
+	width: 250%;
 	
 	
 }
@@ -70,5 +71,13 @@
 	.product-image {
 		float: left;
 		width:40%;
+		margin-top: 15px;
+	}
+	.product{
+		border: 1px solid;
+	}
+	.product-container {
+		margin: -4px;
+		padding: 0px !important;
 	}
 }

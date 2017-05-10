@@ -187,7 +187,9 @@ class Products extends React.Component {
 				    {cart.length >0 ? checkout_button: ''}
 				    <br/>	
 					<table>
+					  <tbody>
 						{cart}
+					  </tbody>
 					</table>
 				</div>
 			</div>
