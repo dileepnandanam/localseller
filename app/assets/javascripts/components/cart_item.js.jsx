@@ -10,22 +10,22 @@ class CartItem extends React.Component {
 	render(){
 		item = this.props.item
 		return(
-			<div className="cart-item">
-				<div className="cart-item-name" >
+			<tr className="cart-item">
+				<td className="cart-item-name" >
 				    {item.name}
-				</div>
-				<div className="cart-item-quantity" >
+				</td>
+				<td className="cart-item-quantity" >
 				    {item.quantity}
-				</div>
-				<div className="cart-item-unit" >
+				</td>
+				<td className="cart-item-unit" >
 				    {item.unit}
-				</div>
+				</td>
+				<td>
 				<a className="cart-item-delete" onClick={this.remove_cart_item}>
 				    {"remove"}
 				</a>
-				<div className="clearfix" />
-
-			</div>
+				</td>
+			</tr>
 
 		)
 	}

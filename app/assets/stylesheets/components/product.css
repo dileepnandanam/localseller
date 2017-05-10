@@ -58,7 +58,17 @@
 }
 .zoomer{
 	position: absolute;
-	width: 600;
-	height:600;
+	width: 200%;
 	
+	
+}
+@media (max-width: 342px) {
+	.product-detail {
+		float: right;
+		width:60%;
+	}
+	.product-image {
+		float: left;
+		width:40%;
+	}
 }
