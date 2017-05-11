@@ -17,6 +17,7 @@ class SellerProduct extends React.Component {
 		this.imageUpload = this.imageUpload.bind(this)
 		this.formSuccess = this.formSuccess.bind(this)
 		this.deleteProduct = this.deleteProduct.bind(this)
+		this.clickImageUpload = this.clickImageUpload.bind(this)
 	}
 	showForm(){
 		state = this.state
@@ -52,6 +53,10 @@ class SellerProduct extends React.Component {
             } 
         });
 	}
+	clickImageUpload(){
+		this.refs.file.click()
+	}
+
 	formSuccess(data){
 		this.setState($(data).extend(this.state))
 	}
@@ -66,8 +71,9 @@ class SellerProduct extends React.Component {
 			price: product.price,
 			unit: product.unit
 		}
-		image_form = <input ref='file' type='file' onChange={this.imageUpload}/>
-                         
+		image_form = <div className="image-upload"><input ref='file' type='file' onChange={this.imageUpload}/>
+		             <input type="button" value="chose image" onClick={this.clickImageUpload}/>
+                     </div>   
 		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		return(
 		  <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-3 col-lg-2">

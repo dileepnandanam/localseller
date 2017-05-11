@@ -6,6 +6,14 @@
   overflow: hidden;
 
 }
+input[type='file'] {
+  opacity:0;    
+}
+.image-upload{
+    position: absolute;
+    top: -15px;
+    left: 40px;
+}
 .seller-product-details {
   width: 100%;
 }
