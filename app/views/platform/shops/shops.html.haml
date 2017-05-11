@@ -9,7 +9,7 @@
   - @all_shops.each do |shop|
     %tr
       %td
-        = link_to shop.name, platform_shop_path(shop)
+        = link_to shop.name, platform_shop_products_path(shop)
       %td
         = link_to 'edit', edit_platform_shop_path(shop)
       %td

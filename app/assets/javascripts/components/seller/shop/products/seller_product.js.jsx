@@ -70,7 +70,7 @@ class SellerProduct extends React.Component {
                          
 		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		return(
-		  <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-4 col-lg-2">
+		  <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-3 col-lg-2">
 	        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
 	        {this.state.show_image_form ? image_form : ''}
 	        <div className="seller-product-image" style={{backgroundImage: 'url('+ this.state.image_url +')'}} />
