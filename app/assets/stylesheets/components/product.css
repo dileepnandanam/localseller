@@ -63,15 +63,16 @@
 	
 	
 }
-@media (max-width: 342px) {
+@media (max-width: 400px) {
 	.product-detail {
 		float: right;
 		width:60%;
 	}
 	.product-image {
 		float: left;
-		width:40%;
+		width:32%;
 		margin-top: 15px;
+		margin-left: 15px;
 	}
 	.product{
 		border: 1px solid;
