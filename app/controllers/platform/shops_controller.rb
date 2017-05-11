@@ -2,7 +2,7 @@ class Platform::ShopsController < PlatformController
   before_action :set_shop, only: [:purchases, :edit, :destroy, :show, :update]
   def purchases
     
-    @purchases = @shop.purchases.where(payed: true, payed_out: false)
+    @purchases = @shop.purchases.where(payed: true, payed_out: false, shiped: true)
   end
 
   def show
@@ -10,9 +10,10 @@ class Platform::ShopsController < PlatformController
   end
   def index
     @shops = ::Shop.joins(:purchases).
-            where(purchases:{payed_out: false, payed: true}).
+            where(purchases:{payed_out: false, payed: true, shiped: true}).
             group('shops.name', 'shops.id').
-            select('shops.name as name, count(purchases.id) as purchase_count, shops.id as id')
+            select('shops.name as name, count(purchases.id) as purchase_count, shops.id as id, shops.permalink as permalink')
+
     @all_shops = Shop.all.limit(10)
     @shop_count = Shop.count
     

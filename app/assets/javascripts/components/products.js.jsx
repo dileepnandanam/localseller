@@ -110,8 +110,8 @@ class Products extends React.Component {
 		})
 	}
 
-	add_to_cart(quantity, product_id, unit, name){
-		new_cart_entry = {name: name, quantity: quantity, product_id: product_id, unit: unit}
+	add_to_cart(quantity, product_id, unit, name, shop_id){
+		new_cart_entry = {name: name, quantity: quantity, product_id: product_id, unit: unit, shop_id: shop_id}
 		$.ajax({
 			url: this.props.add_to_cart_url,
 			data: new_cart_entry,

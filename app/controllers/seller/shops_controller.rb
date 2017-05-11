@@ -8,8 +8,8 @@ class Seller::ShopsController < SellerController
   end
 
   def show
-  	@new_purchases = @shop.purchases.where(payed: true, payed_out: false)
-    @credit = BillValueCalculator.calculate(@new_purchases, true)
+  	@new_purchases = @shop.purchases.where(payed: true, payed_out: false, shiped: true)
+    @credit = BillValueCalculator.calculate(@new_purchases, true).round(2)
     @undelivered_products = @shop.purchases.where(payed: true, shiped: false)
   end
 

@@ -25,7 +25,7 @@ class ShopingCartsController < ApplicationController
       session[:shoping_cart_id] = shoping_cart.id
     end
 
-    purchase = shoping_cart.purchases.create(purchase_params)
+    purchase = shoping_cart.purchases.create(purchase_params.merge(user_id: current_user.id))
     render json: {id: purchase.id}
   end
 
@@ -73,7 +73,7 @@ class ShopingCartsController < ApplicationController
 
   protected
   def purchase_params
-    params.permit(:quantity, :product_id)
+    params.permit(:quantity, :product_id, :shop_id)
   end
   def shoping_cart_params
     params.require(:purchases)

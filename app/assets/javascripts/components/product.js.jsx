@@ -13,7 +13,7 @@ class Product extends React.Component {
 	}
 	buyHandler(quantity){
 		product = this.props.product_details
-		this.props.add_to_cart(quantity, product.id, product.unit, product.name)
+		this.props.add_to_cart(quantity, product.id, product.unit, product.name, product.shop_id)
 		this.setState({
 			show_form: false
 		})
