@@ -1,0 +1,23 @@
+.navigation {
+  width: 100%;
+  background-color: black;
+
+}
+.nav-item {
+  margin-left: 20px;
+  margin-right: 20px;
+  height:50px;
+  line-height: 50px;
+  text-align: center;
+}
+.nav-item a {
+  text-decoration: none;
+  color: white;
+}
+.nav-item a:hover {
+  text-decoration: none;
+  color: gray;
+}
+.home-link  h3 {
+  margin-top: 9px;
+}

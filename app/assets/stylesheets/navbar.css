@@ -1,43 +1,32 @@
-.navigation {
-  width: 100%;
-  background-color: black;
-
+.nav-toggle .fa {
+	font-size: 31px;
+    margin-top: 7px;
 }
-.nav-item {
-  margin-left: 20px;
-  margin-right: 20px;
-  height:50px;
-  line-height: 50px;
-  text-align: center;
+@media (min-width: 401px) {
+	.nav-toggle {
+		display: none;
+	}
+	.links {
+		display: inline !important;
+	}
 }
-.nav-item a {
-  text-decoration: none;
-  color: white;
+@media (max-width: 400px) {
+	.links {
+		position: absolute;
+		background: black;
+		z-index: 999;
+        top: 50px;
+        display: none;
+	}
+	.links .nav-item {
+		float:none;
+		display: block;
+	}
 }
-.nav-item a:hover {
-  text-decoration: none;
-  color: gray;
+.nav-item.nav-toggle {
+	margin-left: 12px;
+	margin-right: 12px;
 }
-.home-link  h3 {
-  margin-top: 9px;
-}
-@media screen and (max-width: 992px) and (min-width: 324) {
-  .nav-item, .nav-item a h3 {
-    font-size: 30px;
-    height: 68px;
-    line-height: 68px
-  }
-  .navbar {
-    height: 68px;
-  }
-}
-@media screen and (max-width: 342px) {
-  .nav-item, .nav-item a h3 {
-    font-size: 20px;
-    height: 50px;
-    line-height: 50px
-  }
-  .navbar {
-    height: 68px;
-  }
+.fa-bars {
+	color:white;
 }

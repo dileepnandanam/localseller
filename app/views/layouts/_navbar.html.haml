@@ -1,31 +1,36 @@
+
 .navigation
-  -if current_user
-    .nav-item.pull-right
-      = link_to "logout", destroy_user_session_path, method: :delete
-    .nav-item.pull-right
-      = link_to (current_user.name ),  edit_user_registration_path
-    .nav-item.pull-right  
-      =  link_to "shoping list", shopping_list_shopper_path 
-
-    - if current_user.shop.present?
-      .nav-item.pull-right
-        = link_to "Shop", seller_shop_path(current_user.shop)    
-    
-    -if current_user.admin?
-      .nav-item.pull-right
-        = link_to 'Platform', platform_shops_path
-    
-  - else
-    .nav-item.pull-right
-      = link_to "sign up", new_user_registration_path
-    .nav-item.pull-right
-      = link_to "sign in", new_user_session_path
-
+  .nav-toggle.nav-item.pull-left.blah
+    %i.fa.fa-bars
   .nav-item.pull-left.home-link
     = link_to root_path do
       %h3
         LotoTribe
-  .nav-item.pull-right
-    = link_to 'Join with us', welcome_path
+  .links.blah
+    -if current_user
+      .nav-item.pull-right
+        = link_to "logout", destroy_user_session_path, method: :delete
+      .nav-item.pull-right
+        = link_to (current_user.name ),  edit_user_registration_path
+      .nav-item.pull-right  
+        =  link_to "shoping list", shopping_list_shopper_path 
+
+      - if current_user.shop.present?
+        .nav-item.pull-right
+          = link_to "Shop", seller_shop_path(current_user.shop)    
+      
+      -if current_user.admin?
+        .nav-item.pull-right
+          = link_to 'Platform', platform_shops_path
+      
+    - else
+      .nav-item.pull-right
+        = link_to "sign up", new_user_registration_path
+      .nav-item.pull-right
+        = link_to "sign in", new_user_session_path
+    .nav-item.pull-right
+      = link_to 'Join with us', welcome_path
+    .clearfix
   .clearfix
+  
   
