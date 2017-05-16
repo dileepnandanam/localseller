@@ -3,7 +3,7 @@
     .shop-property-name.pull-left
       New Purchases
     .shop-property-value.pull-right
-      = @new_purchases.count
+      = @new_purchases_count
     .clearfix
 
   .shop-property
@@ -16,9 +16,11 @@
     .shop-property-name.pull-left
       Undelivered products
     .shop-property-value.pull-right
-      = @undelivered_products.count
+      = @undelivered_products
     .clearfix
 .feedbacks.pull-left
+  %h3
+    Feedbacks
   - @shop.comments.order('created_at DESC').each do |comment|
     .feedback-container
       .author

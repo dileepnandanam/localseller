@@ -8,9 +8,11 @@ class Seller::ShopsController < SellerController
   end
 
   def show
-  	@new_purchases = @shop.purchases.where(payed: true, payed_out: false, shiped: true)
+  	@new_purchases = @shop.purchases.where(payed: true, payed_out: false)
+    @new_purchases_count = @new_purchases.count - (Rails.cache.fetch("#{current_user.id}_last_seen_product_count") || 0)
+    Rails.cache.write("#{current_user.id}_last_seen_product_count", @new_purchases.count)
     @credit = BillValueCalculator.calculate(@new_purchases, true).round(2)
-    @undelivered_products = @shop.purchases.where(payed: true, shiped: false)
+    @undelivered_products = @shop.purchases.where(payed: true, shiped: false).count
   end
 
   def edit

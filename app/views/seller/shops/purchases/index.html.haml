@@ -20,7 +20,7 @@
           purchased at
         %th
           address
-        - if params[:filter] == 'new_purchases'
+        - if params[:filter] == 'new_purchases' || params[:filter] == nil
           %th
             Mark as shipped
       - @purchases.each do |purchase|
@@ -30,6 +30,6 @@
           %td=purchase.product.price
           %td=purchase.created_at.strftime("%Y/%b/%d")
           %td=raw purchase.user.address.gsub("\n", '<br />')
-          - if params[:filter] == 'new_purchases'
+          - if params[:filter] == 'new_purchases' || params[:filter] == nil
             %td
               = link_to 'shipped', shipped_seller_shop_purchase_path(purchase), method: :put, remote: true, class: 'mark-as-shipped'
