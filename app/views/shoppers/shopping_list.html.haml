@@ -19,7 +19,7 @@
         %tr
           %td=purchase.created_at.strftime("%Y/%m/%d")
           %td=purchase.product.name
-          %td=purchase.shop.name
+          %td=link_to purchase.shop.name, shop_path(purchase.shop)
           %td=purchase.shiped ? 'Shipped' : 'pending'
           %td=purchase.shop.phone_number
   %br
