@@ -1,0 +1,15 @@
+.comment-container
+  .comment-author
+    = comment.user.name
+  .comment-body
+    = comment.text
+  = link_to "reply", '#',class: 'show-reply-form pull-right'
+  .clearfix
+  .comment-form
+    = simple_form_for Comment.new, url: shop_comments_path(@shop), remote: true, html: {class: 'reply-form'} do |f|
+      =f.input :text, label: 'reply'
+      =f.input :parent_id, :as => :hidden, :input_html => { :value => comment.id }
+      =f.submit 'post reply'
+  .comments-container
+    - comment.replies.each do |reply|
+      = render partial: 'shops/comments/comment', locals:{comment: reply}
