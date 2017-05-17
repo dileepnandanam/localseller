@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
 	})
 	$('.show-reply-form').on('click', function(e){
 		e.preventDefault();
-		$(this).siblings('.comment-form').show()
+		$(this).siblings('.comment-form').toggle()
 	})
 
 })
