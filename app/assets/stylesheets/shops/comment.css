@@ -17,6 +17,7 @@
 }
 .comment-body {
 	margin: 12px;
+	margin-bottom: 4px;
 }
 .comments-container {
 	margin-left: 20px;
@@ -25,7 +26,15 @@
 .comment-form {
 	margin:12px;
 	width:70%;
+	margin-left: 35px;
+}
+.comment-form textarea {
+	border: 1px solid;
+}
+.comments-container .comment-form {
 	display: none;
+	width: 90%;
+	margin-left: 12px;
 }
 .show-reply-form {
 	margin-right: 12px;
