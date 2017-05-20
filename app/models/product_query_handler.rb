@@ -1,5 +1,5 @@
 class ProductQueryHandler
-  NEAREST_DISTANCE = 30000
+  NEAREST_DISTANCE = 10000
 
   def initialize(query_params, scop=nil)
   	@params = query_params
@@ -22,6 +22,6 @@ class ProductQueryHandler
     end
 
     collection = collection.where(@scop) if @scop.present?
-  	return collection.paginate(per_page: 10, page: (@params[:page] || 1))
+  	return collection.paginate(per_page: 12, page: (@params[:page] || 1))
   end
 end
