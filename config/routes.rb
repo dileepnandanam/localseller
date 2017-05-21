@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   match "shops/:permalink" => "shops#show", via: [:get]
   namespace :seller do
     resource :shop do
+      resource :comments do
+        get :search, on: :collection
+      end
       resources :products do
         put :image_upload, on: :member 
       end

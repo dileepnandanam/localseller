@@ -21,7 +21,8 @@
 }
 
 .feedbacks {
-	width: 50%;
+	width: 45%;
+	margin-right: 10px;
 }
 .feedback-container {
 	border: 1px solid;

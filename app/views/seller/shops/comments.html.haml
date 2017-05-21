@@ -1,0 +1,6 @@
+- @comments.each do |comment|
+  .feedback-container
+    .author
+      =comment.user.try(:name)
+    .comment-body
+      = comment.text

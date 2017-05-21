@@ -21,9 +21,8 @@
 .feedbacks.pull-left
   %h3
     Feedbacks
-  - @shop.comments.order('created_at DESC').each do |comment|
-    .feedback-container
-      .author
-        =comment.user.try(:name)
-      .comment-body
-        = comment.text
+  .form-group
+    search
+    %input.form-control.search-comments{data:{search_url: search_seller_shop_comments_path(@shop)}}
+  .comment-search-results
+    = render template: 'seller/shops/comments'

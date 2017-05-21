@@ -13,6 +13,7 @@ class Seller::ShopsController < SellerController
     Rails.cache.write("#{current_user.id}_last_seen_product_count", @new_purchases.count)
     @credit = BillValueCalculator.calculate(@new_purchases, true).round(2)
     @undelivered_products = @shop.purchases.where(payed: true, shiped: false).count
+    @comments = @shop.comments.order('created_at DESC').limit(10)
   end
 
   def edit
