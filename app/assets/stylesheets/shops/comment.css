@@ -42,3 +42,6 @@
 .comment-author {
 	font-weight: bold;
 }
+.new-comment {
+	display: none;
+}
