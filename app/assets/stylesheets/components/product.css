@@ -1,6 +1,7 @@
 .product-image {
   width:100%;
-  margin: auto;
+  margin-bottom: 12px;
+  margin-top: 12px;
 }
 .product-name {
     font-size: 18px;
@@ -18,11 +19,12 @@
 .product {
 	padding: 0px !important;
     margin: 8px !important;
-/*	box-shadow: 5px 5px 5px #888888; */
+	box-shadow: 5px 5px 5px #888888;
 	box-sizing: border-box;
 	padding-top: 15px;
 	position: relative;
 	overflow: hidden; 
+	border: 2px solid;
 }
 .product-shop-name {
 	width: 100%;
@@ -43,7 +45,8 @@
 	margin: auto;
 }
 .product-detail {
-	padding: 10px;
+	padding: 20px;
+	padding-top: 15px;
 	background-color: black;
 	color: white;
 }
