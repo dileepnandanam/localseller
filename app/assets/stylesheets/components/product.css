@@ -53,7 +53,6 @@
 .product-container {
 	margin: 0px;
 	padding: 10px !important;
-	box-sizing: border-box;
 }
 .product-list {
 	padding: 10px;
@@ -82,7 +81,7 @@
 .description-container{
 	width: 100%;
 }
-@media (max-width: 400px) {
+@media (max-width: 575px) {
 	.product-detail {
 		float: right;
 		width:60%;
