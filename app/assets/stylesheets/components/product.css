@@ -53,6 +53,7 @@
 .product-container {
 	margin: 0px;
 	padding: 10px !important;
+	box-sizing: border-box;
 }
 .product-list {
 	padding: 10px;
