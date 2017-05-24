@@ -63,8 +63,23 @@
 .zoomer{
 	position: absolute;
 	width: 250%;
-	
-	
+}
+.product-description {
+	height:100%;
+	width: 100%;
+}
+.product-description h4 {
+	margin: 12px;
+}
+.product-description p {
+	margin: 12px;
+}
+.description-name {
+	width: 100%;
+	text-align: center;
+}
+.description-container{
+	width: 100%;
 }
 @media (max-width: 400px) {
 	.product-detail {

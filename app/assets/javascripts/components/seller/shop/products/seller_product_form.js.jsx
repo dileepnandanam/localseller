@@ -5,7 +5,8 @@ class SellerProductForm extends React.Component {
 	    	error_messages: {
 	    		name: '',
 	    		price: '',
-	    		unit: ''
+	    		unit: '',
+	    		description: ''
 	    	}
 	    }
 
@@ -18,7 +19,8 @@ class SellerProductForm extends React.Component {
 			product:{
 				name: this.refs.name.value,
 				price: this.refs.price.value,
-				unit: this.refs.unit.value
+				unit: this.refs.unit.value,
+				description: this.refs.description.value
 			}
 		}
 		that=this
@@ -51,6 +53,12 @@ class SellerProductForm extends React.Component {
 	        	{this.state.error_messages.name}
 	        	
 	        </div>
+	        <div className='form-group'>
+	            <label>description</label>
+	        	<textarea className='form-control' ref='description' defaultValue={field.description}/>
+	        	{this.state.error_messages.description}
+	        	
+	        </div>
 
 	        <div className='form-group'>
 	            <label>price</label>
@@ -65,6 +73,7 @@ class SellerProductForm extends React.Component {
 	        	{this.state.error_messages.unit}
 	        	
 	        </div>
+
 	        <input type='submit' className='btn btn-primary seller-product-submit ' value='submit' onClick={this.submitForm} />
 		    <input type='button' className='btn btn-primary seller-product-submit' value="cancel"  onClick={this.props.hideForm} />
 		  </div>

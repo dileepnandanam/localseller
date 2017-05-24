@@ -3,7 +3,8 @@ class Product extends React.Component {
 		super(props)
 		this.state = {
 			show_form: false,
-			zoom: false
+			zoom: false,
+			show_description: false
 		}
 		this.zoom_drag = this.zoom_drag.bind(this)
 		this.buyHandler = this.buyHandler.bind(this)
@@ -28,7 +29,8 @@ class Product extends React.Component {
 		
 		this.setState({
 			show_form: this.state.show_form,
-			zoom: !this.state.zoom
+			zoom: !this.state.zoom,
+			product_description: !this.state.product_description
 		})
 	}
 
@@ -68,18 +70,29 @@ class Product extends React.Component {
 							</div>
 							<div className="clearfix" />
 						</div>
+		product_description = <div className="description-container">    
+								<div className="product-description pull-left" >
+									<div className="description-name">
+										<h4>{product.name}</h4>
+									</div>
+									<p>{product.description}</p>
+								  </div>
+							  </div>
+
 		
 		large_image = <img style={{top:-125,left:-125}} className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
 		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
 			<div className="product-container pull-left col-xs-6 col-sm-6 col-md-4 col-lg-3" >
-			<div className='product '> 
-			    {this.state.zoom ? large_image : ''}
-			    {small_image}
+				<div className='product pull-left'> 
+				    {this.state.zoom ? large_image : ''}
+				    {small_image}
+					
+					{this.state.show_form ? form : product_details}
+				</div>
+				{this.state.product_description ? product_description : ''}
 				
-				{this.state.show_form ? form : product_details}
-			</div>
 			</div>
 		)
 	}

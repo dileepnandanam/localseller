@@ -50,6 +50,7 @@ class Seller::ProductsController < Seller::ShopsController
     {
       name: product.name,
       price: product.price,
+      description: product.description,
       shop_id: product.shop_id,
       image_filename: product.image.original_filename,
       image_url: product.image.url(:medium),
