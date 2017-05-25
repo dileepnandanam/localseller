@@ -81,7 +81,7 @@ class Product extends React.Component {
 
 		
 		large_image = <img style={{top:-125,left:-125}} className="zoomer" src={product.large_image} onClick={this.zoom_toggle} onMouseMove={this.zoom_drag}/>
-		small_image = <img className="product-image" onClick={this.zoom_toggle} src={product.image} />
+		small_image = <img className="product-image" onMouseDown={this.zoom_toggle} src={product.image} />
 		form = <AddToCartForm buyHandler={this.buyHandler} unit={product.unit}/>
 		return(
 			<div className="product-container pull-left col-xs-6 col-sm-6 col-md-4 col-lg-3" >
