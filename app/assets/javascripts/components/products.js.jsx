@@ -131,7 +131,7 @@ class Products extends React.Component {
 	}
 	location_wise_search(){
 		query = this.state.query
-		query = $.extend(query, {with_location: true})
+		query = $.extend(query, {with_location: true, page: 1})
 		this.get_products(query)
 		this.setState({
 			query: query,
@@ -142,7 +142,7 @@ class Products extends React.Component {
 	
 	string_search(){
 		query = this.state.query
-		query = $.extend(query, {with_location: false})
+		query = $.extend(query, {with_location: false, page: 1})
 		this.get_products(query)
 		this.setState({
 			query: query,

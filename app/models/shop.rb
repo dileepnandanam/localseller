@@ -9,7 +9,6 @@ class Shop < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :phone_number, presence: true, numericality: { only_integer: true }
   validates :pincode, presence: true, numericality: { only_integer: true }
-  validates :permalink, presence: true
   has_many :products
   has_many :purchases
   has_many :shoping_carts

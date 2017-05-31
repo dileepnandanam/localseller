@@ -11,7 +11,7 @@
     = csrf_meta_tags
   %body
     
-    .app
+    .app.public
       = render partial: 'layouts/navbar'
       - if flash[:notice]
         .app-message

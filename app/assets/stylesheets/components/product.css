@@ -1,7 +1,5 @@
 .product-image {
   width:100%;
-  margin-bottom: 12px;
-  margin-top: 12px;
 }
 .product-name {
     font-size: 18px;
@@ -17,8 +15,7 @@
 	width: 50px;
 }
 .product {
-	padding: 0px !important;
-    margin: 8px !important;
+
 	box-shadow: 5px 5px 5px #888888;
 	box-sizing: border-box;
 	padding-top: 15px;
