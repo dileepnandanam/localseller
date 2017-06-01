@@ -55,12 +55,14 @@ class Product extends React.Component {
 	render(){
 		product = this.props.product_details
 		product_details = <div className="product-detail">
-							<div className="product-shop-name">
-								<a href={product.shop_url}>{product.shop_name}</a>
-							</div>
 							<div className="product-name">
 								{product.name}
 							</div>
+
+							<div className="product-shop-name">
+								<a href={product.shop_url}>{product.shop_name}</a>
+							</div>
+							
 							<div className="product-price">
 								{product.price}
 							</div>
