@@ -41,7 +41,7 @@ class Platform::ShopsController < PlatformController
 
   def update
     if @shop.update_attributes(shop_params)
-      redirect_to platform_shop_path(@shop)
+      redirect_to platform_shop_products_path(@shop)
     else 
       render 'edit'
     end

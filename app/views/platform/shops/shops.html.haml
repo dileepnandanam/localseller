@@ -3,6 +3,8 @@
     %th
       shop
     %th
+      go to shop
+    %th
       edit
     %th
       delete
@@ -10,6 +12,8 @@
     %tr
       %td
         = link_to shop.name, platform_shop_products_path(shop)
+      %td
+        = link_to "go to shop", shop_path(shop)
       %td
         = link_to 'edit', edit_platform_shop_path(shop)
       %td
