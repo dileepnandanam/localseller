@@ -20,7 +20,7 @@ class Platform::ShopsController < PlatformController
   end
 
   def search
-    @shops = Shop.where("name LIKE '%#{params[:query]}%'")
+    @all_shops = Shop.where("name LIKE '%#{params[:query]}%'")
     render 'shops', layout: false
   end
   def new
