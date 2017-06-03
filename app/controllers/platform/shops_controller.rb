@@ -52,7 +52,7 @@ class Platform::ShopsController < PlatformController
   end
   protected
   def shop_params
-    params.require(:shop).permit(:name,:description,:phone_number, :email, :pincode, :lat, :lngt, :banner)
+    params.require(:shop).permit(:name,:description,:phone_number, :email, :pincode, :lat, :lng, :banner)
   end
   def set_shop
     @shop = ::Shop.find_by_permalink(params[:id])
