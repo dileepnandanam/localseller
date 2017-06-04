@@ -36,7 +36,7 @@ class Platform::ProductsController < Platform::ShopsController
 
   def update
     if @product.update_attributes(product_params)
-      redirect_to seller_shop_products_path
+      redirect_to platform_shop_products_path
     else
       render json: @product.errors.messages
       .map{|field, errors|  [field, errors.join(', ')]}.to_h, status: 422
@@ -59,7 +59,7 @@ class Platform::ProductsController < Platform::ShopsController
       update_url: platform_shop_product_path(@shop, product),
       image_uploaded: product.image.present?,
       image_upload_url:  image_upload_platform_shop_product_path(@shop, product),
-      delete_url:  seller_shop_product_path(product)
+      delete_url:  platform_shop_product_path(product.shop, product)
     }  
   end
   def product_image_params
