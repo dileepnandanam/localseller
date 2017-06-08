@@ -4,7 +4,7 @@ class ShopingCart < ActiveRecord::Base
   belongs_to :shop
   belongs_to :bill
   def price
-  	purchases.map{ |p| p.product.price * p.quantity }.sum
+  	purchases.map{ |p| p.price * p.quantity }.sum
   end
 
   def shipped

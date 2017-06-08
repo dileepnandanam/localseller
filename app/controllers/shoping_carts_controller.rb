@@ -24,8 +24,8 @@ class ShopingCartsController < ApplicationController
       shoping_cart = ShopingCart.create
       session[:shoping_cart_id] = shoping_cart.id
     end
-
-    purchase = shoping_cart.purchases.create(purchase_params)
+    price = Product.find(params[:product_id]).price
+    purchase = shoping_cart.purchases.create(purchase_params.merge(price: price))
     render json: {id: purchase.id}
   end
 
