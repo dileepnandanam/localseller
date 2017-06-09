@@ -33,9 +33,6 @@ class Platform::BillsController < Platform::ShopsController
       @bill.purchases.each do |purchase|
         purchase.update_attributes(payed_out: true)
       end
-      @bill.shoping_carts.each do |cart|
-        cart.update_attributes(payed_out: true)
-      end
     end
   end
   protected
