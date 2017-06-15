@@ -3,6 +3,7 @@ class ShopingCartsController < ApplicationController
     @shoping_cart = ShopingCart.find(session[:shoping_cart_id])
     @shoping_cart.update_attributes(user_id: current_user.id)
     @shoping_cart.purchases.each{|purchase| purchase.update_attributes(user_id: current_user.id)}
+    @shoping_cart.set_price
     payment_request = InstamojoHandler.client.payment_request({
       amount: @shoping_cart.price,
       purpose: 'Product payment',
