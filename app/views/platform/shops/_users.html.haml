@@ -1,0 +1,15 @@
+%table.table
+  %thead
+    %th
+      Username
+    %th
+      Assign shop
+  %tbody
+    - users.each do |user|
+      %tr
+        %td= user.name
+        %td 
+          -if shop.user == user
+            shop assigned
+          -else
+            = link_to "assign shop", assign_shop_platform_shop_path(shop, user_id: user.id), method: 'post'

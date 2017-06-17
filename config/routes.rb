@@ -44,6 +44,9 @@ Rails.application.routes.draw do
     resources :shops do
       get :search, on: :collection
       get :purchases, on: :member
+      get :users, on: :member
+      post :assign_shop, on: :member
+      get :search_user, on: :member
       resources :bills do
         get :payed, on: :member
       end

@@ -9,5 +9,19 @@ $(document).on('turbolinks:load', function() {
    			$('.search-result').html(data)
    		})
    })
+
+
+
+
+	$('.search-users').keyup(function(e){
+   		$.ajax({
+   			type: 'get',
+   			url: $('.platform-users').data('search-path'),
+   			data: {query: $(".search-users").val()}
+
+   		}).success(function(data){
+   			$('.users-table').html(data)
+   		})
+   })   
 });
 

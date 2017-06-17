@@ -1,0 +1,7 @@
+.platform-users{data: {search_path: search_user_platform_shop_path(@shop)}}
+  %h3
+    Users
+  .form-group
+    %input.form-control.search-users
+  .users-table
+    = render partial: 'users', locals: {users: @users, shop: @shop}

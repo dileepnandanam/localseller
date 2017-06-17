@@ -1,5 +1,5 @@
 class Platform::ShopsController < PlatformController
-  before_action :set_shop, only: [:purchases, :edit, :destroy, :show, :update]
+  before_action :set_shop, only: [:purchases, :edit, :destroy, :show, :update, :users, :assign_shop, :search_user]
   def purchases
     
     @purchases = @shop.purchases.where(payed: true, payed_out: false, shiped: true)
@@ -49,6 +49,21 @@ class Platform::ShopsController < PlatformController
   def destroy
     @shop.update_attributes(deleted: true)
     redirect_to platform_shops_path
+  end
+
+  def users
+    @users = User.limit(10).all
+    render 'users'
+  end
+  def assign_shop
+    @shop.user_id = params[:user_id]
+    @shop.save
+    redirect_to users_platform_shop_path(@shop)
+  end
+
+  def search_user
+    @users = User.where("name LIKE '%#{params[:query]}%' ")
+    render 'users_search_result', layout: false
   end
   protected
   def shop_params

@@ -12,6 +12,7 @@ class Shop < ActiveRecord::Base
   has_many :products
   has_many :purchases
   has_many :shoping_carts
+  belongs_to :user
   before_save :set_permalink
   has_many :comments
 
