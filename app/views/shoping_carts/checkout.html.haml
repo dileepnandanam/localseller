@@ -1,0 +1,27 @@
+.checkout-container.col-lg-6.col-md-6.col-sm-6.col-xs-12
+  .checkout-header
+    %h3= "Bill(id: #{@shoping_cart.id})"
+  - @shoping_cart.purchases.group_by(&:shop).each do |shop, purchases|
+    .checkout-shop
+      %h5= shop.name
+      - purchases.each do |purchase|
+        .checkout-purchase
+          .checkout-product-name.pull-left
+            = purchase.product.name
+          .checkout-product-price.pull-right  
+            = purchase.product.price * purchase.quantity
+          .clearfix
+      .checkout-delivery-charge
+        .checkout-delivery-charge-name.pull-left
+          Delivery charge
+        .checkout-delivery-charge-price.pull-right
+          = 40
+        .clearfix
+        %br
+  .checkout-total
+    .checkout-total-name.pull-left
+      total
+    .checkout-total.price-pull-right
+      = @total
+  .payment-url
+    = link_to 'Pay', @payment_url, class: 'checkout-pay-button btn btn-primary'

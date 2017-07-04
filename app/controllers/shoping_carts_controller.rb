@@ -4,8 +4,9 @@ class ShopingCartsController < ApplicationController
     @shoping_cart.update_attributes(user_id: current_user.id)
     @shoping_cart.purchases.each{|purchase| purchase.update_attributes(user_id: current_user.id)}
     @shoping_cart.set_price
+    @total = @shoping_cart.price
     payment_request = InstamojoHandler.client.payment_request({
-      amount: @shoping_cart.price,
+      amount: @total,
       purpose: 'Product payment',
       send_email: true,
       email: current_user.email,
@@ -14,7 +15,8 @@ class ShopingCartsController < ApplicationController
     payment_request.reload!
     @shoping_cart.update_attributes(im_payment_request_id: payment_request.original["id"])
 
-    redirect_to payment_request.original["longurl"]
+    @payment_url = payment_request.original["longurl"]
+    render 'checkout'
   end
 
 

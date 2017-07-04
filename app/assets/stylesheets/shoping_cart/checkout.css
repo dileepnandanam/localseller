@@ -1,0 +1,14 @@
+.checkout-container {
+	margin: auto;
+}
+.payment-url {
+	width:50%;
+	margin:auto;
+}
+.checkout-pay-button {
+	width: 100%;
+}
+.checkout-header {
+	text-align: center;
+	margin-top: 20px;
+}
