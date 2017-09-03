@@ -20,7 +20,8 @@ class SellerProductForm extends React.Component {
 				name: this.refs.name.value,
 				price: this.refs.price.value,
 				unit: this.refs.unit.value,
-				description: this.refs.description.value
+				description: this.refs.description.value,
+				deliverable: this.refs.deliverable.checked
 			}
 		}
 		that=this
@@ -72,6 +73,12 @@ class SellerProductForm extends React.Component {
 	        	<input className='form-control' ref='unit' defaultValue={field.unit}/>
 	        	{this.state.error_messages.unit}
 	        	
+	        </div>
+
+	        <div className='form-group'>
+	            <label>Can deliver to the buyer
+	        	    <input type="checkbox" className='form-control' ref='deliverable' defaultChecked={field.deliverable}/>
+	        	</label>
 	        </div>
 
 	        <input type='submit' className='btn btn-primary seller-product-submit ' value='submit' onClick={this.submitForm} />

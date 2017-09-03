@@ -16,6 +16,10 @@ class PurchasePriceCalculator
   end
 
   def delivery_charge(shop, purchase, purchases)
-    40/purchases.count
+    if purchase.product.deliverable
+      40/purchases.count
+    else
+      0
+    end
   end
 end

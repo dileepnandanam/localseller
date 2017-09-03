@@ -70,7 +70,8 @@ class SellerProduct extends React.Component {
 			name: product.name,
 			price: product.price,
 			unit: product.unit,
-			description: product.description
+			description: product.description,
+			deliverable: product.deliverable
 		}
 		image_form = <div className="image-upload"><input ref='file' type='file' onChange={this.imageUpload}/>
 		             <input type="button" value="chose image" onClick={this.clickImageUpload}/>

@@ -1,9 +1,10 @@
 class ProductQueryHandler
   NEAREST_DISTANCE = 10000
 
-  def initialize(query_params, scop=nil)
+  def initialize(query_params, current_user, scop=nil )
   	@params = query_params
     @scop = scop
+    @current_user = current_user
   end
 
   def result
@@ -15,6 +16,13 @@ class ProductQueryHandler
   	else
   	  collection = Product.order('created_at desc')
   	end
+
+    if @current_user && @current_user.shop.present?
+      collection = collection.where(deliverable: false)
+    else
+      collection = collection.where(deliverable: true)
+    end
+
 
     if @params[:with_location] == "true" && @params[:location][:lat] && @params[:location][:lng]
       nearest_shops = Shop.within_radius(NEAREST_DISTANCE, @params[:location][:lat], @params[:location][:lng])

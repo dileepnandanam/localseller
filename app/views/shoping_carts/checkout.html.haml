@@ -11,12 +11,13 @@
           .checkout-product-price.pull-right  
             = purchase.product.price * purchase.quantity
           .clearfix
-      .checkout-delivery-charge
-        .checkout-delivery-charge-name.pull-left
-          Delivery charge
-        .checkout-delivery-charge-price.pull-right
-          = 40
-        .clearfix
+        - if purchase.product.deliverable 
+          .checkout-delivery-charge
+            .checkout-delivery-charge-name.pull-left
+              Delivery charge
+            .checkout-delivery-charge-price.pull-right
+              = 40
+            .clearfix
         %br
   .checkout-total
     .checkout-total-name.pull-left

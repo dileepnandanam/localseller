@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
 	def index
-    render json: product_list_json(ProductQueryHandler.new(params).result)
+    render json: product_list_json(ProductQueryHandler.new(params, current_user).result)
 	end
 
   def for_shop
     @shop = Shop.where(permalink: params[:permalink]).first
-    render json: product_list_json(ProductQueryHandler.new(params, shop_id: @shop.id ).result)
+    render json: product_list_json(ProductQueryHandler.new(params, current_user, {shop_id: @shop.id}).result)
   end
 
   protected
