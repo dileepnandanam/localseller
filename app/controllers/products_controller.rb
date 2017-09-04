@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     render json: product_list_json(ProductQueryHandler.new(params, current_user, {shop_id: @shop.id}).result)
   end
 
+  def wholesale
+    render json: product_list_json(ProductQueryHandler.new(params, current_user, {deliverable: false}).result)
+  end
+
   protected
   def product_list_json(products)
     products.map {|product|

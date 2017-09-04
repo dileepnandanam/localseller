@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :products do
     get :search, on: :collection
     get :for_shop, on: :collection
+    get :wholesale, on: :collection
   end
 
   resources :shops do
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
   end
   resource :shopper do
     get :shopping_list, on: :member
+    get :wholesale, on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -18,8 +18,8 @@ class ProductQueryHandler
   	end
 
     if @current_user && @current_user.shop.present?
-      collection = collection.where(deliverable: false)
-    else
+      collection = collection
+    elsif @scop && !@scop[:deliverable] 
       collection = collection.where(deliverable: true)
     end
 
