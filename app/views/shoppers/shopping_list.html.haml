@@ -14,6 +14,8 @@
         shipped
       %th
         Contact number
+      %th
+        Address
         
       - cart.purchases.each  do |purchase|
         %tr
@@ -22,4 +24,5 @@
           %td=link_to purchase.shop.name, shop_path(purchase.shop)
           %td=purchase.shiped ? 'Shipped' : 'pending'
           %td=purchase.shop.phone_number
+          %td=raw purchase.shop.address.gsub(/\n/, '<br />')
   %br

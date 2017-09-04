@@ -6,6 +6,7 @@ class Shop < ActiveRecord::Base
   validates_attachment_content_type :banner, content_type: /\Aimage\/.*\z/
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
+  validates :address, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :phone_number, presence: true, numericality: { only_integer: true }
   validates :pincode, presence: true, numericality: { only_integer: true }
