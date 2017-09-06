@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         put :shipped, on: :member 
       end
     end
+    resources :wholesale
   end
 
   resources :products do
