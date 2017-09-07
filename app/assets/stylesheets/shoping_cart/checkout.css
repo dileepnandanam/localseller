@@ -12,3 +12,14 @@
 	text-align: center;
 	margin-top: 20px;
 }
+.checkout-shop {
+	border: 1px solid;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+}
+.checkout-total {
+	border-bottom: 1px solid;
+    margin-bottom: 12px;
+    padding: 12px;
+}
