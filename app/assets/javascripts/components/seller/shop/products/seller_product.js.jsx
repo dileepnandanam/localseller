@@ -71,14 +71,15 @@ class SellerProduct extends React.Component {
 			price: product.price,
 			unit: product.unit,
 			description: product.description,
-			deliverable: product.deliverable
+			deliverable: product.deliverable,
+			quantity: product.quantity
 		}
 		image_form = <div className="image-upload"><input ref='file' type='file' onChange={this.imageUpload}/>
 		             <input type="button" value="chose image" onClick={this.clickImageUpload}/>
                      </div>   
 		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		return(
-		  <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-3 col-lg-2">
+		  <div className="seller-product-container pull-left col-xs-6 col-sm-6 col-md-6 col-lg-4">
 	        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
 	        {this.state.show_image_form ? image_form : ''}
 	        <div className="seller-product-image" style={{backgroundImage: 'url('+ this.state.image_url +')'}} />

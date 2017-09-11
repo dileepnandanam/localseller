@@ -60,7 +60,8 @@ class Seller::ProductsController < Seller::ShopsController
       image_uploaded: product.image.present?,
       image_upload_url:  image_upload_seller_shop_product_path(product),
       delete_url:  seller_shop_product_path(product),
-      deliverable: product.deliverable
+      deliverable: product.deliverable,
+      quantity: product.quantity
     }  
   end
   def product_image_params
@@ -70,6 +71,6 @@ class Seller::ProductsController < Seller::ShopsController
     @product = @shop.products.find(params[:id])
   end
   def product_params
-    params.require(:product).permit(:name, :description, :price, :unit, :deliverable)
+    params.require(:product).permit(:name, :description, :price, :unit, :deliverable, :quantity)
   end
 end

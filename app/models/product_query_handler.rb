@@ -8,13 +8,11 @@ class ProductQueryHandler
   end
 
   def result
-
+    collection = Product.order('created_at desc').where('quantity > 0 OR quantity ISNULL')
   	if @params[:search].present?
   	  search_terms = @params[:search].downcase.split(' ')
   	  conditions = search_terms.map{|term|  "searchable LIKE '%#{term}%'"}.join(' AND ')
-  	  collection = Product.where(conditions)
-  	else
-  	  collection = Product.order('created_at desc')
+  	  collection = collection.where(conditions)
   	end
 
     if @current_user && @current_user.shop.present?

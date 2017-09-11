@@ -66,6 +66,9 @@ class ShopingCartsController < ApplicationController
       @shoping_cart.update_attributes(im_payment_id: params[:payment_id])
       @shoping_cart.purchases.each do |purchase|
         purchase.update_attributes(payed: true)
+        if purchase.product.quantity
+          purchase.product.decrement!(:quantity, by = purchase.quantity)
+        end
       end
       @shoping_cart.update_attributes(checked_out: true)
     end

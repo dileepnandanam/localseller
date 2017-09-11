@@ -25,7 +25,8 @@ class ProductsController < ApplicationController
         shop_url: shop_path(product.shop),
         shop_name: product.shop.name,
         shop_id: product.shop.id,
-        unit: product.unit
+        unit: product.unit,
+        quantity: product.quantity
       }
     }.to_json
   end

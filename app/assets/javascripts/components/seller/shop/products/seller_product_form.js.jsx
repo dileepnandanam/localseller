@@ -21,7 +21,8 @@ class SellerProductForm extends React.Component {
 				price: this.refs.price.value,
 				unit: this.refs.unit.value,
 				description: this.refs.description.value,
-				deliverable: this.refs.deliverable.checked
+				deliverable: this.refs.deliverable.checked,
+				quantity: this.refs.quantity.value
 			}
 		}
 		that=this
@@ -72,6 +73,12 @@ class SellerProductForm extends React.Component {
 	            <label>How the quantity of product specified, eg: Kg, Litter</label>
 	        	<input className='form-control' ref='unit' defaultValue={field.unit}/>
 	        	{this.state.error_messages.unit}
+	        	
+	        </div>
+
+	        <div className='form-group'>
+	            <label>how many items left</label>
+	        	<input className='form-control' ref='quantity' defaultValue={field.quantity}/>
 	        	
 	        </div>
 

@@ -17,7 +17,7 @@
 
       - if current_user.shop.present?
         .nav-item.pull-right
-          = link_to "Shop", seller_shop_path(current_user.shop)    
+          = link_to "Dashboard", seller_shop_path(current_user.shop)    
       
       -if current_user.admin?
         .nav-item.pull-right
