@@ -8,7 +8,7 @@ class AddToCartForm extends React.Component {
 	}
 
 	add_to_cart(){
-		if(this.refs.quantity.value > this.props.quantity) {
+		if(this.props.quantity && this.refs.quantity.value > this.props.quantity) {
 			this.setState({show_max_limit_msg: true})
 		}
 		else if(this.refs.quantity.value )
