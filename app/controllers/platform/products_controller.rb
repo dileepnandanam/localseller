@@ -59,7 +59,9 @@ class Platform::ProductsController < Platform::ShopsController
       update_url: platform_shop_product_path(@shop, product),
       image_uploaded: product.image.present?,
       image_upload_url:  image_upload_platform_shop_product_path(@shop, product),
-      delete_url:  platform_shop_product_path(product.shop, product)
+      delete_url:  platform_shop_product_path(product.shop, product),
+      deliverable: product.deliverable,
+      quantity: product.quantity
     }  
   end
   def product_image_params
