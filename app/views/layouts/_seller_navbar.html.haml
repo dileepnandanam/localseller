@@ -4,8 +4,7 @@
       = link_to (current_user.name ),  edit_user_registration_path
     .nav-item.pull-right
       = link_to "logout", destroy_user_session_path, method: :delete
-    .nav-item.pull-left
-      = link_to 'wholesale', seller_wholesale_index_path
+    
   - if current_user.shop.present?  
     .nav-item.pull-left
       = link_to "Dashboard", seller_shop_path
@@ -17,6 +16,7 @@
       = link_to "Purchases", seller_shop_purchases_path
     .nav-item.pull-left
       = link_to "Shop", shop_path(@shop)
-
+    .nav-item.pull-left
+      = link_to 'wholesale', seller_wholesale_index_path
   
   .clearfix

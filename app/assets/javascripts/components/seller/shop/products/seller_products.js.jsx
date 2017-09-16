@@ -60,7 +60,7 @@ class SellerProducts extends React.Component {
 			price: "",
 			unit: ""
 		}
-		form = <div className="seller-product-container pull-left col-xs-6 col-sm-4 col-md-4 col-lg-2">
+		form = <div className="seller-product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
 		           <SellerProductForm form_values={form_values} submit_url={this.props.create_product_url} method={'POST'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		       </div>
 		return(
