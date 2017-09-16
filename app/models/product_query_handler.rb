@@ -15,13 +15,6 @@ class ProductQueryHandler
   	  collection = collection.where(conditions)
   	end
 
-    if @current_user && @current_user.shop.present?
-      collection = collection
-    elsif @scop && !@scop[:deliverable] 
-      collection = collection.where(deliverable: true)
-    end
-
-
     if @params[:with_location] == "true" && @params[:location][:lat] && @params[:location][:lng]
       nearest_shops = Shop.within_radius(NEAREST_DISTANCE, @params[:location][:lat], @params[:location][:lng])
       collection = collection.where(shop_id: nearest_shops.map(&:id))

@@ -74,6 +74,6 @@ class Platform::ProductsController < Platform::ShopsController
   	@shop = Shop.find_by_permalink(params[:shop_id])
   end
   def product_params
-    params.require(:product).permit(:name, :description, :price, :image, :unit)
+    params.require(:product).permit(:name, :description, :price, :image, :unit, :deliverable, :quantity)
   end
 end
