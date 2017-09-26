@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def for_shop
     @shop = Shop.where(permalink: params[:permalink]).first
-    render json: product_list_json(ProductQueryHandler.new(params, current_user, {shop_id: @shop.id}).result)
+    render json: product_list_json(ProductQueryHandler.new(params, current_user, {shop_id: @shop.id, deliverable: true}).result)
   end
 
   def wholesale
