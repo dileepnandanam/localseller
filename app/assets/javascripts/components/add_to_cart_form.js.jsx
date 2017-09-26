@@ -15,7 +15,7 @@ class AddToCartForm extends React.Component {
 		    this.props.buyHandler(this.refs.quantity.value)
 	}
 	render() {
-		max_limit_msg = 'only' + ' ' + this.props.quantity + ' ' + 'left'
+		max_limit_msg = 'only' + ' ' + this.props.quantity + ' ' + this.props.unit + ' ' + 'left'
 		return(
 			
 			<div className="product-detail">

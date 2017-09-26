@@ -83,8 +83,9 @@ class SellerProductForm extends React.Component {
 	        </div>
 
 	        <div className='form-group'>
-	            <label>Can deliver to the buyer
-	        	    <input type="checkbox" className='form-control' ref='deliverable' defaultChecked={field.deliverable}/>
+	            <input type="checkbox" className='form-control deliverable' ref='deliverable' defaultChecked={field.deliverable}/>
+	            <label className="deliverable-label">Can deliver to the buyer
+	        	    
 	        	</label>
 	        </div>
 
