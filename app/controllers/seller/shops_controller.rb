@@ -1,5 +1,6 @@
 class Seller::ShopsController < SellerController
   before_action :set_shop, only: [:edit, :update, :show]
+  before_action :set_current_shop, only: [:inventory, :past_purchases, :open_bids]
 
   def new
     @shop = Shop.new
@@ -17,6 +18,20 @@ class Seller::ShopsController < SellerController
     @credit = BillValueCalculator.calculate(@new_purchases, true).round(2)
     @undelivered_products = @shop.purchases.where(payed: true, shiped: false).count
     @comments = @shop.comments.order('created_at DESC').limit(10)
+  end
+
+  def inventory
+    @products = @shop.products.order('created_at DESC').map{ |product|
+        product_attributes(product)
+    }
+  end
+
+  def open_bids
+
+  end
+
+  def past_purchases
+
   end
 
   def edit
@@ -49,6 +64,10 @@ class Seller::ShopsController < SellerController
   protected
   def set_shop
     @shop = current_user.shops.find_by_permalink(params[:id])
+  end
+
+  def set_current_shop
+    @shop = current_user.shops.find_by_permalink(params[:shop_id])
   end
 
   layout 'shop'

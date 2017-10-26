@@ -49,23 +49,7 @@ class Seller::ProductsController < Seller::ShopsController
   def set_shop
     @shop = current_user.shops.find_by_permalink(params[:shop_id])
   end
-  def product_attributes(product)
-    {
-      name: product.name,
-      price: product.price,
-      description: product.description,
-      shop_id: product.shop_id,
-      image_filename: product.image.original_filename,
-      image_url: product.image.url(:medium),
-      unit: product.unit,
-      id: product.id,
-      update_url: seller_shop_product_path(@shop, product),
-      image_uploaded: product.image.present?,
-      image_upload_url:  image_upload_seller_shop_product_path(@shop, product),
-      delete_url:  seller_shop_product_path(@shop, product),
-      deliverable: product.deliverable,
-      quantity: product.quantity
-    }  
+    
   end
   def product_image_params
     params.permit(:image)

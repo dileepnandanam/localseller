@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   namespace :social_auth do
      resources :users 
   end
+  match "market" => "markets#marketplace", via: [:get]
   match "shops/:permalink" => "shops#show", via: [:get]
   namespace :seller do
     resources :shops do
+      get :inventory
+      get :open_bids
+      get :past_purchases
       resource :comments do
         get :search, on: :collection
       end
