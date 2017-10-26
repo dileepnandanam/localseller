@@ -17,6 +17,10 @@ class Seller::PurchasesController < Seller::ShopsController
 	end
 
 	protected
+
+	def set_shop
+		@shop = current_user.shops.find_by_permalink(params[:shop_id])
+	end
 	def filter_params
 		params.permit(:filter)
 	end

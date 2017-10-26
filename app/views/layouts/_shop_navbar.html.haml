@@ -1,0 +1,10 @@
+.navigation
+  .nav-item.pull-left
+    = link_to "Shop Settings", edit_seller_shop_path(@shop)
+  .nav-item.pull-left
+    = link_to "Manage Products", seller_shop_products_path(@shop)
+  .nav-item.pull-left
+    = link_to "Purchases", seller_shop_purchases_path(@shop)
+  .nav-item.pull-left
+    = link_to "Shop", shop_path(@shop)
+  .clearfix

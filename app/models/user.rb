@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable
   has_one :auth_hash
-  has_one :shop
+  has_many :shops
   has_many :shoping_carts
   accepts_nested_attributes_for :auth_hash
 

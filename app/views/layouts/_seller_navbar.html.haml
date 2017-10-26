@@ -5,17 +5,9 @@
     .nav-item.pull-right
       = link_to "logout", destroy_user_session_path, method: :delete
     
-  - if current_user.shop.present?  
+  - if current_user.shops.present?  
     .nav-item.pull-left
-      = link_to "Dashboard", seller_shop_path
-    .nav-item.pull-left
-      = link_to "Shop Settings", edit_seller_shop_path
-    .nav-item.pull-left
-      = link_to "Manage Products", seller_shop_products_path
-    .nav-item.pull-left
-      = link_to "Purchases", seller_shop_purchases_path
-    .nav-item.pull-left
-      = link_to "Shop", shop_path(@shop)
+      = link_to "Dashboard", seller_shops_path
     .nav-item.pull-left
       = link_to 'wholesale', seller_wholesale_index_path
     .nav-item.pull-right  

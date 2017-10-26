@@ -15,9 +15,9 @@
       .nav-item.pull-right  
         =  link_to "shoping list", shopping_list_shopper_path 
 
-      - if current_user.shop.present?
+      - if current_user.shops.present?
         .nav-item.pull-right
-          = link_to "Dashboard", seller_shop_path(current_user.shop)    
+          = link_to "Dashboard", seller_shops_path    
       
       -if current_user.admin?
         .nav-item.pull-right

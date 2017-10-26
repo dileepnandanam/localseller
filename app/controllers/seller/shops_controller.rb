@@ -2,9 +2,12 @@ class Seller::ShopsController < SellerController
   before_action :set_shop, only: [:edit, :update, :show]
 
   def new
-    redirect_to seller_shop_path if current_user.shop.present?
     @shop = Shop.new
     @shop.user_id = current_user.id
+  end
+
+  def index
+    @shops = current_user.shops
   end
 
   def show
@@ -24,7 +27,7 @@ class Seller::ShopsController < SellerController
   	@shop = Shop.new(shop_params)
   	@shop.user_id = current_user.id
   	if @shop.save
-  	  redirect_to seller_shop_path
+  	  redirect_to seller_shops_path
   	else
   	  render 'new'
   	end
@@ -45,8 +48,10 @@ class Seller::ShopsController < SellerController
   end
   protected
   def set_shop
-    @shop = current_user.shop
+    @shop = current_user.shops.find_by_permalink(params[:id])
   end
+
+  layout 'shop'
   private
 
   def shop_params
