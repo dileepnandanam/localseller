@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users ,controllers: {registrations: "registrations", sessions: "sessions"}
-  root to: 'public#index'
+  root to: 'markets#marketplace'
 
   get 'welcome', to: 'public#welcome'
   match "/auth/:provider/callback" => "auth_callback#callback", :via => [:get, :post]

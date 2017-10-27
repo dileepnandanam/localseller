@@ -1,0 +1,14 @@
+.shop-tile {
+	width: 50%;
+	padding: 10px;
+	margin: 10px;
+}
+.shop-banner {
+	width: 100%;
+}
+.shop-banner img {
+	width: 100%;
+}
+.shop-details {
+	text-align: center;
+}

@@ -1,2 +1,8 @@
 - @shops.each do |shop|
-  = link_to shop.name, seller_shop_inventory_path(shop)
+  .shop-tile
+    = link_to seller_shop_inventory_path(shop) do
+      .shop-banner
+        = image_tag shop.banner.url(:medium)
+      .shop-details
+        = raw(shop.address.gsub("\n", '<br />'))
+    

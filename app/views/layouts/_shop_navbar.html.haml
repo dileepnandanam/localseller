@@ -1,6 +1,15 @@
 .navigation
   .nav-item.pull-left
     = link_to 'Market', market_path
-  .nav-item.pull-left
-    = link_to 'Profile', seller_shops_path
+  - if current_user
+    .nav-item.pull-left
+      = link_to 'Profile', seller_shops_path
+    .nav-item.pull-right
+      = link_to 'sign out', destroy_user_session_path, method: :delete
+  - else
+    .nav-item.pull-right
+      = link_to 'Sign in', new_user_session_path
+    .nav-item.pull-right
+      = link_to 'Sign up', new_user_registration_path
+
   .clearfix
