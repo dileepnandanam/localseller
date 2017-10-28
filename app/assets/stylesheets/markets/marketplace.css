@@ -1,0 +1,25 @@
+.market-left {
+	width: 40%;
+}
+.market-right {
+	width: 60%;
+}
+
+.market-left .search {
+	display: block;
+	margin:30px;
+}
+.search input {
+	border: none;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+	width:80%;
+}
+.search button {
+	border: 1px solid black;
+	background: transparent;
+	border-radius: 4px;
+}
+.search button:hover {
+	cursor: pointer;
+}

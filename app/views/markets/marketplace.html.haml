@@ -1,1 +1,19 @@
-marketplace
+.market-left.pull-left
+  .search
+    = form_tag search_path, method: :get do
+      = label_tag "Search for"
+      .clearfix
+      = text_field_tag :term
+      .clearfix
+      = label_tag "Quantity needed"
+      .clearfix
+      = number_field_tag :quantity
+      .clearfix
+      = label_tag "Near"
+      .clearfix
+      = text_field_tag :place
+      .clearfix
+      = button_tag type: :submit do
+        = "search"
+        %i.fa.fa-search
+.market-right.pull-left

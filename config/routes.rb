@@ -9,6 +9,7 @@ Rails.application.routes.draw do
      resources :users 
   end
   match "market" => "markets#marketplace", via: [:get]
+  match "search" => "markets#search", via: [:get]
   match "shops/:permalink" => "shops#show", via: [:get]
   namespace :seller do
     resources :shops do
