@@ -1,3 +1,4 @@
+
 .market-left.pull-left
   .search
     = form_tag search_path, method: :get do
@@ -13,7 +14,8 @@
       .clearfix
       = text_field_tag :place
       .clearfix
-      = button_tag type: :submit do
+      = hidden_field_tag :geolocation
+      = button_tag type: :submit, class: 'search_button' do
         = "search"
         %i.fa.fa-search
 .market-right.pull-left
