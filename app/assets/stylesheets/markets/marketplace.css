@@ -3,6 +3,7 @@
 }
 .market-right {
 	width: 60%;
+	background-color: MistyRose;
 }
 
 .market-left .search {
@@ -19,7 +20,34 @@
 	border: 1px solid black;
 	background: transparent;
 	border-radius: 4px;
+	padding: 5px 10px;
 }
 .search button:hover {
 	cursor: pointer;
+}
+
+.results-headder {
+	border: 1px solid MistyRose;
+	width:100%;
+	box-sizing: border-box;
+	background-color: white;
+}
+.results-headder-item {
+	width: 25%;
+	height: 100px;
+	padding-top: 60px;
+	text-align: center;
+}
+.result-item {
+	background-color: white;
+	margin:10px;
+	width: 97%;
+	box-sizing: border-box;
+	box-shadow: 5px 5px 5px grey;
+}
+.result-item-value {
+	width: 25%;
+	padding: 12px;
+	height: auto;
+	text-align: center;
 }
