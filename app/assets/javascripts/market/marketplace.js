@@ -49,14 +49,20 @@ $(document).on('turbolinks:load', function(){
             	center: {lat: product.lat, lng: product.lng},
             	radius: 10000
         	});
-
+			current_product = $(item).children().last()
         	marker.addListener('mouseover', function(){
-        		$(item).children().last().addClass('current')
+        		current_product.addClass('current')
         	})
         	marker.addListener('mouseout', function(){
-        		$(item).children().last().removeClass('current')
+        		current_product.removeClass('current')
         	})
-
+        	$(current_product).mouseenter(function(){
+        		marker.setRadius(20000)
+        		map.setCenter({lat: product.lat, lng: product.lng})
+        	})
+        	$(current_product).mouseout(function(){
+        		marker.setRadius(10000)
+        	})
 			
 
 
