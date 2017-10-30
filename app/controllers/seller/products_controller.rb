@@ -49,8 +49,6 @@ class Seller::ProductsController < Seller::ShopsController
   def set_shop
     @shop = current_user.shops.find_by_permalink(params[:shop_id])
   end
-    
-  end
   def product_image_params
     params.permit(:image)
   end
