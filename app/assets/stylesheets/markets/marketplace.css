@@ -3,7 +3,7 @@
 }
 .market-right {
 	width: 60%;
-	background-color: MistyRose;
+	
 }
 
 .market-left .search {
@@ -27,10 +27,11 @@
 }
 
 .results-headder {
-	border: 1px solid MistyRose;
+	border-bottom: 1px solid MistyRose;
+	border-left: 1px solid MistyRose;
 	width:100%;
 	box-sizing: border-box;
-	background-color: white;
+	background: transparent;
 }
 .results-headder-item {
 	width: 25%;
@@ -57,4 +58,9 @@
 }
 .current {
 	background-color: red;
+}
+.results-body {
+	background-color: MistyRose;
+	padding-bottom: 5px;
+	padding-top: 1px;
 }
