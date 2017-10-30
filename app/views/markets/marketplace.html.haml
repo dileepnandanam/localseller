@@ -18,6 +18,7 @@
       = button_tag type: :submit, class: 'search_button' do
         = "search"
         %i.fa.fa-search
+  #map
 .market-right.pull-left
   .results-headder
     .results-headder-item.pull-left
@@ -31,3 +32,5 @@
     .clearfix
   .results-body
 
+= content_for :head do
+  %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBV3E-iuGXAppEw25GHr2cFns3vDnuJFYw&libraries=places"}
