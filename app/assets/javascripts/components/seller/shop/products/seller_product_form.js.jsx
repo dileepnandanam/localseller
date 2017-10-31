@@ -34,8 +34,10 @@ class SellerProductForm extends React.Component {
 			success: function(data){				
 				if(that.props.method == 'PUT')
 					that.props.formSuccess(form_data.product)
-				else 
+				else {
 					that.props.formSuccess(data)
+					that.refs.name.value('')
+				}
 			},
 			error: function(data){
 				state = that.state

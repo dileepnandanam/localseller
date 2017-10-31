@@ -1,0 +1,17 @@
+.profile-sub-nav {
+	padding: 50px 10px 50px 10px;
+}
+.profile-sub-nav a {
+	padding: 30px 30px;
+}
+
+.inventory {
+	background-color: mistyrose;
+	padding-top: 10px;
+}
+.shop-attributes {
+	padding: 30px 30px 0px 30px;
+}
+.shop-attributes a {
+	margin-top: 20px;
+}

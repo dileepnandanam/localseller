@@ -1,2 +1,3 @@
 = render partial: 'profile_sub_nav'
-= react_component 'SellerProducts', {products: @products, create_product_url:  seller_shop_products_path }
+.inventory  
+  = react_component 'SellerProducts', {products: @products, create_product_url:  seller_shop_products_path }

@@ -50,7 +50,7 @@ class Seller::ShopsController < SellerController
 
   def update
     if @shop.update_attributes(shop_params)
-      redirect_to seller_shop_path
+      redirect_to seller_shop_inventory_path
     else 
       render 'edit'
     end

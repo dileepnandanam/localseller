@@ -60,15 +60,16 @@ class SellerProducts extends React.Component {
 			price: "",
 			unit: ""
 		}
-		form = <div className="seller-product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
-		           <SellerProductForm form_values={form_values} submit_url={this.props.create_product_url} method={'POST'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
-		       </div>
+		form = <div className="seller-product-wrapper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
+					 <div className="seller-product-container">
+					       <SellerProductForm form_values={form_values} submit_url={this.props.create_product_url} method={'POST'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
+					 </div>
+			    </div>
 		return(
 			<div className='seller-products'>
-				<input type='button' className="btn btn-primary add-product-btn" onClick={this.showForm} value="Add Product" />
-				<div className='clearfix' />
-			    {this.state.show_form ? form : ''}
+			    {form}
 			    {products}
+			    <div className='clearfix' />
 			    
 			</div>
 		)

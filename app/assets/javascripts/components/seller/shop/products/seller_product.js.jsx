@@ -79,29 +79,31 @@ class SellerProduct extends React.Component {
                      </div>   
 		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 		return(
-		  <div className="seller-product-container pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
-	        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
-	        {this.state.show_image_form ? image_form : ''}
-	        <div className="seller-product-image" style={{backgroundImage: 'url('+ this.state.image_url +')'}} />
-	        <div className="seller-product-details">
-	          <div className="seller-product-name">
-	            {this.state.name}
-	          </div>
-	          <div className="seller-product-price">
-	            Rs {this.state.price}
-	          </div>
-	        </div>
-	        <div className="seller-edit-product pull-left">
-	          <input type="button" onClick={this.showForm} value='edit'/>
-	        </div>
-	        <div className="seller-delete-product pull-left">
-	          <input type='button' onClick={this.deleteProduct} value='delete'/>
-	        </div>
-	        <div className="clearfix" />
-	        {this.state.show_form ? form : ''}
+			<div className="seller-product-wraper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
+			  <div className="seller-product-container">
+		        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
+		        {this.state.show_image_form ? image_form : ''}
+		        <div className="seller-product-image" style={{backgroundImage: 'url('+ this.state.image_url +')'}} />
+		        <div className="seller-product-details">
+		          <div className="seller-product-name">
+		            {this.state.name}
+		          </div>
+		          <div className="seller-product-price">
+		            Rs {this.state.price}
+		          </div>
+		        </div>
+		        <div className="seller-edit-product pull-left">
+		          <input type="button" onClick={this.showForm} value='edit'/>
+		        </div>
+		        <div className="seller-delete-product pull-left">
+		          <input type='button' onClick={this.deleteProduct} value='delete'/>
+		        </div>
+		        <div className="clearfix" />
+		        {this.state.show_form ? form : ''}
 
-	         
-	      </div>
+		         
+		      </div>
+		    </div>
 	        
 
 		)
