@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 function init_place_search() {
 	var input = document.getElementById('place')
 	var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
@@ -6,8 +7,7 @@ function init_place_search() {
 	})
 }
 //google.maps.event.addDomListener(window, 'load', init_place_search);
-$(document).on('turbolinks:load', function(){
-init_place_search()
+setTimeout(function(){init_place_search()}, 3000)
 })
 $(document).on('turbolinks:load', function(){
 	$('.search-form').on('ajax:success', function(e, data, status, xhr){
