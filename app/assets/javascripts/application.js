@@ -15,6 +15,7 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require tether
 //= require popper
 //= require bootstrap
 //= require_tree .

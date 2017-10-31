@@ -3,6 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Lototribe
+    - if time_for_fetch_location
+      = render partial: '/user_geolocation'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = yield :head
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

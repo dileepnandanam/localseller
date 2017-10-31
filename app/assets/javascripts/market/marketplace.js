@@ -18,6 +18,7 @@ $(document).on('turbolinks:load', function(){
     		center: map_center
   		});
 
+		current_product = []
 		$('.results-body > .result-item').remove()
 		$.each(data, function(index, product){
 			item = $('.results-body').append(
@@ -49,18 +50,19 @@ $(document).on('turbolinks:load', function(){
             	center: {lat: product.lat, lng: product.lng},
             	radius: 10000
         	});
-			current_product = $(item).children().last()
+
+			current_product[index] = $(item).children().last()
         	marker.addListener('mouseover', function(){
-        		current_product.addClass('current')
+        		current_product[index].addClass('current')
         	})
         	marker.addListener('mouseout', function(){
-        		current_product.removeClass('current')
+        		current_product[index].removeClass('current')
         	})
-        	$(current_product).mouseenter(function(){
+        	$(current_product[index]).mouseenter(function(){
         		marker.setRadius(20000)
         		map.setCenter({lat: product.lat, lng: product.lng})
         	})
-        	$(current_product).mouseout(function(){
+        	$(current_product[index]).mouseout(function(){
         		marker.setRadius(10000)
         	})
 			
