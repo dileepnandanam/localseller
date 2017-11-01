@@ -20,7 +20,7 @@
 	border: 1px solid black;
 	background: transparent;
 	border-radius: 4px;
-	padding: 5px 10px;
+	padding: 5px 20px;
 }
 .search button:hover {
 	cursor: pointer;
@@ -63,4 +63,7 @@
 	background-color: MistyRose;
 	padding-bottom: 5px;
 	padding-top: 1px;
+}
+.fa-search {
+	margin-left: 12px;
 }

@@ -14,9 +14,9 @@
       .clearfix
       = text_field_tag :place
       .clearfix
-      = hidden_field_tag :geolocation
+      = hidden_field_tag :geolocation, value: "(#{session[:lat]}, #{session[:lng]})"
       = button_tag type: :submit, class: 'search_button' do
-        = "search"
+        = "Search"
         %i.fa.fa-search
   #map
 .market-right.pull-left

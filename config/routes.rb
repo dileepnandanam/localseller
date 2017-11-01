@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   match "market" => "markets#marketplace", via: [:get]
   match "search" => "markets#search", via: [:get]
+  match "initial_results" => "markets#initial_results", via: [:get]
   match "shops/:permalink" => "shops#show", via: [:get]
   namespace :seller do
     resources :shops do

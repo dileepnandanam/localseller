@@ -3,6 +3,8 @@
   %br
   = @shop.address.gsub('\n', '<br />')
   %br
+  = @shop.phone_number
+  %br
   = link_to "edit", edit_seller_shop_path(@shop)
 .profile-sub-nav
   = link_to "Inventory", seller_shop_inventory_path(@shop), class: action_name == 'inventory' ? "current-profile-item" : ''

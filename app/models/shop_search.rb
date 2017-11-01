@@ -2,17 +2,19 @@ class ShopSearch
   def initialize(lat, lng, term, quantity)
   	@lat = lat
   	@lng = lng
-  	@quantity = quantity
-
-  	search_terms = term.downcase.split(' ')
-  	@search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
+  	@quantity = quantity || 1
+    @term = term
+    if term.present?
+  	  search_terms = term.downcase.split(' ')
+  	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
+    end
   end
 
   def results
-  	Product.unscoped.where("products.deleted = '0'")
+  	collection = Product.unscoped.where("products.deleted = '0'")
   	  .joins('inner join shops on products.shop_id = shops.id')
-  	  .where(@search_conditions)
-  	  .where("products.quantity >= #{@quantity}")
+  	collection = collection.where(@search_conditions) if @term.present?
+  	collection = collection.where("products.quantity >= #{@quantity}")
   	  .select(%{
   	  	products.id as id,
   	  	products.name AS name,

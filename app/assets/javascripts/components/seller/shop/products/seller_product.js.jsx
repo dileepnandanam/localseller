@@ -91,7 +91,7 @@ class SellerProduct extends React.Component {
 		            <div className="seller-product-price-label">
 		            	Available
 		            </div>
-		            {this.state.quantity} Kg @ Rs {this.state.price}/Kg
+		            {this.state.quantity} {this.state.unit} @ Rs {this.state.price}/{this.state.unit}
 		          </div>
 		          <div className="seller-product-total">
 		            <div className="seller-product-total-label">
