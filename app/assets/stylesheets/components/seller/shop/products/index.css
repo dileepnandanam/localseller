@@ -1,6 +1,24 @@
 .seller-product-wraper {
   padding: 10px;
-  box-sizing: border-box;
+}
+
+.add-product {
+  width:102px;
+  text-align: center;
+  margin: auto;
+  margin-top: 66px;
+}
+.add-product-ico {
+  margin:auto;
+  font-size: 44px !important;
+}
+.show-form:hover {
+  cursor: pointer;
+}
+.form-control {
+  border: none !important;
+  border-bottom: 1px solid !important;
+  border-radius: 0px !important;
 }
 .seller-product-container {
   width: 100%;
@@ -27,6 +45,7 @@
 }
 .seller-product-details {
   width: 100%;
+  margin: 10px;
 }
 .seller-product-image {
   width: 100%;
@@ -37,11 +56,12 @@
 .seller-product-name {
   height: 40px;
   line-height: 40px;
-  text-align: center;
+  font-size: 24px;
 }
 .seller-product-price {
   height: 30px;
-  text-align: center;
+  font-size: 24px;
+  marhin-top: 20px;
 }
 .seller-edit-product {
   width: 50%;
@@ -56,14 +76,30 @@
 .add-product-btn {
   margin: 20px !important;
 }
-.seller-product-submit{
-  margin-bottom: 10px !important;
-  margin-right:10px;
-}
-.add-product {
-  height: 432px;
-  cursor: pointer;
-}
 .fa-camera-retro:hover {
   cursor: pointer;
+}
+.seller-product-price-label {
+  font-size: 16px;
+  margin-top: 20px;
+}
+.seller-product-total {
+  margin-top: 38px;
+  font-size: 20px;
+}
+.seller-product-total-label {
+  font-size: 16px;
+}
+.seller-edit-product, .seller-delete-product {
+  color: green;
+
+}
+.seller-edit-product:hover {
+  cursor: pointer;
+}
+.seller-delete-product {
+  cursor: pointer;
+}
+.show-form > .seller-product-container {
+  height: 266px;
 }

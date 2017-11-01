@@ -19,9 +19,6 @@ class SellerProductForm extends React.Component {
 			product:{
 				name: this.refs.name.value,
 				price: this.refs.price.value,
-				unit: this.refs.unit.value,
-				description: this.refs.description.value,
-				deliverable: this.refs.deliverable.checked,
 				quantity: this.refs.quantity.value
 			}
 		}
@@ -50,49 +47,42 @@ class SellerProductForm extends React.Component {
 	render(){
 		field = this.props.form_values
 		return(
-		  <div ref='form'>
+		  <div ref='form' className="seller-product-form">
 	        <div className='form-group'>
 	            <label>Name</label>
 	        	<input className='form-control' ref='name' defaultValue={field.name}/>
 	        	{this.state.error_messages.name}
 	        	
 	        </div>
+	        
 	        <div className='form-group'>
-	            <label>description</label>
-	        	<textarea className='form-control' ref='description' defaultValue={field.description}/>
-	        	{this.state.error_messages.description}
-	        	
-	        </div>
-
-	        <div className='form-group'>
-	            <label>price</label>
-	        	<input className='form-control' ref='price' defaultValue={field.price}/>
-	        	{this.state.error_messages.price}
-	        	
-	        </div>
-
-	        <div className='form-group'>
-	            <label>How the quantity of product specified, eg: Kg, Litter</label>
-	        	<input className='form-control' ref='unit' defaultValue={field.unit}/>
-	        	{this.state.error_messages.unit}
-	        	
-	        </div>
-
-	        <div className='form-group'>
-	            <label>how many items left</label>
+	            <label>Available Quantity</label>
 	        	<input className='form-control' ref='quantity' defaultValue={field.quantity}/>
 	        	
 	        </div>
 
 	        <div className='form-group'>
-	            <input type="checkbox" className='form-control deliverable' ref='deliverable' defaultChecked={field.deliverable}/>
-	            <label className="deliverable-label">Can deliver to the buyer
-	        	    
-	        	</label>
+	            <label>Rate Per Kg</label>
+	        	<input className='form-control' ref='price' defaultValue={field.price}/>
+	        	{this.state.error_messages.price}
+	        	
 	        </div>
 
-	        <input type='submit' className='btn btn-primary seller-product-submit ' value='submit' onClick={this.submitForm} />
-		    <input type='button' className='btn btn-primary seller-product-submit' value="cancel"  onClick={this.props.hideForm} />
+	        
+
+	        
+
+	        
+	        <div className="seller-product-submit" >
+		        <a onClick={this.submitForm}>
+		        	Submit
+		        </a>
+	        </div>
+	        <div className='seller-product-submit' >
+			    <a  onClick={this.props.hideForm}>
+			    	Cancel
+			    </a>
+		    </div>
 		  </div>
 		)
 	}

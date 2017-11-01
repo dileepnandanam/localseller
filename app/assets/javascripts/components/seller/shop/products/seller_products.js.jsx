@@ -9,7 +9,9 @@ class SellerProducts extends React.Component {
 		this.showForm = this.showForm.bind(this)
 	}
 	deleteProduct(id, delete_url){
+		confirm = confirm("Are you sure you want to delete?");
 		that=this
+		if(confirm)
 		$.ajax({
 			data: id,
 			url: delete_url,
@@ -60,14 +62,25 @@ class SellerProducts extends React.Component {
 			price: "",
 			unit: ""
 		}
-		form = <div className="seller-product-wrapper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
+		form = <div className="seller-product-wraper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
 					 <div className="seller-product-container">
 					       <SellerProductForm form_values={form_values} submit_url={this.props.create_product_url} method={'POST'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
 					 </div>
 			    </div>
+		add_product = <div onClick={this.showForm} className="seller-product-wraper show-form pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
+		                <div className="seller-product-container">
+		                	<div className="add-product">
+		                		Create listing
+		                		<br />
+		                		<div className="add-product-ico-container" style={{textAlign:"center"}}>
+		                			<i className="fa fa-plus-circle add-product-ico" align="center"/>
+		                		</div>
+		                	</div>
+		                </div>
+		              </div>
 		return(
 			<div className='seller-products'>
-			    {form}
+			    {this.state.show_form ? form : add_product}
 			    {products}
 			    <div className='clearfix' />
 			    

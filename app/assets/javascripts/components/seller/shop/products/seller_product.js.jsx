@@ -9,7 +9,8 @@ class SellerProduct extends React.Component {
 			image_url: product.image_url,
 			name: product.name,
 			price: product.price,
-			unit: product.unit
+			unit: product.unit,
+			quantity: product.quantity
 		}
 		this.hideForm = this.hideForm.bind(this)
 		this.showForm = this.showForm.bind(this)
@@ -77,32 +78,45 @@ class SellerProduct extends React.Component {
 		image_form = <div className="image-upload"><input ref='file' type='file' onChange={this.imageUpload}/>
 		             <input type="button" value="chose image" onClick={this.clickImageUpload}/>
                      </div>   
-		form = <SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
-		return(
-			<div className="seller-product-wraper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
-			  <div className="seller-product-container">
-		        <i className="fa fa-camera-retro" onClick={this.showImageForm}></i>
-		        {this.state.show_image_form ? image_form : ''}
-		        <div className="seller-product-image" style={{backgroundImage: 'url('+ this.state.image_url +')'}} />
+		form = <div className="seller-product-container">
+			    	<SellerProductForm form_values={form_values} submit_url={product.update_url} method={'PUT'} formSuccess={this.formSuccess} hideForm={this.hideForm}/>
+		       </div>
+		product_details = <div className="seller-product-container">
+		        
 		        <div className="seller-product-details">
 		          <div className="seller-product-name">
 		            {this.state.name}
 		          </div>
 		          <div className="seller-product-price">
-		            Rs {this.state.price}
+		            <div className="seller-product-price-label">
+		            	Available
+		            </div>
+		            {this.state.quantity} Kg @ Rs {this.state.price}/Kg
+		          </div>
+		          <div className="seller-product-total">
+		            <div className="seller-product-total-label">
+		            	total
+		            </div>
+		            {this.state.quantity * this.state.price}
 		          </div>
 		        </div>
 		        <div className="seller-edit-product pull-left">
-		          <input type="button" onClick={this.showForm} value='edit'/>
+		          <a onClick={this.showForm}>
+		          	Edit
+		          </a>
 		        </div>
 		        <div className="seller-delete-product pull-left">
-		          <input type='button' onClick={this.deleteProduct} value='delete'/>
+		          <a onClick={this.deleteProduct} >
+		          	delete
+		          </a>
 		        </div>
 		        <div className="clearfix" />
-		        {this.state.show_form ? form : ''}
-
-		         
-		      </div>
+		       </div>
+		return(
+			<div className="seller-product-wraper pull-left col-xs-12 col-sm-12 col-md-6 col-lg-3">
+			  
+		        {this.state.show_form ? form : product_details}
+		      
 		    </div>
 	        
 

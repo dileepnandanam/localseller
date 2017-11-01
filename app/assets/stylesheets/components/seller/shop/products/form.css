@@ -1,3 +1,15 @@
-.deliverable {
-	width: 14px !important;
+.seller-product-submit {
+	color: green !important;
+}
+.seller-product-submit a:hover {
+	cursor: pointer !important;
+}
+.seller-product-form {
+	background-color: white;
+	padding:18px;
+}
+.seller-product-submit {
+	text-align: center;
+	width: 50%;
+	float: left;
 }
