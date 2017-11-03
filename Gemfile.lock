@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/lautis/uglifier.git
+  revision: 9abd18da4f5eb2fb4b5aab8023f08470221743c1
+  ref: 9abd18da4f5eb2fb4b5aab8023f08470221743c1
+  specs:
+    uglifier (3.1.13)
+      execjs (>= 0.3.0, < 3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -313,6 +321,7 @@ DEPENDENCIES
   spring
   tether-rails
   turbolinks
+  uglifier!
   unicorn
   web-console (~> 2.0)
   will_paginate (~> 3.1.0)
