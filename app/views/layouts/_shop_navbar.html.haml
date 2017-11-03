@@ -6,8 +6,9 @@
       = link_to 'Profile', seller_shops_path
     .nav-item.pull-right.dropdown
       %span{data:{toggle: 'dropdown'}}
-        %a{href: "#"}= current_user.name
-        .fa.fa-angle-down 
+        =link_to "#" do 
+          = current_user.name
+          .fa.fa-angle-down 
       .dropdown-menu.pull-right
         .dropdown-item
           = link_to "Add new shop", new_seller_shop_path

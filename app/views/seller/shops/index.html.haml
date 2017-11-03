@@ -1,8 +1,12 @@
-- @shops.each do |shop|
-  .shop-tile
-    = link_to seller_shop_inventory_path(shop) do
-      .shop-banner
-        = image_tag shop.banner.url(:medium)
-      .shop-details
-        = raw(shop.address.gsub("\n", '<br />'))
-    
+%h3.shops-header="Shops"
+.shops-container  
+  - @shops.each do |shop|
+    .shop-tile.pull-left
+      = link_to seller_shop_inventory_path(shop) do
+        .shop-banner
+          = image_tag shop.banner.url(:medium)
+        %h4.shop-details
+          = shop.name
+        .shop-details
+          = raw(shop.address.gsub("\n", '<br />'))
+  .clearfix

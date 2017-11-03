@@ -1,7 +1,9 @@
 .shop-tile {
-	width: 50%;
+	width: 25%;
 	padding: 10px;
 	margin: 10px;
+	float: left;
+	background-color: white;
 }
 .shop-banner {
 	width: 100%;
@@ -11,4 +13,10 @@
 }
 .shop-details {
 	text-align: center;
+}
+.shops-header {
+	padding: 30px;
+}
+.shops-container {
+	background-color: mistyrose;
 }
