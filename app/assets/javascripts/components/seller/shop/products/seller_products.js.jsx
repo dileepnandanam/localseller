@@ -9,17 +9,17 @@ class SellerProducts extends React.Component {
 		this.showForm = this.showForm.bind(this)
 	}
 	deleteProduct(id, delete_url){
-		confirm = confirm("Are you sure you want to delete?");
+		delete_item = confirm("Are you sure you want to delete?");
 		that=this
-		if(confirm)
+		if(delete_item)
 		$.ajax({
 			data: id,
 			url: delete_url,
 			type: 'DELETE'
 		}).success(function(){
             var index
-			for(i=0; i< this.state.length; i++){
-				if(this.state[i].id == id)
+			for(i=0; i< that.state.products.length; i++){
+				if(that.state.products[i].id == id)
 					index=i
 			}
 			state=that.state

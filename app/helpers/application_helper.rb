@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def time_for_fetch_location
-		if session[:location_fetched_at] && Time.parse(session[:location_fetched_at]) + 24.hours <= Time.now || session[:location_fetched_at].nil? || session[:lat].nil? || current_user && current_user.lat.nil?
+		if session[:location_fetched_at] && Time.parse(session[:location_fetched_at]) + 24.hours <= Time.now || session[:location_fetched_at].nil? || session[:lat].nil?
 			session[:location_fetched_at] = Time.now
 			return true
 		end

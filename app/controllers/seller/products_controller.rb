@@ -8,6 +8,8 @@ class Seller::ProductsController < Seller::ShopsController
   end
 
   def index
+    require 'pry'
+    binding.pry
     @products = @shop.products.order('created_at DESC').map{ |product|
         product_attributes(product)
     }
@@ -31,7 +33,7 @@ class Seller::ProductsController < Seller::ShopsController
 
   def destroy
     @product.update_attributes deleted: true
-    redirect_to seller_shop_products_path
+    render nothing: true, status: :ok
   end
   def image_upload
     @product.update_attributes(product_image_params)
@@ -39,7 +41,7 @@ class Seller::ProductsController < Seller::ShopsController
   end
   def update
     if @product.update_attributes(product_params)
-      redirect_to seller_shop_products_path
+      render nothing: true, status: :ok
     else
       render json: @product.errors.messages
       .map{|field, errors|  [field, errors.join(', ')]}.to_h, status: 422

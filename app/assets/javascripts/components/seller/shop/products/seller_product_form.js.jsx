@@ -19,7 +19,8 @@ class SellerProductForm extends React.Component {
 			product:{
 				name: this.refs.name.value,
 				price: this.refs.price.value,
-				quantity: this.refs.quantity.value
+				quantity: this.refs.quantity.value,
+				unit: this.refs.unit.value,
 			}
 		}
 		that=this
@@ -33,7 +34,6 @@ class SellerProductForm extends React.Component {
 					that.props.formSuccess(form_data.product)
 				else {
 					that.props.formSuccess(data)
-					that.refs.name.value('')
 				}
 			},
 			error: function(data){
@@ -62,13 +62,19 @@ class SellerProductForm extends React.Component {
 	        </div>
 
 	        <div className='form-group'>
-	            <label>Rate Per Kg</label>
+	            <label>Price</label>
 	        	<input className='form-control' ref='price' defaultValue={field.price}/>
 	        	{this.state.error_messages.price}
 	        	
 	        </div>
 
 	        
+	        <div className='form-group'>
+	            <label>How the quantity of product specified, eg: Kg, Litter</label>
+	        	<input className='form-control' ref='unit' defaultValue={field.unit}/>
+	        	{this.state.error_messages.unit}
+	        	
+			</div>
 
 	        
 

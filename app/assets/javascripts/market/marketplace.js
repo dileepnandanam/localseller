@@ -13,18 +13,19 @@ $(document).on('turbolinks:load', function(){
 	$('.search-form').on('ajax:success', function(e, data, status, xhr){
 		build_results(data)
 	})
+	if($('#geolocation').length == 1){
+		$.ajax({
+			dataType: 'json',
+			url: '/initial_results',
+			data: {
+				geolocation: $('#geolocation').val()
+			},
+			success: function(data){
+				build_results(data)
+			}
 
-	$.ajax({
-		dataType: 'json',
-		url: '/initial_results',
-		data: {
-			geolocation: $('#geolocation').val()
-		},
-		success: function(data){
-			build_results(data)
-		}
-
-	})
+		})
+	}
 })
 function build_results(data) {
 	map_center = $('#geolocation').val().substring(1,$('#geolocation').val().length-1).split(', ')
