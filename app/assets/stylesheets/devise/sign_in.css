@@ -1,17 +1,19 @@
 .user-form-box {
   width: 70%;
-  margin: auto;
-  margin-top: 50px;
+  padding: 50px 0px 0px 50px;
 }
 .devise-user-form {
-  width: 60%;
+  width: 68%;
 }
 .devise-user-form label {
-	margin-bottom: 0px;
-    margin-top: 10px;
+	display: none;
 }
 .devise-user-form .form-group {
   margin-bottom: 0px;
+}
+.devise-user-form .form-control {
+	padding-left: 0px;
+	margin-top: 12px;
 }
 .devise-user-form .form-group:last-child {
   margin-bottom: 10px;
@@ -19,25 +21,17 @@
 .fa-stack {
   color: black !important;
 }
-@media screen and (max-width: 342px)  {
-	.user-form-box {
-		width:95%;
-		margin-left: 5%;
-	}
-	.devise-user-form {
-		width:66%;
-	}
-	.devise-user-form label {
-		font-size: 20px
-	}
-	.devise-user-form input {
-		height: 40px;
-		font-size: 20px;
-	}
-	.social-sign-ins {
-		margin-left: 12px !important;
-	}
-	.fa-stack-1x {
-		left: -17px;
-	}
+
+.user-form-box {
+	width:49%;
+	margin-left: 5%;
+}
+.devise-user-form {
+	width:66%;
+}
+.social-sign-ins {
+	margin-left: 12px !important;
+}
+.fa-stack-1x {
+	left: -17px;
 }
