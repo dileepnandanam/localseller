@@ -6,6 +6,10 @@
 .devise-user-form {
   width: 60%;
 }
+.devise-user-form label {
+	margin-bottom: 0px;
+    margin-top: 10px;
+}
 .devise-user-form .form-group {
   margin-bottom: 0px;
 }
