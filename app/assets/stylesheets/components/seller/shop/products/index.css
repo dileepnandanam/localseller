@@ -59,8 +59,7 @@
   font-size: 24px;
 }
 .seller-product-price {
-  height: 30px;
-  font-size: 24px;
+  font-size: 21px;
   marhin-top: 20px;
 }
 .seller-edit-product {
@@ -84,7 +83,7 @@
   margin-top: 20px;
 }
 .seller-product-total {
-  margin-top: 38px;
+  margin-top: 13px;
   font-size: 20px;
 }
 .seller-product-total-label {

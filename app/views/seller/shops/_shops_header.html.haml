@@ -1,0 +1,7 @@
+= link_to seller_shops_path do
+  %h5.shops-header.pull-left{class: action_name == 'index' ? 'current' : ''}
+    ="Shops"
+= link_to my_bids_seller_shops_path do
+  %h5.shops-header.pull-left{class: action_name == 'my_bids' ? 'current' : ''}
+    = "My Bids"
+.clearfix

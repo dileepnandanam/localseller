@@ -20,6 +20,10 @@ class Seller::ShopsController < SellerController
     @comments = @shop.comments.order('created_at DESC').limit(10)
   end
 
+  def my_bids
+
+  end
+
   def inventory
     @products = @shop.products.order('created_at DESC').map{ |product|
         product_attributes(product)

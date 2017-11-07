@@ -1,10 +1,18 @@
-%h3.shops-header="Shops"
-.shops-container  
+= render partial: 'shops_header'
+.shops-container
+  - if @shops.blank?
+    .no-shops-message
+      You haven't created any shops. 
+      = link_to "Create a shop", new_seller_shop_path
+      and start selling your products  
   - @shops.each do |shop|
     .shop-tile.pull-left
       = link_to seller_shop_inventory_path(shop) do
         .shop-banner
-          = image_tag shop.banner.url(:medium)
+          - if shop.banner.present?
+            = image_tag shop.banner.url(:medium)
+          - else
+            = image_tag 'missing_banner'
         %h4.shop-details
           = shop.name
         .shop-details

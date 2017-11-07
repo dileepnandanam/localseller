@@ -59,7 +59,10 @@ class SellerProduct extends React.Component {
 	}
 
 	formSuccess(data){
-		this.setState($(data).extend(this.state))
+		state = this.state
+		this.hideForm()
+		this.setState($(state).extend(data))
+
 	}
 
 	deleteProduct(){

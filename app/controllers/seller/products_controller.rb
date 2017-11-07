@@ -8,8 +8,6 @@ class Seller::ProductsController < Seller::ShopsController
   end
 
   def index
-    require 'pry'
-    binding.pry
     @products = @shop.products.order('created_at DESC').map{ |product|
         product_attributes(product)
     }

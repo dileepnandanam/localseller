@@ -6,6 +6,7 @@ class SellerProductForm extends React.Component {
 	    		name: '',
 	    		price: '',
 	    		unit: '',
+	    		quantity: '',
 	    		description: ''
 	    	}
 	    }
@@ -58,7 +59,7 @@ class SellerProductForm extends React.Component {
 	        <div className='form-group'>
 	            <label>Available Quantity</label>
 	        	<input className='form-control' ref='quantity' defaultValue={field.quantity}/>
-	        	
+	        	{this.state.error_messages.quantity}
 	        </div>
 
 	        <div className='form-group'>
