@@ -1,0 +1,14 @@
+.feedback-form-container{
+	margin: auto;
+	width: 50%;
+	padding: 30px;
+	background-color: white;
+	margin-top: 100px;
+}
+.feedback-page {
+	background-color: mistyRose;
+	position: absolute;
+	width: 100%;
+	top: 50px;
+	bottom: 0;
+}

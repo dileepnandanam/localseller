@@ -1,0 +1,13 @@
+%h4.feedbacks-header
+  Feedbacks
+.feedbacks-list
+  - @feedbacks.each do |feedback|
+    .feedback-entry
+      .username.pull-left
+        = feedback.user.name
+      .timestamp.pull-right
+        = feedback.created_at
+      .clearfix
+      .feedback-body
+        = feedback.body
+

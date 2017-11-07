@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
     resources :wholesale
   end
-
+  resources :feedbacks
   resources :products do
     get :search, on: :collection
     get :for_shop, on: :collection
@@ -62,6 +62,9 @@ Rails.application.routes.draw do
       resources :products do
         put :image_upload, on: :member
       end
+    end
+    resource :dashboard do
+      get :feedbacks, on: :collection
     end
   end
   devise_scope :user do

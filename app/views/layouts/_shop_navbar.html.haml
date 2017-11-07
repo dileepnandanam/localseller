@@ -4,6 +4,9 @@
   - if current_user
     .nav-item.pull-left{class: controller_name == 'shops' ? 'current-nav-item' : ''}
       = link_to 'Profile', seller_shops_path
+    - if current_user.usertype == 'admin'
+      .nav-item.pull-left
+        = link_to 'Platform', feedbacks_platform_dashboard_path 
     .nav-item.pull-right.dropdown
       %span{data:{toggle: 'dropdown'}}
         =link_to "#" do 
@@ -13,7 +16,7 @@
         .dropdown-item
           = link_to "Add new shop", new_seller_shop_path
         .dropdown-item
-          = link_to "Contact us", "#"
+          = link_to "Contact us", new_feedback_path
         .dropdown-item
           = link_to "Log out", destroy_user_session_path, method: :delete
   - else
