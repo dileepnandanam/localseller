@@ -33,7 +33,7 @@ function build_results(data) {
 	map_center = $('#geolocation').val().substring(1,$('#geolocation').val().length-1).split(', ')
 	map_center = {lat: parseFloat(map_center[0]), lng: parseFloat(map_center[1])}
 	 var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 7,
+		zoom: 9,
 		center: map_center
 	});
 	current_product = []
@@ -52,7 +52,7 @@ function build_results(data) {
         	fillOpacity: 0.35,
         	map: map,
         	center: {lat: product.lat, lng: product.lng},
-        	radius: 10000
+        	radius: 2500
     	});
 
 		current_product[index] = $(item).children().last()
@@ -63,11 +63,11 @@ function build_results(data) {
     		current_product[index].removeClass('current')
     	})
     	$(current_product[index]).mouseenter(function(){
-    		marker.setRadius(20000)
+    		marker.setRadius(5000)
     		map.setCenter({lat: product.lat, lng: product.lng})
     	})
     	$(current_product[index]).mouseout(function(){
-    		marker.setRadius(10000)
+    		marker.setRadius(2500)
     	})
 		
 
