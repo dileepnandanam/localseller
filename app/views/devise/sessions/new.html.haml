@@ -1,4 +1,4 @@
-.user-form-box
+.user-form-box.pull-left
   .devise-user-form.pull-left
     %h2 Log in
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -12,3 +12,9 @@
     = render partial: 'devise/social_sign_in_links'
   .clearfix
   = render "devise/shared/links"
+.motive-text-container.pull-right
+  .motive-text
+    Sell More,
+    %br
+    Sell Faster
+.clearfix

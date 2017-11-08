@@ -15,8 +15,15 @@
         = f.input :pincode, placeholder: 'Pincode'
         = f.input :phone_number, placeholder: 'Phone Number'
       .form-actions
-        = f.button :submit, "Sign Up"
+        = f.button :submit, "Sign Up", class: 'button'
     = render "devise/shared/links"
   .social-sign-ins.pull-left
     = render partial: 'devise/social_sign_in_links'
   .clearfix
+
+.motive-text-container.pull-right
+  .motive-text
+    Sell More,
+    %br
+    Sell Faster
+.clearfix
