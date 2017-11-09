@@ -11,8 +11,9 @@ Get your credentials by signing up
 = link_to "instamojo", "https://www.instamojo.com"
 You will get the keys from
 = link_to "here", "https://www.instamojo.com/integrations"
-= f.input :instamajo_api_key, label: "Private API Key"
-= f.input :instamajo_auth_token, label: "Private Auth Token"
+- if false
+  = f.input :instamajo_api_key, label: "Private API Key"
+  = f.input :instamajo_auth_token, label: "Private Auth Token"
 = f.submit
 
 = render partial: '/seller_geolocation'
