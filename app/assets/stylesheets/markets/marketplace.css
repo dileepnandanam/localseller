@@ -67,3 +67,15 @@
 .fa-search {
 	margin-left: 12px;
 }
+@media screen and (max-width: 500px) {
+	.market-left {
+		width: 100% !important;
+	}
+	.market-right {
+		width: 100% !important;
+	}
+	#map {
+		width: 100% !important;
+	}
+
+}

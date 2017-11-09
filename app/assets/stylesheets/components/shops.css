@@ -1,8 +1,9 @@
-.profile-sub-nav {
-	padding: 50px 10px 20px 10px;
-}
-.profile-sub-nav a {
-	padding: 30px 30px;
+.profile-sub-nav-item {
+	text-align: center;
+	width: 33%;
+	float: left;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .current-profile-item {
 	background-color: mistyrose;

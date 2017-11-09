@@ -7,6 +7,12 @@
   %br
   = link_to "edit", edit_seller_shop_path(@shop)
 .profile-sub-nav
-  = link_to "Inventory", seller_shop_inventory_path(@shop), class: action_name == 'inventory' ? "current-profile-item" : ''
-  = link_to "Open Bids", seller_shop_open_bids_path(@shop), class: action_name == 'open_bids' ? "current-profile-item" : ''
-  = link_to "Past Purchases", seller_shop_past_purchases_path(@shop), class: action_name == 'past_purchases' ? "current-profile-item" : ''
+  .profile-sub-nav-item{class: action_name == 'inventory' ? "current-profile-item" : ''}
+    = link_to "Inventory", seller_shop_inventory_path(@shop)
+  
+  .profile-sub-nav-item{class: action_name == 'open_bids' ? "current-profile-item" : ''}
+    = link_to "Open Bids", seller_shop_open_bids_path(@shop)
+
+  .profile-sub-nav-item{class: action_name == 'past_purchases' ? "current-profile-item" : ''}
+    = link_to "Past Purchases", seller_shop_past_purchases_path(@shop)
+  .clearfix
