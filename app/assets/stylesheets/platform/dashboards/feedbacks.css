@@ -16,3 +16,6 @@
 .feedbacks-header {
 	padding:30px;
 }
+.feedback-entry .username {
+	font-weight: bold;
+}

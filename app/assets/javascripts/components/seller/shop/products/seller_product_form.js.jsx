@@ -50,29 +50,25 @@ class SellerProductForm extends React.Component {
 		return(
 		  <div ref='form' className="seller-product-form">
 	        <div className='form-group'>
-	            <label>Name</label>
-	        	<input className='form-control' ref='name' defaultValue={field.name}/>
+	        	<input className='form-control' ref='name' defaultValue={field.name} placeholder="Name"/>
 	        	{this.state.error_messages.name}
 	        	
 	        </div>
 	        
 	        <div className='form-group'>
-	            <label>Available Quantity</label>
-	        	<input className='form-control' ref='quantity' defaultValue={field.quantity}/>
+	        	<input className='form-control' ref='quantity' defaultValue={field.quantity} placeholder="Available Quantity"/>
 	        	{this.state.error_messages.quantity}
 	        </div>
 
 	        <div className='form-group'>
-	            <label>Price</label>
-	        	<input className='form-control' ref='price' defaultValue={field.price}/>
+	        	<input className='form-control' ref='price' defaultValue={field.price} placeholder="Price"/>
 	        	{this.state.error_messages.price}
 	        	
 	        </div>
 
 	        
 	        <div className='form-group'>
-	            <label>How the quantity of product specified, eg: Kg, Litter</label>
-	        	<input className='form-control' ref='unit' defaultValue={field.unit}/>
+	        	<input className='form-control' ref='unit' defaultValue={field.unit} placeholder="Unit eg: Kg, Litter"/>
 	        	{this.state.error_messages.unit}
 	        	
 			</div>

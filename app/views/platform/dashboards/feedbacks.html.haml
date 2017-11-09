@@ -6,7 +6,7 @@
       .username.pull-left
         = feedback.user.name
       .timestamp.pull-right
-        = feedback.created_at
+        = feedback.created_at.in_time_zone('Asia/Calcutta').strftime('%b%e %Y  %I:%M')
       .clearfix
       .feedback-body
         = feedback.body

@@ -6,7 +6,7 @@
   width:102px;
   text-align: center;
   margin: auto;
-  margin-top: 66px;
+  margin-top: 84px;
 }
 .add-product-ico {
   margin:auto;
@@ -83,7 +83,7 @@
   margin-top: 20px;
 }
 .seller-product-total {
-  margin-top: 13px;
+  margin-top: 21px;
   font-size: 20px;
 }
 .seller-product-total-label {
@@ -100,5 +100,5 @@
   cursor: pointer;
 }
 .show-form > .seller-product-container {
-  height: 266px;
+  height: 274px;
 }
