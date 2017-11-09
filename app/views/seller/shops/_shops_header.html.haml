@@ -1,7 +1,8 @@
-= link_to seller_shops_path do
-  %h5.shops-header.pull-left{class: action_name == 'index' ? 'current' : ''}
-    ="Shops"
-= link_to my_bids_seller_shops_path do
-  %h5.shops-header.pull-left{class: action_name == 'my_bids' ? 'current' : ''}
-    = "My Bids"
-.clearfix
+.profile-sub-nav
+  .profile-sub-nav-item{class: action_name == 'index' ? 'current-profile-item' : ''}  
+    = link_to seller_shops_path do
+      ="Shops"
+  .profile-sub-nav-item{class: action_name == 'my_bids' ? 'current-profile-item' : ''}
+    = link_to my_bids_seller_shops_path do
+      = "My Bids"
+  .clearfix
