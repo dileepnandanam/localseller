@@ -11,7 +11,7 @@ setTimeout(function(){init_place_search()}, 3000)
 })
 
 var getInitialResult = function(){
-		if($('#geolocation').val().length > 3){
+		if($('#geolocation').val().length > 4){
 			$.ajax({
 				dataType: 'json',
 				url: '/initial_results',
@@ -26,7 +26,8 @@ var getInitialResult = function(){
 		}
 		else {
 			geolocate()
-			getInitialResult()
+			if($('#geolocation').val().length > 4)
+				getInitialResult()
 		}
 	}
 

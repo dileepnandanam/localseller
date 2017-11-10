@@ -13,9 +13,10 @@
           dataType: 'json',
           data: {lat: pos.lat, lng: pos.lng}
         })
+
         if($('#geolocation').length == 1){
+
           $('#geolocation').val('('+pos.lat+', '+pos.lng+')')
-          getInitialResult()
         }
 
       })
