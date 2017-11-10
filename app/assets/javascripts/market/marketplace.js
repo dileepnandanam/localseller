@@ -9,13 +9,9 @@ function init_place_search() {
 //google.maps.event.addDomListener(window, 'load', init_place_search);
 setTimeout(function(){init_place_search()}, 3000)
 })
-$(document).on('turbolinks:load', function(){
-	$('.search-form').on('ajax:success', function(e, data, status, xhr){
-		build_results(data)
-	})
-	
-		setTimeout(function(){
-		if($('#geolocation').length == 1){
+
+var getInitialResult = function(){
+		if($('#geolocation').val().length > 3){
 			$.ajax({
 				dataType: 'json',
 				url: '/initial_results',
@@ -27,7 +23,20 @@ $(document).on('turbolinks:load', function(){
 				}
 
 			})
-		}}, 3000)
+		}
+		else {
+			geolocate()
+			getInitialResult()
+		}
+	}
+
+
+$(document).on('turbolinks:load', function(){
+	$('.search-form').on('ajax:success', function(e, data, status, xhr){
+		build_results(data)
+	})
+	
+		setTimeout(getInitialResult, 3000)
 })
 function build_results(data) {
 	map_center = $('#geolocation').val().substring(1,$('#geolocation').val().length-1).split(', ')
