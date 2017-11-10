@@ -63,9 +63,16 @@
 	background-color: MistyRose;
 	padding-bottom: 5px;
 	padding-top: 1px;
+	vertical-align: middle;
+	text-align: center;
 }
 .fa-search {
 	margin-left: 12px;
+}
+.results-wait {
+	width: 10%;
+	height: 10%;
+	margin: auto;
 }
 @media screen and (max-width: 500px) {
 	.market-left {

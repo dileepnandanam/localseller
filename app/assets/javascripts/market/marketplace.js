@@ -11,25 +11,20 @@ setTimeout(function(){init_place_search()}, 3000)
 })
 
 var getInitialResult = function(){
-		if($('#geolocation').val().length > 4){
-			$.ajax({
-				dataType: 'json',
-				url: '/initial_results',
-				data: {
-					geolocation: $('#geolocation').val()
-				},
-				success: function(data){
-					build_results(data)
-				}
+	
+	$.ajax({
+		dataType: 'json',
+		url: '/initial_results',
+		data: {
+			geolocation: $('#geolocation').val()
+		},
+		success: function(data){
+			build_results(data)
+		}
 
-			})
-		}
-		else {
-			geolocate()
-			if($('#geolocation').val().length > 4)
-				getInitialResult()
-		}
-	}
+	})
+		
+}
 
 
 $(document).on('turbolinks:load', function(){
@@ -40,12 +35,8 @@ $(document).on('turbolinks:load', function(){
 		setTimeout(getInitialResult, 3000)
 })
 function build_results(data) {
-	map_center = $('#geolocation').val().substring(1,$('#geolocation').val().length-1).split(', ')
-	map_center = {lat: parseFloat(map_center[0]), lng: parseFloat(map_center[1])}
-	 var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 9,
-		center: map_center
-	});
+	$('.results-wait').hide()
+	var map = new google.maps.Map(document.getElementById('map'), mapParams());
 	current_product = []
 	$('.results-body > .result-item').remove()
 	$.each(data, function(index, product){
@@ -79,9 +70,21 @@ function build_results(data) {
     	$(current_product[index]).mouseout(function(){
     		marker.setRadius(2500)
     	})
-		
-
-
-
 	})
+}
+
+mapParams = function(){
+	if($('#geolocation').val().length > 4){
+		map_center = $('#geolocation').val().substring(1,$('#geolocation').val().length-1).split(', ')
+		map_center = {lat: parseFloat(map_center[0]), lng: parseFloat(map_center[1])}
+		return({
+			zoom: 9,
+			center: map_center
+		})
+	} else {
+		return({
+			center: {lat: 10.8505159, lng: 76.27108329999999},
+			zoom: 6 
+		})
+	}
 }
