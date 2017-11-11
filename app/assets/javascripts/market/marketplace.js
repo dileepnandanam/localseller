@@ -1,7 +1,65 @@
 
+var current_page = 1
+var results_per_page
+var map
+var getInitialResult = function(){
+	map = initMap()
+	$.ajax({
+		dataType: 'json',
+		url: '/initial_results',
+		data: {
+			geolocation: toMarkerTuple(mapParams().center)
+		},
+		success: function(data){
+			clearResults()
+			build_results(data)
+			showPaginationLink(data, results_per_page)
+		}
+
+	})
+		
+}
+function build_results(data) {
+	$('.results-wait').hide()
+	
+	current_product = []
+	$.each(data, function(index, product){
+		item = $('.results-body').append(
+			
+			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div><div class=\'clearfix\'></div></div>"
+			
+		)
+		var marker = new google.maps.Circle({
+        	strokeColor: '#FF0000',
+        	strokeOpacity: 0.8,
+        	strokeWeight: 2,
+        	fillColor: '#FF0000',
+        	fillOpacity: 0.35,
+        	map: map,
+        	center: {lat: product.lat, lng: product.lng},
+        	radius: 2500
+    	});
+
+		current_product[index] = $(item).children().last()
+    	marker.addListener('mouseover', function(){
+    		current_product[index].addClass('current')
+    	})
+    	marker.addListener('mouseout', function(){
+    		current_product[index].removeClass('current')
+    	})
+    	$(current_product[index]).mouseenter(function(){
+    		marker.setRadius(5000)
+    		map.setCenter({lat: product.lat, lng: product.lng})
+    	})
+    	$(current_product[index]).mouseout(function(){
+    		marker.setRadius(2500)
+    	})
+	})
+}
+
 $(document).on('turbolinks:load', function(){
-	var current_page = 1
-	var results_per_page = $('.results-body').data('results-per-page')
+	results_per_page = $('.results-body').data('results-per-page')
+	map = initMap()
 	function init_place_search() {
 		var input = document.getElementById('place')
 		var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
@@ -13,22 +71,6 @@ $(document).on('turbolinks:load', function(){
 	setTimeout(function(){init_place_search()}, 3000)
 
 
-	var getInitialResult = function(){
-		
-		$.ajax({
-			dataType: 'json',
-			url: '/initial_results',
-			data: {
-				geolocation: toMarkerTuple(mapParams().center)
-			},
-			success: function(data){
-				build_results(data)
-				showPaginationLink(data, results_per_page)
-			}
-
-		})
-			
-	}
 
 
 	$('.search-form').on('ajax:success', function(e, data, status, xhr){
@@ -53,51 +95,9 @@ $(document).on('turbolinks:load', function(){
 			}
 		})
 	})
-	initMap = function(){
-		var map = new google.maps.Map(document.getElementById('map'), mapParams());
-		return(map)
-	}
-	var map = initMap()
-	setTimeout(getInitialResult, 3000)
+
 	
-
-	function build_results(data) {
-		$('.results-wait').hide()
-		
-		current_product = []
-		$.each(data, function(index, product){
-			item = $('.results-body').append(
-				
-				"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div><div class=\'clearfix\'></div></div>"
-				
-			)
-			var marker = new google.maps.Circle({
-	        	strokeColor: '#FF0000',
-	        	strokeOpacity: 0.8,
-	        	strokeWeight: 2,
-	        	fillColor: '#FF0000',
-	        	fillOpacity: 0.35,
-	        	map: map,
-	        	center: {lat: product.lat, lng: product.lng},
-	        	radius: 2500
-	    	});
-
-			current_product[index] = $(item).children().last()
-	    	marker.addListener('mouseover', function(){
-	    		current_product[index].addClass('current')
-	    	})
-	    	marker.addListener('mouseout', function(){
-	    		current_product[index].removeClass('current')
-	    	})
-	    	$(current_product[index]).mouseenter(function(){
-	    		marker.setRadius(5000)
-	    		map.setCenter({lat: product.lat, lng: product.lng})
-	    	})
-	    	$(current_product[index]).mouseout(function(){
-	    		marker.setRadius(2500)
-	    	})
-		})
-	}
+	getInitialResult()
 })
 mapParams = function(){
 	if($('#geolocation').val().length > 4){
@@ -113,6 +113,10 @@ mapParams = function(){
 			zoom: 6 
 		})
 	}
+}
+initMap = function(){
+	var map = new google.maps.Map(document.getElementById('map'), mapParams());
+	return(map)
 }
 clearResults = function(){
 	$('.results-body > .result-item').remove()
