@@ -16,7 +16,7 @@ var getInitialResult = function(){
 		dataType: 'json',
 		url: '/initial_results',
 		data: {
-			geolocation: $('#geolocation').val()
+			geolocation: toMarkerTuple(mapParams().center)
 		},
 		success: function(data){
 			build_results(data)
@@ -87,4 +87,9 @@ mapParams = function(){
 			zoom: 6 
 		})
 	}
+}
+toMarkerTuple = function(marker){
+	return(
+		"(" + marker.lat + ", " + marker.lng + ")"
+	)
 }
