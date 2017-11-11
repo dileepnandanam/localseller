@@ -23,6 +23,6 @@ class ShopSearch
   	  	shops.lng as lng,
   	  	round((gc_to_sec(earth_distance(ll_to_earth(shops.lat, shops.lng), ll_to_earth(#{@lat}, #{@lng})))/1000)::numeric, 2) AS distance,
   	  	(#{@quantity} * products.price) AS total
-  	  }).order('distance ASC').limit(10)
+  	  }).order('distance ASC')
   end
 end
