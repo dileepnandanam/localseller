@@ -15,6 +15,7 @@
       = text_field_tag :place
       .clearfix
       = hidden_field_tag :geolocation, "(#{session[:lat]}, #{session[:lng]})"
+      = hidden_field_tag :page, 1
       = button_tag type: :submit, class: 'search_button' do
         = "Search"
         %i.fa.fa-search
@@ -30,8 +31,10 @@
     .results-headder-item.pull-left
       Total
     .clearfix
-  .results-body
+  .results-body{data:{results_per_page: ShopSearch::RESULTS_PER_PAGE}}
     .results-wait
       = image_tag 'giphy.gif'
+  .load-more-button.hidden
+    = "Load more"
 
 %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBV3E-iuGXAppEw25GHr2cFns3vDnuJFYw&libraries=places"}

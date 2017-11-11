@@ -1,5 +1,7 @@
 class ShopSearch
-  def initialize(lat, lng, term, quantity, limit)
+  RESULTS_PER_PAGE = 10
+
+  def initialize(lat, lng, term, quantity, page)
   	@lat = lat
   	@lng = lng
   	@quantity = quantity.present? ? quantity : 1
@@ -8,7 +10,7 @@ class ShopSearch
   	  search_terms = term.downcase.split(' ')
   	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
     end
-    @limit = term.present? ? nil : (limit.present? ? limit : 10)
+    @page = page
   end
 
   def results
@@ -24,8 +26,7 @@ class ShopSearch
   	  	shops.lng as lng,
   	  	round((gc_to_sec(earth_distance(ll_to_earth(shops.lat, shops.lng), ll_to_earth(#{@lat}, #{@lng})))/1000)::numeric, 2) AS distance,
   	  	(#{@quantity} * products.price) AS total
-  	  }).order('distance ASC')
-    collection = collection.limit(@limit) if @limit.present?
-    collection
+  	  }).order('distance ASC').paginate(per_page: RESULTS_PER_PAGE, page: @page)
+    
   end
 end

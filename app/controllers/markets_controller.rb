@@ -7,13 +7,15 @@ class MarketsController < ApplicationController
 		lat,lng = params[:geolocation][1..-1].split(', ').map(&:to_f)
 		term = params[:term]
 		quantity = params[:quantity]
-		results = ShopSearch.new(lat, lng, term, quantity, nil).results
+		page = params[:page]
+		results = ShopSearch.new(lat, lng, term, quantity, page).results
 		render json: results
 	end
 
 	def initial_results
 		lat,lng = params[:geolocation][1..-1].split(', ').map(&:to_f)
-		results = ShopSearch.new(lat, lng, nil, nil, 10).results
+		page = params[:page]
+		results = ShopSearch.new(lat, lng, nil, nil, page).results
 		render json: results
 	end
 
