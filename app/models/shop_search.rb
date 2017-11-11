@@ -2,7 +2,7 @@ class ShopSearch
   def initialize(lat, lng, term, quantity, limit)
   	@lat = lat
   	@lng = lng
-  	@quantity = quantity || 1
+  	@quantity = quantity.present? ? quantity : 1
     @term = term
     if term.present?
   	  search_terms = term.downcase.split(' ')
