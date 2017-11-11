@@ -8,7 +8,7 @@ class ShopSearch
   	  search_terms = term.downcase.split(' ')
   	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
     end
-    @limit = limit
+    @limit = term.present? ? nil : (limit.present? ? limit : 10)
   end
 
   def results
