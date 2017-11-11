@@ -1,5 +1,5 @@
 class ShopSearch
-  def initialize(lat, lng, term, quantity)
+  def initialize(lat, lng, term, quantity, limit)
   	@lat = lat
   	@lng = lng
   	@quantity = quantity || 1
@@ -8,6 +8,7 @@ class ShopSearch
   	  search_terms = term.downcase.split(' ')
   	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
     end
+    @limit = limit
   end
 
   def results
@@ -24,5 +25,7 @@ class ShopSearch
   	  	round((gc_to_sec(earth_distance(ll_to_earth(shops.lat, shops.lng), ll_to_earth(#{@lat}, #{@lng})))/1000)::numeric, 2) AS distance,
   	  	(#{@quantity} * products.price) AS total
   	  }).order('distance ASC')
+    collection = collection.limit(@limit) if @limit.present?
+    collection
   end
 end
