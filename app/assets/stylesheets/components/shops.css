@@ -1,9 +1,15 @@
+.profile-sub-nav{
+	margin-top: 20px;
+}
 .profile-sub-nav-item {
 	text-align: center;
-	width: 33%;
+	width: 20%;
 	float: left;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.profile-sub-nav-item:first-child {
+	margin-left: 20px;
 }
 .current-profile-item {
 	background-color: mistyrose;
