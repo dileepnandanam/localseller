@@ -2,6 +2,7 @@
 var current_page = 1
 var results_per_page
 var map
+var markers = []
 var getInitialResult = function(){
 	map = initMap()
 	$.ajax({
@@ -46,6 +47,8 @@ function build_results(data) {
         	radius: 2500
     	});
 
+    	markers.push(marker)
+
 		current_product[index] ={row: $(item).children().last(), grid: $(item_grid).children().last().find('.result-item-grid')}
     	marker.addListener('mouseover', function(){
     		current_product[index].row.addClass('current')
@@ -75,7 +78,7 @@ function build_results(data) {
 
 $(document).on('turbolinks:load', function(){
 	results_per_page = $('.results-body').data('results-per-page')
-	map = initMap()
+
 	function init_place_search() {
 		var input = document.getElementById('place')
 		var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
@@ -126,7 +129,7 @@ $(document).on('turbolinks:load', function(){
 	})
 
 	
-	getInitialResult()
+	setTimeout(function(){getInitialResult()}, 3000)
 })
 mapParams = function(){
 	if($('#geolocation').val().length > 4){
@@ -144,12 +147,15 @@ mapParams = function(){
 	}
 }
 initMap = function(){
-	var map = new google.maps.Map(document.getElementById('map'), mapParams());
-	return(map)
+	var new_map = new google.maps.Map(document.getElementById('map'), mapParams());
+	return(new_map)
 }
 clearResults = function(){
 	$('.results-body > .result-item').remove()
 	$('.result-grid-view > .result-item-grid-wraper').remove()
+	for (var i = 0; i < markers.length; i++) {
+    	markers[i].setMap(null);
+    }
 }
 toMarkerTuple = function(marker){
 	return(
