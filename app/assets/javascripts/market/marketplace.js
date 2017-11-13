@@ -59,14 +59,14 @@ function build_results(data) {
     		marker.setRadius(5000)
     		map.setCenter({lat: product.lat, lng: product.lng})
     	})
-    	$(current_product[index].grid).mouseenter(function(){
+    	$(current_product[index].grid.children()).mouseenter(function(){
     		marker.setRadius(5000)
     		map.setCenter({lat: product.lat, lng: product.lng})
     	})
     	$(current_product[index].row).mouseout(function(){
     		marker.setRadius(2500)
     	})
-    	$(current_product[index].grid).mouseout(function(){
+    	$(current_product[index].grid.children()).mouseout(function(){
     		marker.setRadius(2500)
     	})
     	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
