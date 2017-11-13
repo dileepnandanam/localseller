@@ -1,5 +1,6 @@
 .market-left {
 	width: 40%;
+	border-right: 1px solid mistyrose;
 }
 .market-right {
 	width: 60%;
@@ -28,15 +29,14 @@
 
 .results-headder {
 	border-bottom: 1px solid MistyRose;
-	border-left: 1px solid MistyRose;
 	width:100%;
 	box-sizing: border-box;
 	background: transparent;
 }
 .results-headder-item {
 	width: 25%;
-	height: 100px;
-	padding-top: 60px;
+	height: 60px;
+	padding-top: 30px;
 	text-align: center;
 }
 .result-item {
@@ -57,7 +57,7 @@
 	height: 250px;
 }
 .current {
-	background-color: red;
+	background-color: red !important;
 }
 .results-body {
 	background-color: MistyRose;
@@ -88,4 +88,43 @@
 }
 .hidden {
 	display: none;
+}
+.result-row-view {
+	width:100%;
+}
+.result-grid-view {
+	width:100%;
+	background-color: mistyrose;
+	padding:10px;
+	margin-top: 22px;
+}
+.result-item-grid {
+	background-color: white;
+	margin: 10px;
+	float: left;
+	padding:10px;
+	box-sizing: border-box;
+	width: 92%;
+}
+.result-item-grid-wraper {
+	float: left;
+	box-sizing: border-box;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.result-item-grid-value {
+	font-size: 20px;
+}
+.filter-links {
+	padding:20px 20px 0px 0px;
+}
+.filter-grid {
+	margin-left:20px;
+	margin-right: 20px;
+}
+.current-filter {
+	color: #aba7a7;
+}
+.filter-grid, .filter-row {
+	cursor: pointer;
 }

@@ -29,6 +29,12 @@ function build_results(data) {
 			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div><div class=\'clearfix\'></div></div>"
 			
 		)
+		$('.result-grid-view > .clearfix').remove()
+		item_grid = $('.result-grid-view').append(
+
+			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-xs-1\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div></div></div>"
+		)
+		
 		var marker = new google.maps.Circle({
         	strokeColor: '#FF0000',
         	strokeOpacity: 0.8,
@@ -40,20 +46,30 @@ function build_results(data) {
         	radius: 2500
     	});
 
-		current_product[index] = $(item).children().last()
+		current_product[index] ={row: $(item).children().last(), grid: $(item_grid).children().last().find('.result-item-grid')}
     	marker.addListener('mouseover', function(){
-    		current_product[index].addClass('current')
+    		current_product[index].row.addClass('current')
+    		current_product[index].grid.addClass('current')
     	})
     	marker.addListener('mouseout', function(){
-    		current_product[index].removeClass('current')
+    		current_product[index].row.removeClass('current')
+    		current_product[index].grid.removeClass('current')
     	})
-    	$(current_product[index]).mouseenter(function(){
+    	$(current_product[index].row).mouseenter(function(){
     		marker.setRadius(5000)
     		map.setCenter({lat: product.lat, lng: product.lng})
     	})
-    	$(current_product[index]).mouseout(function(){
+    	$(current_product[index].grid).mouseenter(function(){
+    		marker.setRadius(5000)
+    		map.setCenter({lat: product.lat, lng: product.lng})
+    	})
+    	$(current_product[index].row).mouseout(function(){
     		marker.setRadius(2500)
     	})
+    	$(current_product[index].grid).mouseout(function(){
+    		marker.setRadius(2500)
+    	})
+    	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
 	})
 }
 
@@ -96,6 +112,19 @@ $(document).on('turbolinks:load', function(){
 		})
 	})
 
+	$('.filter-grid').on('click', function(){
+		$('.result-grid-view').show()
+		$('.result-row-view').hide()
+		$(this).addClass('current-filter')
+		$('.filter-row').removeClass('current-filter')
+	})
+	$('.filter-row').on('click', function(){
+		$('.result-grid-view').hide()
+		$('.result-row-view').show()
+		$(this).addClass('current-filter')
+		$('.filter-grid').removeClass('current-filter')
+	})
+
 	
 	getInitialResult()
 })
@@ -120,6 +149,7 @@ initMap = function(){
 }
 clearResults = function(){
 	$('.results-body > .result-item').remove()
+	$('.result-grid-view > .result-item-grid-wraper').remove()
 }
 toMarkerTuple = function(marker){
 	return(

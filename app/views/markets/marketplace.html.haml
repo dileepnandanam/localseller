@@ -21,19 +21,26 @@
         %i.fa.fa-search
   #map
 .market-right.pull-left
-  .results-headder
-    .results-headder-item.pull-left
-      Item
-    .results-headder-item.pull-left
-      Distance
-    .results-headder-item.pull-left
-      Rate (Per Kg)
-    .results-headder-item.pull-left
-      Total
-    .clearfix
-  .results-body{data:{results_per_page: ShopSearch::RESULTS_PER_PAGE}}
-    .results-wait
-      = image_tag 'giphy.gif'
+  .filter-links.pull-right
+    filter
+    .fa.fa-th.filter-grid
+    .fa.fa-align-justify.filter-row.current-filter
+  .clearfix
+  .result-row-view
+    .results-headder
+      .results-headder-item.pull-left
+        Item
+      .results-headder-item.pull-left
+        Distance
+      .results-headder-item.pull-left
+        Rate (Per Kg)
+      .results-headder-item.pull-left
+        Total
+      .clearfix
+    .results-body{data:{results_per_page: ShopSearch::RESULTS_PER_PAGE}}
+      .results-wait
+        = image_tag 'giphy.gif'
+  .result-grid-view.hidden
   .load-more-button.hidden
     = "Load more"
 
