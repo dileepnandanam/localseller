@@ -128,3 +128,8 @@
 .filter-grid, .filter-row {
 	cursor: pointer;
 }
+@media screen and (max-width: 500px) {
+	.result-item-grid-wraper {
+		width: 50% !important;
+	}
+}
