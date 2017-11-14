@@ -33,7 +33,7 @@ function build_results(data) {
 		$('.result-grid-view > .clearfix').remove()
 		item_grid = $('.result-grid-view').append(
 
-			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-xs-1\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div></div></div>"
+			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-sm-6 col-xs-6\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div></div></div>"
 		)
 		
 		var marker = new google.maps.Circle({
@@ -84,6 +84,7 @@ $(document).on('turbolinks:load', function(){
 		var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
 		$('.search_button').on('click', function(e){
 			$('#geolocation').val(autocomplete.getPlace().geometry.location)
+			map.setCenter(mapParams().center)
 		})
 	}
 	//google.maps.event.addDomListener(window, 'load', init_place_search);
