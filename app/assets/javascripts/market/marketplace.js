@@ -82,10 +82,11 @@ $(document).on('turbolinks:load', function(){
 	function init_place_search() {
 		var input = document.getElementById('place')
 		var autocomplete = new google.maps.places.Autocomplete(input, { types: ['geocode'] })
-		$('.search_button').on('click', function(e){
-			$('#geolocation').val(autocomplete.getPlace().geometry.location)
-			map.setCenter(mapParams().center)
-		})
+		google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            place = autocomplete.getPlace().geometry.location
+            $('#geolocation').val(place)
+            map.setCenter(place)
+        });
 	}
 	//google.maps.event.addDomListener(window, 'load', init_place_search);
 	setTimeout(function(){init_place_search()}, 3000)
