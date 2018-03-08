@@ -5,6 +5,7 @@ class CreateBids < ActiveRecord::Migration
       t.integer :product_id
       t.integer :quantity
       t.integer :amount
+      t.boolean :accepted, default: false
 
       t.timestamps null: false
     end

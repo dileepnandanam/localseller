@@ -33,7 +33,7 @@ function build_results(data) {
 		$('.result-grid-view > .clearfix').remove()
 		item_grid = $('.result-grid-view').append(
 
-			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-sm-6 col-xs-6\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div></div></div>"
+			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-sm-6 col-xs-6\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div><a href=\'" + product.bid_path + "\'>bid</a></div></div>"
 		)
 		
 		var marker = new google.maps.Circle({

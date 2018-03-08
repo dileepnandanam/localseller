@@ -1,4 +1,11 @@
 .my-bids-container {
   padding: 10px;
   background-color: mistyrose;
+  padding: 20px;
+}
+.bid-item {
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px grey;
+  background-color: white;
 }

@@ -1,4 +1,6 @@
+= "#{@product.quantity} #{@product.unit} available to purchase"
 = simple_form_for @bid do |f|
   = f.input :quantity
   = f.input :amount
+  = f.input :product_id, :as => :hidden, :input_html => { :value => params[:product_id] }
   = f.submit

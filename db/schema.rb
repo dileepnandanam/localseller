@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20180307134054) do
     t.integer  "product_id"
     t.integer  "quantity"
     t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "accepted",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "bills", force: :cascade do |t|

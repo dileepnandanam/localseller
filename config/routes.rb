@@ -76,7 +76,9 @@ Rails.application.routes.draw do
     get :wholesale, on: :collection
   end
 
-  resources :bids
+  resources :bids do
+    put :accept, on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

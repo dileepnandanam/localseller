@@ -1,12 +1,15 @@
-%h4=bid.product.name
-.available-quantity
-  available quantity: 
-  = bid.product.quantity
-.bid-quantity
-  bid quantity: 
-  = bid.quantity
-.bid-amount
-  bid amount: 
-  = bid.amount
-.delete-bid
-  =link_to "x", delete_bid_path(bid)
+.bid-item
+  .available-quantity
+    available quantity: 
+    = bid.product.quantity
+  .bid-quantity
+    bid quantity: 
+    = bid.quantity
+  .bid-amount
+    bid amount: 
+    = bid.amount
+  .delete-bid
+    = link_to "Delete", bid_path(bid), method: :delete, class: 'delete-bid', remote: true
+  - if seller
+    .accept-bid
+      = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'

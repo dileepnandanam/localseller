@@ -21,7 +21,7 @@ class Seller::ShopsController < SellerController
   end
 
   def my_bids
-    render 'my_bids'
+    @product_bids = current_user.bids.group_by(&:product)
   end
 
   def inventory
@@ -31,11 +31,11 @@ class Seller::ShopsController < SellerController
   end
 
   def open_bids
-
+    @product_bids = current_user.bids.not_accepted.group_by(&:product)
   end
 
   def past_purchases
-
+    @product_bids = current_user.bids.accepted.group_by(&:product)
   end
 
   def edit

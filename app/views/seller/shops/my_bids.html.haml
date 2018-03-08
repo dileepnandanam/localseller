@@ -1,2 +1,6 @@
 = render partial: 'shops_header'
 .my-bids-container
+  - @product_bids.each do |product, bids|
+    %h5= product.name
+    - bids.each do |bid| 
+      = render partial: '/bids/bid', locals: {bid: bid, seller: false}
