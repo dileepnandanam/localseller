@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_one :auth_hash
   has_many :shops
   has_many :shoping_carts
+  has_many :bids
   accepts_nested_attributes_for :auth_hash
 
   validates :email, uniqueness: true

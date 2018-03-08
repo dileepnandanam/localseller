@@ -4,7 +4,6 @@ class CreateComments < ActiveRecord::Migration
       t.text :text
       t.integer :shop_id
       t.string :parent_id
-      t.string :integer
       t.integer :user_id
 
       t.timestamps null: false

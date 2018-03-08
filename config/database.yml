@@ -7,8 +7,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  user: root
-  password: root@2008
+  user: postgres
+  password: postgres
   pool: 5
   timeout: 5000
 

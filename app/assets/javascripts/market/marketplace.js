@@ -27,7 +27,7 @@ function build_results(data) {
 	$.each(data, function(index, product){
 		item = $('.results-body').append(
 			
-			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div><div class=\'clearfix\'></div></div>"
+			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div> <div class=\'result-item-bid pull-left\'> <a href=\'" + product.bid_path + "\'>bid</a> </div><div class=\'clearfix\'></div></div>"
 			
 		)
 		$('.result-grid-view > .clearfix').remove()

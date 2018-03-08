@@ -21,7 +21,7 @@ class Seller::ShopsController < SellerController
   end
 
   def my_bids
-
+    render 'my_bids'
   end
 
   def inventory
