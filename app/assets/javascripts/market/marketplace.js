@@ -77,14 +77,20 @@ function build_results(data) {
 	$('.bid-button').on('ajax:success', function(e, data,status, xhr){
 		$('.bid-dialogue-box').show()
 		$('.bid-dialogue-box').html(data)
+		bindFormActions()
+	})
+	bindFormActions = function(){
 		$('.close-bid-dialogue-box').on('click', function(e){
 			e.preventDefault()
 			$('.bid-dialogue-box').hide()
 		})
 		$('.new-bid-form').on('ajax:success', function(){
-			$('.bid-dialogue-box').hide()
+			$('.bid-dialogue-box').hide(500)
+		}).on('ajax:error', function(e, xhr){
+			$('.bid-dialogue-box').html(xhr.responseText)
+			bindFormActions()
 		})
-	})
+	}
 }
 
 $(document).on('turbolinks:load', function(){

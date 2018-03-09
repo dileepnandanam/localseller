@@ -12,7 +12,7 @@
       = "Inventory"
   = link_to seller_shop_open_bids_path(@shop) do
     .profile-sub-nav-item{class: action_name == 'open_bids' ? "current-profile-item" : ''}
-      = "Open Bids"
+      = "Open Bids(#{new_bids_count})"
   = link_to seller_shop_past_purchases_path(@shop) do
     .profile-sub-nav-item{class: action_name == 'past_purchases' ? "current-profile-item" : ''}
       = "Past Purchases"

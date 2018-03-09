@@ -1,7 +1,10 @@
-.bid-item
+.bid-item{class: new_bid ? 'new-bid' : ''}
+  .product-name
+    %h5= bid.product.name
   .available-quantity
     available quantity: 
     = bid.product.quantity
+    = bid.product.unit
   .bid-quantity
     bid quantity: 
     = bid.quantity

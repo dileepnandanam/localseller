@@ -21,7 +21,7 @@ class Seller::ShopsController < SellerController
   end
 
   def my_bids
-    @product_bids = current_user.bids.group_by(&:product)
+    @product_bids = current_user.bids.last_on_top
   end
 
   def inventory
@@ -31,11 +31,13 @@ class Seller::ShopsController < SellerController
   end
 
   def open_bids
-    @product_bids = current_user.bids.not_accepted.group_by(&:product)
+    @product_bids = current_user.bids.not_accepted.last_on_top
+    @new_bid_count = @product_bids.count - (Rails.cache.fetch("#{current_user.id}/last_seen_bid_count") || 0)
+    Rails.cache.write("#{current_user.id}/last_seen_bid_count", @product_bids.count)
   end
 
   def past_purchases
-    @product_bids = current_user.bids.accepted.group_by(&:product)
+    @product_bids = current_user.bids.accepted.last_on_top
   end
 
   def edit

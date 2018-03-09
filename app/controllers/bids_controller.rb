@@ -1,9 +1,10 @@
 class BidsController < ApplicationController
   def create
     @bid = Bid.new(bid_params)
+    @product = Product.find(bid_params[:product_id])
     @bid.user_id = current_user.id
     if @bid.save
-      render 'show', layout: false, status: 200
+      render nothing: true, status: 200
     else
       render 'new', layout: false, status: 422
     end
@@ -23,6 +24,7 @@ class BidsController < ApplicationController
     bid = Bid.find(params[:id])
     if current_user.bids.include?(bid) || current_user.shops.map(&:products).flatten.include?(bid.product)
       bid.delete
+      Rails.cache.write("#{current_user.id}/last_seen_bid_count", Rails.cache.fetch("#{current_user.id}/last_seen_bid_count").to_i - 1)
       render nothing: true, status: 200
     else
       render nothing: true, status: 406
@@ -35,6 +37,7 @@ class BidsController < ApplicationController
       bid.accepted = true
       bid.save
       bid.product.update_attributes(quantity: (bid.product.quantity - bid.quantity))
+      Rails.cache.write("#{current_user.id}/last_seen_bid_count", Rails.cache.fetch("#{current_user.id}/last_seen_bid_count").to_i - 1)
     end
     render nothing: true, status: 200
   end
