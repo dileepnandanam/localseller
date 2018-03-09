@@ -1,6 +1,7 @@
 = "#{@product.quantity} #{@product.unit} available to purchase"
-= simple_form_for @bid do |f|
+= simple_form_for @bid, remote: true, html: {class: 'new-bid-form'} do |f|
   = f.input :quantity
   = f.input :amount
   = f.input :product_id, :as => :hidden, :input_html => { :value => params[:product_id] }
-  = f.submit
+  = f.submit class: 'btn btn-default'
+  = link_to 'Cancel', '', class: 'btn btn-default close-bid-dialogue-box pull-right'

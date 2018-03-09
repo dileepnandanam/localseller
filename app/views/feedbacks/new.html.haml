@@ -1,5 +1,5 @@
 .feedback-page
   .feedback-form-container
     = simple_form_for @feedback do |f|
-      = f.input :body
+      = f.input :body, label: 'what do you have to say'
       = f.submit 'Submit Feedback'

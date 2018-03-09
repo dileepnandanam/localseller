@@ -27,13 +27,13 @@ function build_results(data) {
 	$.each(data, function(index, product){
 		item = $('.results-body').append(
 			
-			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div> <div class=\'result-item-bid pull-left\'> <a href=\'" + product.bid_path + "\'>bid</a> </div><div class=\'clearfix\'></div></div>"
+			"<div class=\'result-item\' data-lat='" + product.lat +"\' data-lng=\'" + product.lng + "'> <div class=\'result-item-value pull-left\'>" + product.name + "</div> <div class=\'result-item-value pull-left\'>" + product.distance + " Km" + "</div><div class=\'result-item-value pull-left\'>" + product.price + "</div> <div class=\'result-item-value pull-left\'>" + product.total + "</div> <div class=\'result-item-bid pull-left\'> <a class=\'bid-button\' href=\'" + product.bid_path + "\' data-remote=\'true\'>bid</a> </div><div class=\'clearfix\'></div></div>"
 			
 		)
 		$('.result-grid-view > .clearfix').remove()
 		item_grid = $('.result-grid-view').append(
 
-			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-sm-6 col-xs-6\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div><a href=\'" + product.bid_path + "\'>bid</a></div></div>"
+			"<div class=\'result-item-grid-wraper  col-lg-4 col-md-6 col-sm-6 col-xs-6\'> <div class=\'result-item-grid\'><div class=\'result-item-grid-name\'> Item </div><div class=\'result-item-grid-value\'>" + product.name + "</div><div class=\'result-item-grid-name\'> Distance </div><div class=\'result-item-grid-value\'>" + product.distance + " Km" + "</div><div class=\'result-item-grid-name\'> Rate (Per Kg) </div> <div class=\'result-item-grid-value\'>" + product.price + "</div><div class=\'result-item-grid-name\'> Total </div><div class=\'result-item-grid-value\'>" + product.total + "</div><a class=\'bid-button\' href=\'" + product.bid_path + "\' data-remote=\'true\'>bid</a></div></div>"
 		)
 		
 		var marker = new google.maps.Circle({
@@ -73,6 +73,17 @@ function build_results(data) {
     		marker.setRadius(2500)
     	})
     	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
+	})
+	$('.bid-button').on('ajax:success', function(e, data,status, xhr){
+		$('.bid-dialogue-box').show()
+		$('.bid-dialogue-box').html(data)
+		$('.close-bid-dialogue-box').on('click', function(e){
+			e.preventDefault()
+			$('.bid-dialogue-box').hide()
+		})
+		$('.new-bid-form').on('ajax:success', function(){
+			$('.bid-dialogue-box').hide()
+		})
 	})
 }
 
