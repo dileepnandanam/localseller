@@ -31,13 +31,13 @@ class Seller::ShopsController < SellerController
   end
 
   def open_bids
-    @product_bids = current_user.bids.not_accepted.last_on_top
+    @product_bids = ::Bid.not_accepted.last_on_top.where(product_id: @shop.products.pluck(:id))
     @new_bid_count = @product_bids.count - (Rails.cache.fetch("#{current_user.id}/last_seen_bid_count") || 0)
     Rails.cache.write("#{current_user.id}/last_seen_bid_count", @product_bids.count)
   end
 
   def past_purchases
-    @product_bids = current_user.bids.accepted.last_on_top
+    @product_bids = ::Bid.accepted.last_on_top.where(product_id: @shop.products.pluck(:id))
   end
 
   def edit
