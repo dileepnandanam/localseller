@@ -1,3 +1,10 @@
+-if current_user.blank?
+  Please 
+  = link_to 'Sign in', new_user_session_path
+  or
+  = link_to 'Sign up', new_user_registration_path
+  to place a bid.
+  %br
 = "#{@product.quantity} #{@product.unit} available to purchase"
 = simple_form_for @bid, remote: true, html: {class: 'new-bid-form'} do |f|
   = f.input :quantity

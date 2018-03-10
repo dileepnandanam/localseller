@@ -11,6 +11,21 @@
   .bid-amount
     bid amount: 
     = bid.amount
+
+  - if bid.accepted  
+    - if seller
+      - user = bid.user
+    - else
+      - user = bid.product.shop.user
+    .bid-address
+      = user.name
+      %br
+      = user.address
+      %br
+      = user.pincode
+      %br
+      = user.phone_number
+  
   .delete-bid
     = link_to "Delete", bid_path(bid), method: :delete, class: 'delete-bid', remote: true
   - if seller

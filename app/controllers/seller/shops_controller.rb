@@ -21,7 +21,8 @@ class Seller::ShopsController < SellerController
   end
 
   def my_bids
-    @product_bids = current_user.bids.last_on_top
+    @product_bids = current_user.bids.order('accepted_at DESC')
+    Rails.cache.write("#{current_user.id}/last_seen_accepted_bid_count", current_user.bids.accepted.count)
   end
 
   def inventory
@@ -37,7 +38,7 @@ class Seller::ShopsController < SellerController
   end
 
   def past_purchases
-    @product_bids = ::Bid.accepted.last_on_top.where(product_id: @shop.products.pluck(:id))
+    @product_bids = ::Bid.accepted.order('accepted_at DESC').where(product_id: @shop.products.pluck(:id))
   end
 
   def edit
