@@ -27,7 +27,7 @@
       = user.phone_number
   
   .delete-bid
-    = link_to "Delete", bid_path(bid), method: :delete, class: 'delete-bid', remote: true
+    = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
   - if seller
     .accept-bid
       = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'

@@ -13,7 +13,7 @@ class Seller::ShopsController < SellerController
 
   def show
   	@new_purchases = @shop.purchases.where(payed: true, payed_out: false)
-    @new_purchases_count = @new_purchases.count - (Rails.cache.fetch("#{current_user.id}_last_seen_product_count") || 0)
+    @new_purchases_count = @new_purchases.count - (Rails.cache.fetch("#{current_user.id}_last_seen_product_count").to_i)
     Rails.cache.write("#{current_user.id}_last_seen_product_count", @new_purchases.count)
     @credit = BillValueCalculator.calculate(@new_purchases, true).round(2)
     @undelivered_products = @shop.purchases.where(payed: true, shiped: false).count
@@ -22,6 +22,7 @@ class Seller::ShopsController < SellerController
 
   def my_bids
     @product_bids = current_user.bids.order('accepted_at DESC')
+    @new_accepted_bid_count = current_user.bids.count - Rails.cache.fetch("#{current_user.id}/last_seen_accepted_bid_count")
     Rails.cache.write("#{current_user.id}/last_seen_accepted_bid_count", current_user.bids.accepted.count)
   end
 
@@ -33,7 +34,7 @@ class Seller::ShopsController < SellerController
 
   def open_bids
     @product_bids = ::Bid.not_accepted.last_on_top.where(product_id: @shop.products.pluck(:id))
-    @new_bid_count = @product_bids.count - (Rails.cache.fetch("#{current_user.id}/last_seen_bid_count") || 0)
+    @new_bid_count = @product_bids.count - (Rails.cache.fetch("#{current_user.id}/last_seen_bid_count").to_i)
     Rails.cache.write("#{current_user.id}/last_seen_bid_count", @product_bids.count)
   end
 

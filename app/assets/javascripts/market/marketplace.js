@@ -74,7 +74,7 @@ function build_results(data) {
     	})
     	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
 	})
-	$('.bid-button').on('ajax:success', function(e, data,status, xhr){
+	$('.bid-button').on('ajax:success', function(e, data, status, xhr){
 		$('.bid-dialogue-box').show()
 		$('.bid-dialogue-box').html(data)
 		bindFormActions()
@@ -82,10 +82,14 @@ function build_results(data) {
 	bindFormActions = function(){
 		$('.close-bid-dialogue-box').on('click', function(e){
 			e.preventDefault()
-			$('.bid-dialogue-box').hide()
-		})
-		$('.new-bid-form').on('ajax:success', function(){
 			$('.bid-dialogue-box').hide(500)
+		})
+		$('.new-bid-form').on('ajax:success', function(e, data, status, xhr){
+			$('.bid-dialogue-box').html(data)
+			$('.bid-placed-success-msg-close-button').on('click', function(e){
+				e.preventDefault()
+				$('.bid-dialogue-box').hide(500)
+			})
 		}).on('ajax:error', function(e, xhr){
 			$('.bid-dialogue-box').html(xhr.responseText)
 			bindFormActions()

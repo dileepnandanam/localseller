@@ -5,7 +5,7 @@ class BidsController < ApplicationController
     @bid.user_id = current_user&.id
     @bid.accepted_at = Time.at(0)
     if @bid.save
-      render nothing: true, status: 200
+      render 'success', layout: false, status: 200
     else
       render 'new', layout: false, status: 422
     end
@@ -25,10 +25,12 @@ class BidsController < ApplicationController
     bid = Bid.find(params[:id])
     if current_user.bids.include?(bid) || current_user.shops.map(&:products).flatten.include?(bid.product)
       bid.product.update_attributes(quantity: bid.product.quantity + bid.quantity)
+      seller = bid.product.shop.user
       bid.delete
-      Rails.cache.write("#{current_user.id}/last_seen_bid_count", Rails.cache.fetch("#{current_user.id}/last_seen_bid_count").to_i - 1)
       if bid.accepted
-        Rails.cache.write("#{current_user.id}/last_seen_accepted_bid_count", Rails.cache.fetch("#{current_user.id}/last_seen_accepted_bid_count").to_i - 1)
+        Rails.cache.write("#{current_user.id}/last_seen_accepted_bid_count", [(Rails.cache.fetch("#{current_user.id}/last_seen_accepted_bid_count").to_i - 1), 0].max)
+      else
+        Rails.cache.write("#{seller.id}/last_seen_bid_count", [(Rails.cache.fetch("#{seller.id}/last_seen_bid_count").to_i - 1), 0].max)
       end
       render nothing: true, status: 200
     else

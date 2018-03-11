@@ -1,4 +1,6 @@
 = render partial: 'shops_header'
 .my-bids-container
+  - bid_count = 0
   - @product_bids.each do |bid|
-    = render partial: '/bids/bid', locals: {bid: bid, seller: false, new_bid: bid.accepted}
+    - bid_count += 1
+    = render partial: '/bids/bid', locals: {bid: bid, seller: false, new_bid: bid_count <= @new_accepted_bid_count}
