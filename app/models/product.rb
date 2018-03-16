@@ -8,6 +8,7 @@ class Product < ActiveRecord::Base
   validates :unit, presence: true
   before_save :add_searchable
   belongs_to :shop
+  has_many :bids, dependent: :destroy
   def add_searchable
   	self.searchable = self.name.downcase
   end

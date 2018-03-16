@@ -1,33 +1,34 @@
-.bid-item{class: new_bid ? 'new-bid' : ''}
-  .product-name
-    %h5= bid.product.name
-  .available-quantity
-    available quantity: 
-    = bid.product.quantity
-    = bid.product.unit
-  .bid-quantity
-    bid quantity: 
-    = bid.quantity
-  .bid-amount
-    bid amount: 
-    = bid.amount
+- if bid.product.present?
+  .bid-item{class: new_bid ? 'new-bid' : ''}
+    .product-name
+      %h5= bid.product.name
+    .available-quantity
+      available quantity: 
+      = bid.product.quantity
+      = bid.product.unit
+    .bid-quantity
+      bid quantity: 
+      = bid.quantity
+    .bid-amount
+      bid amount: 
+      = bid.amount
 
-  - if bid.accepted  
+    - if bid.accepted  
+      - if seller
+        - user = bid.user
+      - else
+        - user = bid.product.shop.user
+      .bid-address
+        = user.name
+        %br
+        = user.address
+        %br
+        = user.pincode
+        %br
+        = user.phone_number
+    
+    .delete-bid
+      = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
     - if seller
-      - user = bid.user
-    - else
-      - user = bid.product.shop.user
-    .bid-address
-      = user.name
-      %br
-      = user.address
-      %br
-      = user.pincode
-      %br
-      = user.phone_number
-  
-  .delete-bid
-    = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
-  - if seller
-    .accept-bid
-      = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'
+      .accept-bid
+        = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'

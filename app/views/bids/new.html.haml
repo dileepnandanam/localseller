@@ -5,7 +5,7 @@
   = link_to 'Sign up', new_user_registration_path
   to place a bid.
   %br
-= "#{@product.quantity} #{@product.unit} available to purchase"
+= "#{@product.quantity} #{@product.unit} available to purchase at Rs #{@product.price}/#{@product.unit}"
 = simple_form_for @bid, remote: true, html: {class: 'new-bid-form'} do |f|
   = f.input :quantity
   = f.input :amount

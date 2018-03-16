@@ -127,7 +127,7 @@ $(document).on('turbolinks:load', function(){
 				geolocation: toMarkerTuple(mapParams().center),
 				term: $('#term').val(),
 				quantity: $('#quantity').val(),
-				page: ++current_page
+				page: $(this).data('page') + 1
 			},
 			dataType: 'json',
 			url: '/search',
@@ -136,6 +136,7 @@ $(document).on('turbolinks:load', function(){
 				showPaginationLink(data, results_per_page)
 			}
 		})
+		$(this).data('page') = $(this).data('page') + 1
 	})
 
 	$('.filter-grid').on('click', function(){

@@ -4,3 +4,6 @@
   - @product_bids.each do |bid|
     - bid_count += 1
     = render partial: '/bids/bid', locals: {bid: bid, seller: false, new_bid: bid_count <= @new_accepted_bid_count}
+  - if @product_bids.count == 0
+    .no-items-message
+      Yoy haven't made any bids
