@@ -94,6 +94,9 @@ function build_results(data) {
 			$('.bid-dialogue-box').html(xhr.responseText)
 			bindFormActions()
 		})
+		$('.bid-quantity').on('change', function(){
+			$('.bid-amount').val($('.new-bid-form').data('rate') * $('.bid-quantity').val())
+		})
 	}
 }
 

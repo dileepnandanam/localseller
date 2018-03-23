@@ -8,7 +8,7 @@ class ShopSearch
     @term = term
     if term.present?
   	  search_terms = term.downcase.split(' ')
-  	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' AND ')
+  	  @search_conditions = search_terms.map{|term|  "products.searchable LIKE '%#{term}%'"}.join(' OR ')
     end
     @page = page
   end

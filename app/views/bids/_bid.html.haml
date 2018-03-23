@@ -15,17 +15,17 @@
 
     - if bid.accepted  
       - if seller
-        - user = bid.user
+        - details = bid.user
       - else
-        - user = bid.product.shop.user
+        - details = bid.product.shop
       .bid-address
-        = user.name
+        = details.name
         %br
-        = user.address
+        = details.address
         %br
-        = user.pincode
+        = details.pincode
         %br
-        = user.phone_number
+        = details.phone_number
     
     .delete-bid
       = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
