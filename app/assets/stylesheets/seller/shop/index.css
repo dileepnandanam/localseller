@@ -1,9 +1,10 @@
 .shop-tile {
 	width: 25%;
 	padding: 10px;
-	margin: 10px;
+	margin: 20px;
 	float: left;
 	background-color: white;
+	border-radius: 10px;
 }
 .shop-banner {
 	width: 100%;

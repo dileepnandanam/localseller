@@ -3,8 +3,6 @@
     %th
       shop
     %th
-      go to shop
-    %th
       assigh user
     %th
       edit
@@ -14,8 +12,6 @@
     %tr
       %td
         = link_to shop.name, platform_shop_products_path(shop)
-      %td
-        = link_to "go to shop", shop_path(shop)
       %td
         = link_to "assign user", users_platform_shop_path(shop)
       %td

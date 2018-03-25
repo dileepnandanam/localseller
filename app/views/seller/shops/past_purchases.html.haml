@@ -1,7 +1,7 @@
 = render partial: 'profile_sub_nav'
 .past-purchases-container
   - @product_bids.each do |bid|
-    = render partial: '/bids/bid', locals: {bid: bid, seller: false, new_bid: false}
+    = render partial: '/bids/bid', locals: {bid: bid, public: false, seller: true, past_purchases: true,  new_bid: false}
   - if @product_bids.count == 0  
     .no-items-message
       You haven't accepted any bids

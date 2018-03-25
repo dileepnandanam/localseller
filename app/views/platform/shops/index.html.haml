@@ -1,23 +1,5 @@
 .shop-list
   %h3
-    Shops with pending payments
-
-  %table.table
-    %thead
-      %th
-        Shop
-      %th
-        New purchases
-    %tbody  
-      - @shops.each do |shop|
-        %tr
-          %td
-            = shop.name
-          %td  
-            = link_to purchases_platform_shop_path(shop) do
-              = shop.purchase_count
-
-  %h3
     All shops (
     = @shop_count
     )

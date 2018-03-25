@@ -12,23 +12,23 @@
     .bid-amount
       bid amount: 
       = bid.amount
-
-    - if bid.accepted  
-      - if seller
-        - details = bid.user
-      - else
-        - details = bid.product.shop
-      .bid-address
-        = details.name
-        %br
-        = details.address
-        %br
-        = details.pincode
-        %br
-        = details.phone_number
-    
-    .delete-bid
-      = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
-    - if seller
-      .accept-bid
-        = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'
+    - unless public
+      - if bid.accepted  
+        - if seller
+          - details = bid.user
+        - else
+          - details = bid.product.shop
+        .bid-address
+          = details.name
+          %br
+          = details.address
+          %br
+          = details.pincode
+          %br
+          = details.phone_number
+      
+      .delete-bid
+        = link_to "Delete", bid_path(bid, from: 'past_purchases'), method: :delete, class: 'delete-bid', remote: true
+      - if seller && !past_purchases
+        .accept-bid
+          = link_to "Accept", accept_bid_path(bid), remote: true, method: :put, class: 'delete-bid'

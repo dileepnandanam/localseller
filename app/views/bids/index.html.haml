@@ -1,0 +1,5 @@
+.open-bids-container
+  - @bids.each do |bid|
+    = render partial: '/bids/bid', locals: {bid: bid, public: true, seller: true, past_purchases: true,  new_bid: false}
+  - if @bids.count == 0
+    No bids has been placed

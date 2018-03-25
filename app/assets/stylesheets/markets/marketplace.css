@@ -32,6 +32,7 @@
 	width:100%;
 	box-sizing: border-box;
 	background: transparent;
+	padding-bottom: 10px;
 }
 .results-headder-item {
 	width: 22%;
@@ -98,6 +99,9 @@
 	#map {
 		width: 100% !important;
 	}
+	.bid-dialogue-box {
+		width: 80% !important;
+	}
 
 }
 .hidden {
@@ -132,6 +136,7 @@
 }
 .result-item-grid-value {
 	font-size: 20px;
+	margin-bottom: 5px;
 }
 .filter-links {
 	padding:20px 20px 0px 0px;
@@ -166,4 +171,12 @@
 .btn-default:hover {
 	color: blue;
 	cursor: pointer;
+}
+.existing-bids {
+	display: inline-block;
+	text-align: left;
+}
+.modal {
+	max-height: 500px;
+	margin: auto;
 }

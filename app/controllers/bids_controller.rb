@@ -15,6 +15,12 @@ class BidsController < ApplicationController
     @bid = current_user.bids.find(params[:id])
   end
 
+  def index
+    @product = Product.find(params[:product_id])
+    @bids = @product.bids
+    render 'index', layout: false
+  end
+
   def new
     @product = Product.find(params[:product_id])
     @bid = Bid.new

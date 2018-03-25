@@ -6,6 +6,8 @@
   to place a bid.
   %br
 = "#{@product.quantity} #{@product.unit} available to purchase at Rs #{@product.price}/#{@product.unit}"
+%br
+= link_to "current bids", bids_path(product_id: @product), remote: true, data: {toggle: 'modal', target: '#existing-bids'}, class: 'current-bid-toggle'
 = simple_form_for @bid, remote: true, html: {class: 'new-bid-form'}, data: {rate: @product.price} do |f|
   = f.input :quantity, input_html: {class: 'bid-quantity', max: @product.quantity}
   = f.input :amount, label: "Total Amount", input_html: {class: 'bid-amount'}

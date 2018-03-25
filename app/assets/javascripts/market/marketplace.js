@@ -97,6 +97,9 @@ function build_results(data) {
 		$('.bid-quantity').on('change', function(){
 			$('.bid-amount').val($('.new-bid-form').data('rate') * $('.bid-quantity').val())
 		})
+		$('.current-bid-toggle').on('ajax:success', function(e, data, status, xhr){
+			$('.existing-bids').html(data)
+		})
 	}
 }
 
