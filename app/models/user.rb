@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :bids
   accepts_nested_attributes_for :auth_hash
 
-  validates :email, uniqueness: true
+  validate :uniq_email_across_confirmed
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :name, presence: true
   validates :address, presence: true
@@ -24,7 +24,11 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, if: :password_required?
 
   acts_as_geolocated
-
+  def uniq_email_across_confirmed
+    if User.where('confirmed_at IS NOT NULL AND email = ?', self.email).first.present?
+      errors.add :email, 'Email has already been taken'
+    end
+  end
   def admin?
     usertype == 'admin'
   end

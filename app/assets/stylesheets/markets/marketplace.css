@@ -174,9 +174,15 @@
 }
 .existing-bids {
 	display: inline-block;
+	position: relative;
 	text-align: left;
 }
-.modal {
-	max-height: 500px;
-	margin: auto;
+
+
+.current-bid-close{   position: absolute;
+    top: 5px;
+    right: 6px;
+    border-radius: 50%;
+    border: 1px solid blue;
+    padding: 2px 8px 2px 8px;
 }

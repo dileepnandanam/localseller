@@ -17,7 +17,7 @@ class BidsController < ApplicationController
 
   def index
     @product = Product.find(params[:product_id])
-    @bids = @product.bids
+    @bids = @product.bids.order('amount DESC')
     render 'index', layout: false
   end
 
