@@ -1,10 +1,14 @@
 .shop-tile {
 	width: 25%;
 	padding: 10px;
-	margin: 20px;
-	float: left;
+	sfloat: left;
+	box-sizing: border-box;
 	background-color: white;
 	border-radius: 10px;
+}
+.shop-tile-wrapper {
+	padding: 20px;
+	width: auto;
 }
 .shop-banner {
 	width: 100%;
@@ -28,6 +32,7 @@
 }
 .shops-container {
 	background-color: mistyrose;
+	width: 100%;
 }
 .no-shops-message {
 	padding: 20px;
