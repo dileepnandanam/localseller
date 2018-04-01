@@ -75,7 +75,8 @@ function build_results(data) {
     	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
 	})
 	$('.bid-button').on('ajax:success', function(e, data, status, xhr){
-		$('.bid-dialogue-box').show()
+		$('<div class="bid-dialogue-box"></div>').insertAfter($(this).closest('.result-item'))
+		$('<div class="bid-dialogue-box"></div>').insertAfter($(this).closest('.result-item-grid-wraper'))
 		$('.bid-dialogue-box').html(data)
 		bindFormActions()
 	})
