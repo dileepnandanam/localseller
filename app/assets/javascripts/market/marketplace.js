@@ -75,21 +75,22 @@ function build_results(data) {
     	$('.result-grid-view').append("<div class=\'clearfix\'> <div>")
 	})
 	$('.bid-button').on('ajax:success', function(e, data, status, xhr){
-		$('<div class="bid-dialogue-box"></div>').insertAfter($(this).closest('.result-item'))
-		$('<div class="bid-dialogue-box"></div>').insertAfter($(this).closest('.result-item-grid-wraper'))
+		$('<div class="bid-dialogue-box hidden"></div>').insertAfter($(this).closest('.result-item'))
+		$('<div class="bid-dialogue-box hidden"></div>').insertAfter($(this).closest('.result-item-grid-wraper'))
 		$('.bid-dialogue-box').html(data)
+		$('.bid-dialogue-box').show(500)
 		bindFormActions()
 	})
 	bindFormActions = function(){
 		$('.close-bid-dialogue-box').on('click', function(e){
 			e.preventDefault()
-			$('.bid-dialogue-box').hide(500)
+			$('.bid-dialogue-box').remove()
 		})
 		$('.new-bid-form').on('ajax:success', function(e, data, status, xhr){
 			$('.bid-dialogue-box').html(data)
 			$('.bid-placed-success-msg-close-button').on('click', function(e){
 				e.preventDefault()
-				$('.bid-dialogue-box').hide(500)
+				$('.bid-dialogue-box').remove()
 			})
 		}).on('ajax:error', function(e, xhr){
 			$('.bid-dialogue-box').html(xhr.responseText)
