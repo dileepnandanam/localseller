@@ -21,7 +21,7 @@ class Seller::ShopsController < SellerController
   end
 
   def my_bids
-    @product_bids = current_user.bids.order('accepted_at DESC')
+    @product_bids = current_user.bids.joins(:product).order('accepted_at DESC')
     @new_accepted_bid_count = current_user.bids.accepted.count - Rails.cache.fetch("#{current_user.id}/last_seen_accepted_bid_count").to_i
     Rails.cache.write("#{current_user.id}/last_seen_accepted_bid_count", current_user.bids.accepted.count)
   end
