@@ -11,12 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180624124653) do
+ActiveRecord::Schema.define(version: 20180705142909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "cube"
   enable_extension "earthdistance"
+
+  create_table "actions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "action_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "auth_hashes", force: :cascade do |t|
     t.string   "uid"

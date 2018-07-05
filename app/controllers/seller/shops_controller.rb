@@ -1,7 +1,7 @@
 class Seller::ShopsController < SellerController
   before_action :set_shop, only: [:edit, :update, :show]
   before_action :set_current_shop, only: [:inventory, :past_purchases, :open_bids]
-
+  before_action :check_subscription, only: :inventory
   def new
     @shop = Shop.new
     @shop.user_id = current_user.id
@@ -80,6 +80,17 @@ class Seller::ShopsController < SellerController
 
   layout 'shop'
   private
+
+  def check_subscription
+    subscription = current_user.subscription
+    if current_user.usertype != "admin" && have_accepted_bids && !Time.now.between?(subscription.start_time, subscription.end_time)
+      render 'subscribe_link', layout: false
+    end
+  end
+
+  def have_accepted_bids
+    Action.where(user_id: current_user.id, action_type: 'accept_bid').count > 0
+  end
 
   def shop_params
   	params.require(:shop).permit(:name,:description,:phone_number, :email, :address, :pincode, :lat, :lng, :banner)

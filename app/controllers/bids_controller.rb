@@ -1,4 +1,5 @@
 class BidsController < ApplicationController
+  before_action :check_subscription, only: :new
   def create
     @bid = Bid.new(bid_params)
     @product = Product.find(bid_params[:product_id])
@@ -52,11 +53,25 @@ class BidsController < ApplicationController
       bid.save
       bid.product.update_attributes(quantity: (bid.product.quantity - bid.quantity))
       Rails.cache.write("#{current_user.id}/last_seen_bid_count", Rails.cache.fetch("#{current_user.id}/last_seen_bid_count").to_i - 1)
+      Action.create(user_id: current_user.id, action_type: 'accept_bid')
+      Action.create(user_id: bid.user_id, action_type: 'bid_accepted')
     end
     render nothing: true, status: 200
   end
 
   protected
+
+  def check_subscription
+    subscription = current_user.subscription
+    if current_user.usertype != "admin" && have_accepted_bids && !Time.now.between?(subscription.start_time, subscription.end_time)
+      render 'subscribe_link', layout: false
+    end
+  end
+
+  def have_accepted_bids
+    Action.where(user_id: current_user.id, action_type: 'bid_accepted').count > 0
+  end
+
   def bid_params
     params.require(:bid).permit(:product_id, :amount, :quantity)
   end
