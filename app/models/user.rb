@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  FreeSubscriptionPeriod = 3.months
+  after_create :subscribe
+  has_one :subscription
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :confirmable
   has_one :auth_hash
@@ -36,5 +40,8 @@ class User < ActiveRecord::Base
   def password_required?
   	return false if auth_hash.present?
     true
+  end
+  def subscribe
+    Subscription.create(start_time: Time.now, end_time: (Time.now + FreeSubscriptionPeriod), user_id: self.id)
   end
 end
